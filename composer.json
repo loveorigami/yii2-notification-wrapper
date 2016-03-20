@@ -20,11 +20,9 @@
         }
     ],
     "minimum-stability": "dev",
-    "require-dev": {
-        "lavrentiev/yii2-toastr": "*"
-    },
     "require": {
-        "yiisoft/yii2": "~2"
+        "yiisoft/yii2": "~2",
+        "lavrentiev/yii2-toastr": "*"
     },
     "autoload": {
         "psr-4": {
