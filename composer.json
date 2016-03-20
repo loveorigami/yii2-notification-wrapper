@@ -19,6 +19,9 @@
             "role": "Developer"
         }
     ],
+    "require-dev": {
+        "lavrentiev/yii2-toastr": "*"
+    },
     "require": {
         "yiisoft/yii2": "~2"
     },
