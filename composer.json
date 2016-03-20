@@ -19,11 +19,11 @@
             "role": "Developer"
         }
     ],
-    "require-dev": {
-        "lavrentiev/yii2-toastr": "*"
-    },
+    "minimum-stability": "dev",
     "require": {
-        "yiisoft/yii2": "~2"
+        "yiisoft/yii2": "~2",
+        "shifrin/yii2-noty": "*",
+        "lavrentiev/yii2-toastr": "*"
     },
     "autoload": {
         "psr-4": {

@@ -5,6 +5,7 @@ use Yii;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
 use yii\base\InvalidConfigException;
+use yii\helpers\Json;
 
 
 /**
@@ -16,8 +17,16 @@ use yii\base\InvalidConfigException;
 class Noty extends \lo\core\widgets\App
 {
 
-    public $source = 'toastr';
+    /** @var string $url */
+    public $widget = 'toastr';
+
+    /** @var string $url */
     public $url;
+
+    /** @var array $options */
+    public $options = [];
+
+
 
     public function init()
     {
@@ -25,15 +34,30 @@ class Noty extends \lo\core\widgets\App
         if (!isset($this->url) && !$this->url) {
             $this->url = Yii::$app->getUrlManager()->createUrl(['noty/default/index']);
         }
+
+        $this->options = ($this->options) ? Json::encode($this->options) : [];
+
     }
     /**
      * Renders the widget.
      */
     public function run()
     {
-        switch($this->source){
+        switch($this->widget){
             case 'toastr':
-                \lavrentiev\widgets\toastr\NotificationFlash::widget();
+                \lavrentiev\widgets\toastr\NotificationFlash::widget([
+                    'options' => Json::decode($this->options)
+                ]);
+                break;
+            case 'noty':
+                \shifrin\noty\NotyWidget::widget([
+                    'options' => Json::decode($this->options),
+                    'enableSessionFlash' => true,
+                    'enableIcon' => true,
+                    'registerAnimateCss' => false,
+                    'registerButtonsCss' => false,
+                    'registerFontAwesomeCss' => false,
+                ]);
                 break;
         }
 
@@ -48,7 +72,10 @@ class Noty extends \lo\core\widgets\App
                     url: '$this->url',
                     type: 'POST',
                     cache: false,
-                    data: { source: '$this->source' },
+                    data: {
+                        widget: '$this->widget',
+                        options: '$this->options'
+                    },
                     success: function(data) {
                        $('#notyjs').html(data);
                     }
