@@ -19,6 +19,7 @@
             "role": "Developer"
         }
     ],
+    "minimum-stability": "dev",
     "require-dev": {
         "lavrentiev/yii2-toastr": "*"
     },
