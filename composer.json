@@ -1,0 +1,30 @@
+{
+    "name": "loveorigami/lo-module-noty",
+    "description": "Noty module for Lo-CMS",
+    "version": "1.0",
+    "type": "yii2-extension",
+    "keywords": [
+        "yii2",
+        "noty",
+        "module"
+    ],
+    "homepage": "https://github.com/loveorigami/lo-module-noty",
+    "time": "2016-03-20",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Andrey Lukyanov",
+            "email": "loveorigami@mail.ru",
+            "homepage": "http://loveorigami.info",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "yiisoft/yii2": "~2"
+    },
+    "autoload": {
+        "psr-4": {
+            "lo\\modules\\noty\\": ""
+        }
+    }
+}
