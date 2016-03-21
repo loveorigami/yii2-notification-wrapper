@@ -1,4 +1,4 @@
-# Getting started with yii2-notification-wrapper
+# Yii2-notification-wrapper
 
 Yii2-notification-wrapper module renders a message from session flash (with ajax support). All flash messages are displayed
 in the sequence they were assigned using setFlash. You can set message as following:
@@ -69,5 +69,5 @@ Currently supported libraries are:
 
 ## License
 
-Yii2-plugins-system is released under the MIT License. See the bundled [LICENSE.md](LICENSE.md)
+Yii2-notification-wrapper is released under the MIT License. See the bundled [LICENSE.md](LICENSE.md)
 for details.
