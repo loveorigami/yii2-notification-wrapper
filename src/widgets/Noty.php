@@ -42,7 +42,7 @@ Noty::widget([
 ```
  */
 
-class Noty extends \lo\core\widgets\App
+class Noty extends \yii\base\Widget
 {
 
     /**
