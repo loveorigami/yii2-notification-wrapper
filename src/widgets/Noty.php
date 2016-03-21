@@ -5,7 +5,6 @@ use Yii;
 use yii\base\InvalidConfigException;
 use yii\helpers\Json;
 
-
 /**
  * Noty.
 This package comes with a NotyWidget that can be used to regularly poll the server for new notifications and trigger them visually using either Toastr, or Noty.
@@ -38,6 +37,24 @@ Noty::widget([
         "hideMethod" => "fadeOut"
 
     ],
+]);
+
+// or for THEME_NOTY
+Noty::widget([
+    'theme' => Noty::THEME_NOTY,
+    'options' => [
+        'dismissQueue' => true,
+        'layout' => 'topRight',
+        'timeout' => 3000,
+        //'theme' => 'relax',
+    ],
+    'widgetOptions'=>[
+        'enableSessionFlash' => true,
+        'enableIcon' => true,
+        'registerAnimateCss' => false,
+        'registerButtonsCss' => false,
+        'registerFontAwesomeCss' => false,
+    ]
 ]);
 ```
  */
@@ -79,6 +96,9 @@ class Noty extends \yii\base\Widget
     /** @var array $options */
     public $options = [];
 
+    /** @var array $options */
+    public $widgetOptions = [];
+
 
 
     public function init()
@@ -107,14 +127,8 @@ class Noty extends \yii\base\Widget
                 ]);
                 break;
             case self::THEME_NOTY:
-                \shifrin\noty\NotyWidget::widget([
-                    'options' => Json::decode($this->options),
-                    'enableSessionFlash' => true,
-                    'enableIcon' => true,
-                    'registerAnimateCss' => false,
-                    'registerButtonsCss' => false,
-                    'registerFontAwesomeCss' => false,
-                ]);
+                $this->widgetOptions['options'] = Json::decode($this->options);
+                \shifrin\noty\NotyWidget::widget($this->widgetOptions);
                 break;
         }
 
