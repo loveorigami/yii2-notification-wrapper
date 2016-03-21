@@ -8,8 +8,38 @@ use yii\helpers\Json;
 
 /**
  * Noty.
- *
- * ```
+This package comes with a NotyWidget that can be used to regularly poll the server for new notifications and trigger them visually using either Toastr, or Noty.
+
+This widget should be used in your main layout file as follows:
+
+```php
+use lo\modules\noty\widgets\Noty;
+
+Noty::widget([
+    'theme' => Noty::THEME_TOASTR,
+    'options' => [
+        'closeButton' => false,
+        'debug' => false,
+        'newestOnTop' => true,
+
+        // and more for this library
+
+        "progressBar" => false,
+        "positionClass" => "toast-top-left",
+        "preventDuplicates" => false,
+        "onclick" => null,
+        "showDuration" => "300",
+        "hideDuration" => "1000",
+        "timeOut" => "5000",
+        "extendedTimeOut" => "1000",
+        "showEasing" => "swing",
+        "hideEasing" => "linear",
+        "showMethod" => "fadeIn",
+        "hideMethod" => "fadeOut"
+
+    ],
+]);
+```
  */
 
 class Noty extends \lo\core\widgets\App
