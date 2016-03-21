@@ -55,6 +55,24 @@ That's all, now you have module installed and configured.
 Usage
 -----
 
+This package comes with a NotyWidget that can be used to regularly poll the server for new notifications and trigger them visually using either Toastr, or Noty.
+
+This widget should be used in your main layout file as follows:
+
+```php
+use lo\modules\noty\widgets\Noty;
+
+Noty::widget([
+    'theme' => Noty::THEME_TOASTR,
+    'options' => [
+        'closeButton' => false,
+        'debug' => false,
+        'newestOnTop' => true,
+
+        // and more for this library...
+    ],
+]);
+```
 
 Supported libraries
 -------------------
@@ -67,7 +85,8 @@ Currently supported libraries are:
 | Toastr         | THEME_TOASTR  | https://github.com/lavrentiev/yii2-toastr      |
 
 
-## License
+License
+-------
 
 Yii2-notification-wrapper is released under the MIT License. See the bundled [LICENSE.md](LICENSE.md)
 for details.
