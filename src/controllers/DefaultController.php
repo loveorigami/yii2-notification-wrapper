@@ -10,15 +10,16 @@ namespace lo\modules\noty\controllers;
 
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
+use lo\modules\noty\widgets\Noty;
 
 
 class DefaultController extends Controller
 {
 
-    /** @var string $type */
-    public $widget;
+    /** @var string $theme */
+    public $theme;
 
-    /** @var string $type */
+    /** @var array  $options */
     public $options;
 
     /** @var string $types */
@@ -29,7 +30,7 @@ class DefaultController extends Controller
 
     public function actionIndex()
     {
-        $this->widget = \Yii::$app->request->post('widget');
+        $this->theme = \Yii::$app->request->post('theme');
         $this->options = \Yii::$app->request->post('options');
 
         echo "<script>".self::flashes()."</script>";
@@ -42,10 +43,11 @@ class DefaultController extends Controller
         $f='';
 
         foreach ($flashes as $type => $data) {
+
             $data = (array)$data;
 
-            switch($this->widget){
-                case 'toastr':
+            switch($this->theme){
+                case Noty::THEME_TOASTR:
                     foreach ($data as $i => $message) {
                         if (in_array($type, $this->types)){
                             $f .= "toastr.{$type}(\"{$message}\", \"{$title}\", {$this->options});";
@@ -54,7 +56,7 @@ class DefaultController extends Controller
                         }
                     }
                     break;
-                case 'noty':
+                case Noty::THEME_NOTY:
                     $f .= "var n = Noty('notyjs')";
                     foreach ($data as $i => $message) {
                         if (in_array($type, $this->types)){

@@ -2,8 +2,6 @@
 namespace lo\modules\noty\widgets;
 
 use Yii;
-use yii\helpers\ArrayHelper;
-use yii\helpers\Html;
 use yii\base\InvalidConfigException;
 use yii\helpers\Json;
 
@@ -17,8 +15,33 @@ use yii\helpers\Json;
 class Noty extends \lo\core\widgets\App
 {
 
-    /** @var string $url */
-    public $widget = 'toastr';
+    /**
+     * Use Noty
+     * @see http://ned.im/noty/
+     * @see https://github.com/Shifrin/yii2-noty
+     */
+    const THEME_NOTY = 'noty';
+
+    /**
+     * Use Toastr
+     * @see https://github.com/CodeSeven/toastr
+     * @see https://github.com/lavrentiev/yii2-toastr
+     */
+    const THEME_TOASTR = 'toastr';
+
+    /**
+     * @var string the library name to be used for notifications
+     * One of the THEME_XXX constants
+     */
+    public $theme = self::THEME_TOASTR;
+
+    /**
+     * @var array List of built in themes
+     */
+    protected static $_builtinThemes = [
+        self::THEME_NOTY,
+        self::THEME_TOASTR,
+    ];
 
     /** @var string $url */
     public $url;
@@ -37,19 +60,23 @@ class Noty extends \lo\core\widgets\App
 
         $this->options = ($this->options) ? Json::encode($this->options) : [];
 
+        if (!in_array($this->theme, self::$_builtinThemes)) {
+            throw new InvalidConfigException("Unknown theme: " . $this->theme, 501);
+        }
+
     }
     /**
      * Renders the widget.
      */
     public function run()
     {
-        switch($this->widget){
-            case 'toastr':
+        switch($this->theme){
+            case self::THEME_TOASTR:
                 \lavrentiev\widgets\toastr\NotificationFlash::widget([
                     'options' => Json::decode($this->options)
                 ]);
                 break;
-            case 'noty':
+            case self::THEME_NOTY:
                 \shifrin\noty\NotyWidget::widget([
                     'options' => Json::decode($this->options),
                     'enableSessionFlash' => true,
@@ -73,7 +100,7 @@ class Noty extends \lo\core\widgets\App
                     type: 'POST',
                     cache: false,
                     data: {
-                        widget: '$this->widget',
+                        theme: '$this->theme',
                         options: '$this->options'
                     },
                     success: function(data) {
