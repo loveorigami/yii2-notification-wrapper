@@ -3,6 +3,8 @@
 Yii2-notification-wrapper module renders a message from session flash (with ajax support). All flash messages are displayed
 in the sequence they were assigned using setFlash. You can set message as following:
 
+!["Demo"](img/noty-demo.jpg)
+
  ```php
 public function actionIndex(){
     ...
