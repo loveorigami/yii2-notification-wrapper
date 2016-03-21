@@ -74,6 +74,28 @@ Noty::widget([
         // and more for this library...
     ],
 ]);
+
+// ---- or for THEME_NOTY ----
+
+Noty::widget([
+    'theme' => Noty::THEME_NOTY,
+    'options' => [
+        'dismissQueue' => true,
+        'layout' => 'topRight',
+        'timeout' => 3000,
+        //'theme' => 'relax',
+    ],
+    'widgetOptions'=>[
+        'enableSessionFlash' => true,
+        'enableIcon' => true,
+        'registerAnimateCss' => false,
+        'registerButtonsCss' => false,
+        'registerFontAwesomeCss' => false,
+
+         // and more for this library...
+    ]
+]);
+
 ```
 
 Supported libraries
