@@ -1,14 +1,12 @@
 {
-    "name": "loveorigami/lo-module-noty",
-    "description": "Noty module for Lo-CMS",
+    "name": "loveorigami/notification-wrapper",
+    "description": "Noty module for Yii2",
     "version": "1.0",
     "type": "yii2-extension",
     "keywords": [
-        "yii2",
-        "noty",
-        "module"
+        "yii2", "noty", "module", "toastr", "notification", "flash"
     ],
-    "homepage": "https://github.com/loveorigami/lo-module-noty",
+    "homepage": "https://github.com/loveorigami/yii2-notification-wrapper",
     "time": "2016-03-20",
     "license": "MIT",
     "authors": [
@@ -27,7 +25,7 @@
     },
     "autoload": {
         "psr-4": {
-            "lo\\modules\\noty\\": ""
+            "lo\\modules\\noty\\": "src/"
         }
     }
 }
