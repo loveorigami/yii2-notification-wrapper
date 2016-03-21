@@ -1,5 +1,5 @@
 {
-    "name": "loveorigami/notification-wrapper",
+    "name": "loveorigami/yii2-notification-wrapper",
     "description": "Noty module for Yii2",
     "version": "1.0",
     "type": "yii2-extension",
