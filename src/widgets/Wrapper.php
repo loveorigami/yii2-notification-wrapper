@@ -181,7 +181,7 @@ class Wrapper extends \yii\base\Widget
             switch ($this->theme) {
                 case self::THEME_TOASTR:
                     foreach ($data as $i => $message) {
-                        $f .= "toastr.{$type}(\"{$message}\", {$this->options});";
+                        $f .= "toastr.{$type}('{$message}', '', {$this->options});";
                     }
                     break;
 
