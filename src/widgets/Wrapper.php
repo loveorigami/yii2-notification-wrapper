@@ -167,7 +167,7 @@ class Wrapper extends \yii\base\Widget
     /**
      * Ajax Callback.
      */
-    public function ajaxCallback($theme, $options)
+    public function ajaxCallback()
     {
         $session = \Yii::$app->session;
         $flashes = $session->getAllFlashes();
@@ -178,18 +178,20 @@ class Wrapper extends \yii\base\Widget
             $data = (array)$data;
             $type = (in_array($type, $this->types)) ? $type : $this->typeDefault;
 
-            switch ($theme) {
+            switch ($this->theme) {
                 case self::THEME_TOASTR:
                     foreach ($data as $i => $message) {
-                        $f .= "toastr.{$type}(\"{$message}\", {$options});";
+                        $f .= "toastr.{$type}(\"{$message}\", {$this->options});";
                     }
                     break;
 
                 case self::THEME_NOTY:
-                    $f .= "var n = Noty('notyjs')";
+                    $f .= "var n = Noty('notyjs');";
                     foreach ($data as $i => $message) {
-                        $f .= " $.noty.setText(n.options.id, '$message');
-                                $.noty.setType(n.options.id, '$type'); ";
+                        $f .= "
+                            $.noty.setText(n.options.id, '$message');
+                            $.noty.setType(n.options.id, '$type');
+                        ";
                     }
                     break;
             }

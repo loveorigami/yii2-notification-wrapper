@@ -1,17 +1,15 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: zein
- * Date: 7/4/14
- * Time: 2:01 PM
+ * User: loveorigami
+ * Date: 20/3/16
  */
 
 namespace lo\modules\noty\controllers;
 
 use yii\web\Controller;
-use yii\web\NotFoundHttpException;
 use lo\modules\noty\widgets\Wrapper;
-
+use yii\helpers\Json;
 
 class DefaultController extends Controller
 {
@@ -21,8 +19,12 @@ class DefaultController extends Controller
         $theme = \Yii::$app->request->post('theme');
         $options = \Yii::$app->request->post('options');
 
-        $wrapper = new Wrapper();
-        echo $wrapper->ajaxCallback($theme, $options);
+        $wrapper = new Wrapper([
+            'theme' => $theme,
+            'options' => Json::decode($options)
+        ]);
+
+        echo $wrapper->ajaxCallback();
     }
 
 } 
