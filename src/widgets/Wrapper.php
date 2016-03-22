@@ -3,6 +3,7 @@ namespace lo\modules\noty\widgets;
 
 use Yii;
 use yii\base\InvalidConfigException;
+use yii\helpers\Html;
 use yii\helpers\Json;
 
 /**
@@ -14,52 +15,50 @@ use yii\helpers\Json;
  * use lo\modules\noty\widgets\Wrapper;
  *
  * Wrapper::widget([
- * 'theme' => Wrapper::THEME_TOASTR,
- * 'options' => [
- * 'closeButton' => false,
- * 'debug' => false,
- * 'newestOnTop' => true,
+ *    'theme' => Wrapper::THEME_TOASTR,
+ *    'options' => [
+ *        'closeButton' => false,
+ *        'debug' => false,
+ *        'newestOnTop' => true,
  *
- * // and more for this library
+ *        // and more for this library
  *
- * "progressBar" => false,
- * "positionClass" => "toast-top-left",
- * "preventDuplicates" => false,
- * "onclick" => null,
- * "showDuration" => "300",
- * "hideDuration" => "1000",
- * "timeOut" => "5000",
- * "extendedTimeOut" => "1000",
- * "showEasing" => "swing",
- * "hideEasing" => "linear",
- * "showMethod" => "fadeIn",
- * "hideMethod" => "fadeOut"
- *
- * ],
+ *        "progressBar" => false,
+ *        "positionClass" => "toast-top-left",
+ *        "preventDuplicates" => false,
+ *        "onclick" => null,
+ *        "showDuration" => "300",
+ *        "hideDuration" => "1000",
+ *        "timeOut" => "5000",
+ *        "extendedTimeOut" => "1000",
+ *        "showEasing" => "swing",
+ *        "hideEasing" => "linear",
+ *        "showMethod" => "fadeIn",
+ *        "hideMethod" => "fadeOut"
+ *    ],
  * ]);
  *
  * // or for THEME_NOTY
  * Wrapper::widget([
- * 'theme' => Wrapper::THEME_NOTY,
- * 'options' => [
- * 'dismissQueue' => true,
- * 'layout' => 'topRight',
- * 'timeout' => 3000,
- * //'theme' => 'relax',
- * ],
- * 'widgetOptions'=>[
- * 'enableSessionFlash' => true,
- * 'enableIcon' => true,
- * 'registerAnimateCss' => false,
- * 'registerButtonsCss' => false,
- * 'registerFontAwesomeCss' => false,
- * ]
+ *     'theme' => Wrapper::THEME_NOTY,
+ *     'options' => [
+ *         'dismissQueue' => true,
+ *         'layout' => 'topRight',
+ *         'timeout' => 3000,
+ *         //'theme' => 'relax',
+ *     ],
+ *     'widgetOptions'=>[
+ *         'enableSessionFlash' => true,
+ *         'enableIcon' => true,
+ *         'registerAnimateCss' => false,
+ *         'registerButtonsCss' => false,
+ *         'registerFontAwesomeCss' => false,
+ *     ]
  * ]);
  * ```
  */
 class Wrapper extends \yii\base\Widget
 {
-
     /**
      * Use Noty
      * @see http://ned.im/noty/
@@ -88,7 +87,6 @@ class Wrapper extends \yii\base\Widget
         self::THEME_TOASTR,
     ];
 
-
     /** @var string $url */
     public $url;
 
@@ -112,8 +110,6 @@ class Wrapper extends \yii\base\Widget
             $this->url = Yii::$app->getUrlManager()->createUrl(['noty/default/index']);
         }
 
-        $this->options = ($this->options) ? Json::encode($this->options) : [];
-
         if (!in_array($this->theme, self::$_builtinThemes)) {
             throw new InvalidConfigException("Unknown theme: " . $this->theme, 501);
         }
@@ -128,39 +124,37 @@ class Wrapper extends \yii\base\Widget
         switch ($this->theme) {
             case self::THEME_TOASTR:
                 \lavrentiev\widgets\toastr\NotificationFlash::widget([
-                    'options' => Json::decode($this->options)
+                    'options' => $this->options
                 ]);
                 break;
             case self::THEME_NOTY:
-                $this->widgetOptions['options'] = Json::decode($this->options);
+                $this->widgetOptions['options'] = $this->options;
                 \shifrin\noty\NotyWidget::widget($this->widgetOptions);
                 break;
         }
 
-        echo '<div id="notyjs"></div>';
+        echo Html::tag('dig', '', ['id' => 'notyjs']);
+
+        $options = Json::encode($this->options);
 
         $this->view->registerJs("
-        $(document).ajaxSuccess(function (event, xhr, settings) {
-
-          if ( settings.url != '$this->url' ) {
-
-                jQuery.ajax({
-                    url: '$this->url',
-                    type: 'POST',
-                    cache: false,
-                    data: {
-                        theme: '$this->theme',
-                        options: '$this->options'
-                    },
-                    success: function(data) {
-                       $('#notyjs').html(data);
-                    }
-                });
-
-            }
-
-        });
-    ", \yii\web\View::POS_END);
+            $(document).ajaxSuccess(function (event, xhr, settings) {
+              if (settings.url != '$this->url' ) {
+                    $.ajax({
+                        url: '$this->url',
+                        type: 'POST',
+                        cache: false,
+                        data: {
+                            theme: '$this->theme',
+                            options: $options
+                        },
+                        success: function(data) {
+                           $('#notyjs').html(data);
+                        }
+                    });
+                }
+            });
+        ", \yii\web\View::POS_END);
 
     }
 
@@ -171,25 +165,29 @@ class Wrapper extends \yii\base\Widget
     {
         $session = \Yii::$app->session;
         $flashes = $session->getAllFlashes();
-        $f = '';
+        $options = Json::encode($options);
+        $result = [];
 
         foreach ($flashes as $type => $data) {
-
             $data = (array)$data;
             $type = (in_array($type, $this->types)) ? $type : $this->typeDefault;
 
             switch ($theme) {
                 case self::THEME_TOASTR:
                     foreach ($data as $i => $message) {
-                        $f .= "toastr.{$type}(\"{$message}\", {$options});";
+                        $message = Json::encode($message);
+                        $type = Json::encode($type);
+                        $result[] = "toastr[$type]($message, $options);";
                     }
                     break;
 
                 case self::THEME_NOTY:
-                    $f .= "var n = Noty('notyjs')";
+                    $result .= "var n = Noty('notyjs')";
                     foreach ($data as $i => $message) {
-                        $f .= " $.noty.setText(n.options.id, '$message');
-                                $.noty.setType(n.options.id, '$type'); ";
+                        $message = Json::encode($message);
+                        $type = Json::encode($type);
+                        $result[] = "$.noty.setText(n.options.id, $message);";
+                        $result[] = "$.noty.setType(n.options.id, $type);";
                     }
                     break;
             }
@@ -197,7 +195,7 @@ class Wrapper extends \yii\base\Widget
             $session->removeFlash($type);
         }
 
-        return '<script>' . $f . '</script>';
+        return Html::tag('script', implode("\n", $result));
     }
 
 }

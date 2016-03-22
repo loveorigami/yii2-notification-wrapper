@@ -9,7 +9,6 @@
 namespace lo\modules\noty\controllers;
 
 use yii\web\Controller;
-use yii\web\NotFoundHttpException;
 use lo\modules\noty\widgets\Wrapper;
 
 
