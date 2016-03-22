@@ -57,15 +57,15 @@ That's all, now you have module installed and configured.
 Usage
 -----
 
-This package comes with a NotyWidget that can be used to regularly poll the server for new notifications and trigger them visually using either Toastr, or Noty.
+This package comes with a Wrapper widget that can be used to regularly poll the server for new notifications and trigger them visually using either Toastr, or Noty.
 
 This widget should be used in your main layout file as follows:
 
 ```php
-use lo\modules\noty\widgets\Noty;
+use lo\modules\noty\widgets\Wrapper;
 
-Noty::widget([
-    'theme' => Noty::THEME_TOASTR,
+Wrapper::widget([
+    'theme' => Wrapper::THEME_TOASTR,
     'options' => [
         'closeButton' => false,
         'debug' => false,
@@ -77,8 +77,8 @@ Noty::widget([
 
 // ---- or for THEME_NOTY ----
 
-Noty::widget([
-    'theme' => Noty::THEME_NOTY,
+Wrapper::widget([
+    'theme' => Wrapper::THEME_NOTY,
     'options' => [
         'dismissQueue' => true,
         'layout' => 'topRight',
