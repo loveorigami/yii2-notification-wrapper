@@ -184,7 +184,7 @@ class Wrapper extends \yii\base\Widget
                     break;
 
                 case self::THEME_NOTY:
-                    $result .= "var n = Noty('notyjs')";
+                    $result[] = "var n = Noty('notyjs')";
                     foreach ($data as $i => $message) {
                         $message = Json::encode($message);
                         $type = Json::encode($type);
