@@ -8,8 +8,8 @@
 namespace lo\modules\noty\controllers;
 
 use yii\web\Controller;
-use lo\modules\noty\widgets\Wrapper;
 use yii\helpers\Json;
+use lo\modules\noty\widgets\Wrapper;
 
 class DefaultController extends Controller
 {
