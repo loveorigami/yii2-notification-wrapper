@@ -62,6 +62,12 @@ class Noty extends Wrapper
      */
     public function setNotification($type, $message, $options)
     {
+        switch(Json::decode($type)){
+            case self::TYPE_INFO:
+                $type = Json::encode("information");
+                break;
+        }
+
         $result[] = "var n = Noty('{$this->htmlOptions['id']}');";
         $result[] = "$.noty.setText(n.options.id, $message);";
         $result[] = "$.noty.setType(n.options.id, $type);";
