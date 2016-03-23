@@ -38,14 +38,14 @@ To install with bower package for one of supported layers, either run
 
 ```bash
 $ php composer.phar require loveorigami/yii2-notification-wrapper "*"
-$ php composer.phar require bower-asset/toastr "^2.1"
+$ php composer.phar require bower-asset/noty "^2.3"
 ```
 
 or add
 
 ```bash
 "loveorigami/loveorigami/yii2-notification-wrapper": "*",
-"bower-asset/toastr": "^2.1"
+"bower-asset/toastr": "^2.3"
 ```
 
 to the ```require``` section of your `composer.json` file.
@@ -78,9 +78,10 @@ use lo\modules\noty\widgets\Wrapper;
 Wrapper::widget([
     'layer' => 'lo\modules\noty\widgets\layers\Noty',
     'options' => [
-        'closeButton' => false,
-        'debug' => false,
-        'newestOnTop' => true,
+        'dismissQueue' => true,
+          'layout' => 'topRight',
+            'timeout' => 3000,
+            'theme' => 'relax',
 
         // and more for this library...
     ],
@@ -99,8 +100,8 @@ Currently supported layers are:
 
 | Library (Layer) | Bower         | Project homepage                               |
 | --------------- | ------------- | ---------------------------------------------- |
-| Toastr          | toastr        | https://github.com/CodeSeven/toastr            |
 | Noty            | noty          | https://github.com/needim/noty                 |
+| Toastr          | toastr        | https://github.com/CodeSeven/toastr            |
 
 
 License
