@@ -30,15 +30,26 @@ public function actionIndex(){
   }
  ```
 
-Download
+Installation
 --------
+The preferred way to install this extension is through [composer](http://getcomposer.org/download/).
 
-Yii2-notification-wrapper can be installed using composer. Run following command to download and
-install Yii2-notification-wrapper:
+To install with bower package for one of supported layers, either run
 
 ```bash
-composer require "loveorigami/yii2-notification-wrapper": "*"
+$ php composer.phar require loveorigami/yii2-notification-wrapper "*"
+$ php composer.phar require bower-asset/toastr "^2.1"
 ```
+
+or add
+
+```bash
+"loveorigami/loveorigami/yii2-notification-wrapper": "*",
+"bower-asset/toastr": "^2.1"
+```
+
+to the ```require``` section of your `composer.json` file.
+
 
 Configure application
 ---------------------
@@ -57,7 +68,7 @@ That's all, now you have module installed and configured.
 Usage
 -----
 
-This package comes with a Wrapper widget that can be used to regularly poll the server for new notifications and trigger them visually using either Toastr, or Noty.
+This package comes with a Wrapper widget that can be used to regularly poll the server for new notifications and trigger them visually using either Toastr ().
 
 This widget should be used in your main layout file as follows:
 
@@ -65,7 +76,7 @@ This widget should be used in your main layout file as follows:
 use lo\modules\noty\widgets\Wrapper;
 
 Wrapper::widget([
-    'theme' => Wrapper::THEME_TOASTR,
+    'layer' => 'lo\modules\noty\widgets\layers\Noty',
     'options' => [
         'closeButton' => false,
         'debug' => false,
@@ -73,40 +84,23 @@ Wrapper::widget([
 
         // and more for this library...
     ],
-]);
-
-// ---- or for THEME_NOTY ----
-
-Wrapper::widget([
-    'theme' => Wrapper::THEME_NOTY,
-    'options' => [
-        'dismissQueue' => true,
-        'layout' => 'topRight',
-        'timeout' => 3000,
-        //'theme' => 'relax',
-    ],
     'widgetOptions'=>[
-        'enableSessionFlash' => true,
-        'enableIcon' => true,
-        'registerAnimateCss' => false,
-        'registerButtonsCss' => false,
-        'registerFontAwesomeCss' => false,
-
-         // and more for this library...
+        'registerAnimateCss' => true,
+        'registerButtonsCss' => true
     ]
 ]);
 
 ```
 
-Supported libraries
--------------------
+Supported layers
+----------------
 
-Currently supported libraries are:
+Currently supported layers are:
 
-| Library        | Constant      | Project homepage                               |
-| -------------- | ------------- | ---------------------------------------------- |
-| Noty           | THEME_NOTY    | https://github.com/Shifrin/yii2-noty           |
-| Toastr         | THEME_TOASTR  | https://github.com/lavrentiev/yii2-toastr      |
+| Library (Layer) | Bower         | Project homepage                               |
+| --------------- | ------------- | ---------------------------------------------- |
+| Toastr          | toastr        | https://github.com/CodeSeven/toastr            |
+| Noty            | noty          | https://github.com/needim/noty                 |
 
 
 License

@@ -16,11 +16,13 @@ class DefaultController extends Controller
 
     public function actionIndex()
     {
-        $theme = \Yii::$app->request->post('theme');
+        $layerClass = \Yii::$app->request->post('layerClass');
         $options = \Yii::$app->request->post('options');
 
+        $layerClass = str_replace('"', '', $layerClass);
+
         $wrapper = new Wrapper([
-            'theme' => $theme,
+            'layerClass' => $layerClass,
             'options' => Json::decode($options)
         ]);
 
