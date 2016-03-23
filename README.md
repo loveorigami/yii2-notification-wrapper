@@ -76,19 +76,20 @@ This widget should be used in your main layout file as follows:
 use lo\modules\noty\widgets\Wrapper;
 
 Wrapper::widget([
-    'layer' => 'lo\modules\noty\widgets\layers\Noty',
+    'layerClass' => 'lo\modules\noty\widgets\layers\Noty',
+    'layerOptions'=>[
+        'registerAnimateCss' => true,
+        'registerButtonsCss' => true
+    ],
+    // clientOptions
     'options' => [
         'dismissQueue' => true,
-          'layout' => 'topRight',
-            'timeout' => 3000,
-            'theme' => 'relax',
+        'layout' => 'topRight',
+        'timeout' => 3000,
+        'theme' => 'relax',
 
         // and more for this library...
     ],
-    'widgetOptions'=>[
-        'registerAnimateCss' => true,
-        'registerButtonsCss' => true
-    ]
 ]);
 
 ```

@@ -15,7 +15,7 @@ use yii\helpers\Html;
  *  use lo\modules\noty\widgets\Wrapper;
  *
  *  Wrapper::widget([
- *      'layer' => 'lo\modules\noty\widgets\layers\Noty',
+ *      'layerClass' => 'lo\modules\noty\widgets\layers\Noty',
  *      'options' => [
  *          'dismissQueue' => true,
  *          'layout' => 'topRight',

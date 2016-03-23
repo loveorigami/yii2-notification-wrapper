@@ -14,7 +14,7 @@ use lo\modules\noty\widgets\Wrapper;
  *  use lo\modules\noty\widgets\Wrapper;
  *
  *  Wrapper::widget([
- *      'layer' => 'lo\modules\noty\widgets\layers\Toastr',
+ *      'layerClass' => 'lo\modules\noty\widgets\layers\Toastr',
  *      'options' => [
  *          'closeButton' => false,
  *          'debug' => false,
