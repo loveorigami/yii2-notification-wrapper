@@ -45,7 +45,7 @@ or add
 
 ```bash
 "loveorigami/loveorigami/yii2-notification-wrapper": "*",
-"bower-asset/toastr": "^2.3"
+"bower-asset/noty": "^2.3"
 ```
 
 to the ```require``` section of your `composer.json` file.
