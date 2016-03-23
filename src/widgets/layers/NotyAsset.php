@@ -13,7 +13,7 @@ class NotyAsset extends AssetBundle
     public $sourcePath = '@bower/noty';
     public $animateCss;
     public $buttonsCss;
-    public $fontAwesomeCss;
+
     public $js = [
         'js/noty/packaged/jquery.noty.packaged.min.js'
     ];
@@ -30,10 +30,6 @@ class NotyAsset extends AssetBundle
     {
         if ($this->animateCss) {
             $this->css[] = 'demo/animate.css';
-        }
-
-        if ($this->fontAwesomeCss) {
-            $this->css[] = 'demo/font-awesome/css/font-awesome.min.css';
         }
 
         if ($this->buttonsCss) {
