@@ -44,7 +44,7 @@ $ php composer.phar require bower-asset/noty "^2.3"
 or add
 
 ```bash
-"loveorigami/loveorigami/yii2-notification-wrapper": "*",
+"loveorigami/yii2-notification-wrapper": "*",
 "bower-asset/noty": "^2.3"
 ```
 
