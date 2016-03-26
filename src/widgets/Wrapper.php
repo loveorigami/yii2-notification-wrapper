@@ -165,4 +165,25 @@ class Wrapper extends \yii\base\Widget
         return $layer;
     }
 
+    public function getTitle($type){
+
+        switch($type){
+            case self::TYPE_ERROR:
+                $t = \Yii::t('noty', 'Error');
+                break;
+            case self::TYPE_INFO:
+                $t = \Yii::t('noty', 'Info');
+                break;
+            case self::TYPE_WARNING:
+                $t = \Yii::t('noty', 'Warning');
+                break;
+            case self::TYPE_SUCCESS:
+                $t = \Yii::t('noty', 'Success');
+                break;
+            default:
+                $t = '';
+        }
+
+        return $t;
+    }
 }

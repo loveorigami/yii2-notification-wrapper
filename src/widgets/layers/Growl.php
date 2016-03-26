@@ -17,10 +17,11 @@ use lo\modules\noty\widgets\Wrapper;
  *  Wrapper::widget([
  *      'layerClass' => 'lo\modules\noty\widgets\layers\Growl',
  *      'options' => [
- *          'dismissQueue' => true,
- *          'layout' => 'topRight',
- *          'timeout' => 3000,
- *          'theme' => 'relax',
+ *          'fixed' => true,
+ *          'size' => 'medium',
+ *          'style' => 'default',
+ *          'location' => 'tr',
+ *          'delayOnHover' => true,
  *
  *          // and more for this library...
  *      ],
@@ -41,6 +42,27 @@ class Growl extends Wrapper implements LayerInterface
      */
     public function getNotification($type, $message, $options)
     {
-        return "growl[$type]($message, '', $options);";
+        $data = Json::decode($options);
+        $data['message'] = Json::decode($message);
+        $data['title'] = $this->getTitle(Json::decode($type));
+
+        switch (Json::decode($type)) {
+            case self::TYPE_ERROR:
+                $type = '.error';
+                break;
+            case self::TYPE_SUCCESS:
+                $type = '.notice';
+                break;
+            case self::TYPE_WARNING:
+                $type = '.warning';
+                break;
+            default:
+                $type = '';
+        }
+
+
+        $msg = Json::encode($data);
+
+        return " $.growl$type($msg);";
     }
 }

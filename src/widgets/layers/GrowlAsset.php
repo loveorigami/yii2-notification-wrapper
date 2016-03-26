@@ -11,16 +11,16 @@ use yii\web\AssetBundle;
 class GrowlAsset extends AssetBundle
 {
     /** @var string  */
-    public $sourcePath = '@bower/toastr';
+    public $sourcePath = '@bower/jquery-growl';
 
     /** @var array $css */
     public $css = [
-        'toastr.min.css'
+        'stylesheets/jquery.growl.css'
     ];
 
     /** @var array $js */
     public $js = [
-        'toastr.min.js'
+        'javascripts/jquery.growl.js'
     ];
 
     /** @var array $depends */

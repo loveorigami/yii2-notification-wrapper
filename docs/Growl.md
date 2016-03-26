@@ -19,12 +19,17 @@ use lo\modules\noty\widgets\Wrapper;
 
 Wrapper::widget([
     'layerClass' => 'lo\modules\noty\widgets\layers\Growl',
+    'layerOptions' => [
+        'withTitle' => true
+    ],
     'options' => [
-       'closeButton' => false,
-       'debug' => false,
-       'newestOnTop' => true,
+       'fixed' => true,
+       'size' => 'medium',
+       'style' => 'default',
+       'location' => 'tr',
+       'delayOnHover' => true,
 
-        // and more for this library...
+        // and more for this library here https://github.com/ksylvest/jquery-growl
     ],
 ]);
 
