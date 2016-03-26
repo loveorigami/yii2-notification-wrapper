@@ -105,6 +105,7 @@ Currently supported layers are:
 | --------------- | ------------- | ---------------------------------------------- | ---------------------- |
 | Noty            | noty          | https://github.com/needim/noty                 | [read](docs/Noty.md)   |
 | Toastr          | toastr        | https://github.com/CodeSeven/toastr            | [read](docs/Toastr.md) |
+| Growl           | jquery-growl  | https://github.com/ksylvest/jquery-growl       | [read](docs/Growl.md)  |
 
 
 License
