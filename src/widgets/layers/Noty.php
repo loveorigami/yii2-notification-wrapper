@@ -31,7 +31,7 @@ use lo\modules\noty\widgets\Wrapper;
  *  ]);
  * ---------------------------------------
  */
-class Noty extends Wrapper
+class Noty extends Wrapper implements LayerInterface
 {
     /**
      * Register animate.css
@@ -60,7 +60,7 @@ class Noty extends Wrapper
     /**
      * @inheritdoc
      */
-    public function setNotification($type, $message, $options)
+    public function getNotification($type, $message, $options)
     {
         switch(Json::decode($type)){
             case self::TYPE_INFO:
@@ -68,7 +68,7 @@ class Noty extends Wrapper
                 break;
         }
 
-        $result[] = "var n = Noty('{$this->htmlOptions['id']}');";
+        $result[] = "var n = Noty('".self::WRAP_ID."');";
         $result[] = "$.noty.setText(n.options.id, $message);";
         $result[] = "$.noty.setType(n.options.id, $type);";
 

@@ -26,7 +26,7 @@ use lo\modules\noty\widgets\Wrapper;
  * ---------------------------------------
  */
 
-class Toastr extends Wrapper
+class Toastr extends Wrapper implements LayerInterface
 {
 
     public function run()
@@ -38,7 +38,7 @@ class Toastr extends Wrapper
     /**
      * @inheritdoc
      */
-    public function setNotification($type, $message, $options)
+    public function getNotification($type, $message, $options)
     {
         return "toastr[$type]($message, '', $options);";
     }
