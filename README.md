@@ -1,9 +1,10 @@
 # Yii2-notification-wrapper
 
-Yii2-notification-wrapper module renders a message from session flash (with ajax support). All flash messages are displayed
-in the sequence they were assigned using setFlash. You can set message as following:
+Yii2-notification-wrapper module renders a message from session flash (with ajax support). All flash messages are displayed in the sequence they were assigned using setFlash.
 
 !["Demo"](docs/img/noty-demo.jpg)
+
+You can set message as following:
 
  ```php
 public function actionIndex(){
@@ -15,6 +16,7 @@ public function actionIndex(){
     ...
      return $this->render('index');
  }
+
  // or in ajax action
 
  public function actionAjax(){
@@ -68,7 +70,7 @@ That's all, now you have module installed and configured.
 Usage
 -----
 
-This package comes with a Wrapper widget that can be used to regularly poll the server for new notifications and trigger them visually using either Toastr ().
+This package comes with a Wrapper widget that can be used to regularly poll the server for new notifications and trigger them visually using either Noty (or Toastr, or Growl etc.).
 
 This widget should be used in your main layout file as follows:
 
