@@ -2,10 +2,10 @@
 namespace lo\modules\noty\widgets;
 
 use Yii;
-use yii\base\InvalidConfigException;
 use yii\web\View;
 use yii\helpers\Json;
 use yii\helpers\Html;
+use yii\base\InvalidParamException;
 
 /**
  * This package comes with a Wrapper widget that can be used to regularly poll the server
@@ -46,17 +46,17 @@ class Wrapper extends \yii\base\Widget
     /** @const type warning */
     const TYPE_WARNING = 'warning';
 
-    /** @const type wrapper id */
+    /** @const wrapper id */
     const WRAP_ID = 'noty-warap';
 
 
     /** @var array $types */
     public $types = [self::TYPE_INFO, self::TYPE_ERROR, self::TYPE_SUCCESS, self::TYPE_WARNING];
 
-    /** @var string $class */
+    /** @var string $layerClass */
     public $layerClass;
 
-    /** @var array $options */
+    /** @var array $layerOptions */
     public $layerOptions = [];
 
     /** @var array $options */
@@ -73,9 +73,11 @@ class Wrapper extends \yii\base\Widget
     {
         parent::init();
 
+        if (!isset($this->layerClass)) {
+            throw new InvalidParamException(Yii::t('noty', 'layerClass not configurated'));
+        }
 
         $this->url = Yii::$app->getUrlManager()->createUrl(['noty/default/index']);
-
     }
 
     /**
@@ -116,7 +118,6 @@ class Wrapper extends \yii\base\Widget
                 }
             });
         ", View::POS_END);
-
     }
 
     /**
@@ -160,15 +161,11 @@ class Wrapper extends \yii\base\Widget
         return $this->view->registerJs(implode("\n", $result));
     }
 
-    protected function loadLayer()
-    {
-        $layer = new $this->layerClass;
-        return $layer;
-    }
-
+    /**
+     * Get title
+     */
     public function getTitle($type)
     {
-
         switch ($type) {
             case self::TYPE_ERROR:
                 $t = \Yii::t('noty', 'Error');
@@ -187,5 +184,14 @@ class Wrapper extends \yii\base\Widget
         }
 
         return $t;
+    }
+
+    /**
+     * load layer
+     */
+    protected function loadLayer()
+    {
+        $layer = new $this->layerClass;
+        return $layer;
     }
 }

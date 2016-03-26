@@ -1,8 +1,9 @@
 <?php
 
 return [
-    'Info' => 'Информация',
-    'Warning' => 'Внимание',
     'Error' => 'Ошибка',
+    'Info' => 'Информация',
+    'layerClass not configurated' => 'Не установлен параметр layerClass',
     'Success' => 'Выполнено',
+    'Warning' => 'Внимание',
 ];
