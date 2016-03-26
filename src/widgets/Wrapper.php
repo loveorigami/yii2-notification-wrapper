@@ -73,10 +73,6 @@ class Wrapper extends \yii\base\Widget
     {
         parent::init();
 
-        if (!isset($this->layerClass)) {
-            throw new InvalidParamException(Yii::t('noty', 'layerClass not configurated'));
-        }
-
         $this->url = Yii::$app->getUrlManager()->createUrl(['noty/default/index']);
     }
 
@@ -85,6 +81,10 @@ class Wrapper extends \yii\base\Widget
      */
     public function run()
     {
+        if (!$this->layerClass) {
+            throw new InvalidParamException(Yii::t('noty', 'layerClass not configurated'));
+        }
+
         $this->isAjax = false;
 
         $config = $this->layerOptions;
