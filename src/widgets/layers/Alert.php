@@ -3,7 +3,7 @@
 namespace lo\modules\noty\widgets\layers;
 
 use yii\helpers\Json;
-use \yii\bootstrap\Alert as BootstrapAlert;
+use yii\bootstrap\Alert as BootstrapAlert;
 use lo\modules\noty\widgets\Wrapper;
 
 /**
