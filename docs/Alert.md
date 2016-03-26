@@ -1,4 +1,4 @@
-# Growl
+# Bootstrap Alert
 
 Installation
 --------
