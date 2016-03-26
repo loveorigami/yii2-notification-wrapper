@@ -19,7 +19,7 @@ class DefaultController extends Controller
         $layerClass = \Yii::$app->request->post('layerClass');
         $options = \Yii::$app->request->post('options');
 
-        $layerClass = str_replace('"', '', $layerClass);
+        $layerClass = trim($layerClass, '"');
 
         $wrapper = new Wrapper([
             'layerClass' => $layerClass,
