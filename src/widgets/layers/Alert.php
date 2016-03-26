@@ -60,15 +60,18 @@ class Alert extends Wrapper implements LayerInterface
     public function getNotification($type, $message, $options)
     {
         $options = Json::decode($options);
-        $options['class'] = $this->alertTypes[Json::decode($type)]['class'] . $appendCss;
+        $type = Json::decode($type);
+
+        $options['class'] = $this->alertTypes[$type]['class'] . $appendCss;
 
         $msg = BootstrapAlert::widget([
-            'body' => $this->alertTypes[Json::decode($type)]['icon'] . ' ' . Json::decode($message),
+            'body' => $this->alertTypes[$type]['icon'] . ' <strong>' .$this->getTitle($type). '</strong> '. Json::decode($message),
             'options' => $options,
         ]);
 
         $msg = Json::encode($msg);
         $msg = trim($msg, '"');
+
 
         $id = self::WRAP_ID;
 
