@@ -19,9 +19,6 @@ use lo\modules\noty\widgets\Wrapper;
 
 Wrapper::widget([
     'layerClass' => 'lo\modules\noty\widgets\layers\Growl',
-    'layerOptions' => [
-        'withTitle' => true
-    ],
     'options' => [
        'fixed' => true,
        'size' => 'medium',
