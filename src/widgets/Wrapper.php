@@ -8,7 +8,8 @@ use yii\helpers\Json;
 use yii\helpers\Html;
 
 /**
- * This package comes with a Wrapper widget that can be used to regularly poll the server for new notifications and trigger them visually using either Toastr, or Noty.
+ * This package comes with a Wrapper widget that can be used to regularly poll the server
+ * for new notifications and trigger them visually using either Toastr, or Noty.
  *
  * This widget should be used in your main layout file as follows:
  * ---------------------------------------
@@ -31,7 +32,6 @@ use yii\helpers\Html;
  *  ]);
  * ---------------------------------------
  */
-
 class Wrapper extends \yii\base\Widget
 {
     /** @const type info */
@@ -50,11 +50,8 @@ class Wrapper extends \yii\base\Widget
     const WRAP_ID = 'noty-warap';
 
 
-    /** @var string $types */
+    /** @var array $types */
     public $types = [self::TYPE_INFO, self::TYPE_ERROR, self::TYPE_SUCCESS, self::TYPE_WARNING];
-
-    /** @var string $url */
-    public $url;
 
     /** @var string $class */
     public $layerClass;
@@ -65,17 +62,20 @@ class Wrapper extends \yii\base\Widget
     /** @var array $options */
     public $options = [];
 
-    /** @var string $typeDefault */
+    /** @var bool $isAjax */
     protected $isAjax;
+
+    /** @var string $url */
+    protected $url;
 
 
     public function init()
     {
         parent::init();
 
-        if (!$this->url) {
-            $this->url = Yii::$app->getUrlManager()->createUrl(['noty/default/index']);
-        }
+
+        $this->url = Yii::$app->getUrlManager()->createUrl(['noty/default/index']);
+
     }
 
     /**
@@ -91,9 +91,9 @@ class Wrapper extends \yii\base\Widget
 
         $layer = $this->loadLayer();
         $layer::widget($config);
-		$this->getFlashes($layer);
+        $this->getFlashes($layer);
 
-        echo Html::tag('div', '', ['id'=>self::WRAP_ID]);
+        echo Html::tag('div', '', ['id' => self::WRAP_ID]);
 
         $options = Json::encode($this->options);
         $layerClass = Json::encode($this->layerClass);
@@ -110,7 +110,7 @@ class Wrapper extends \yii\base\Widget
                             options: '$options'
                         },
                         success: function(data) {
-                           $('#".self::WRAP_ID."').html(data);
+                           $('#" . self::WRAP_ID . "').html(data);
                         }
                     });
                 }
@@ -153,21 +153,23 @@ class Wrapper extends \yii\base\Widget
             $session->removeFlash($type);
         }
 
-        if($this->isAjax){
+        if ($this->isAjax) {
             return Html::tag('script', implode("\n", $result));
         }
 
         return $this->view->registerJs(implode("\n", $result));
     }
 
-    protected function loadLayer(){
+    protected function loadLayer()
+    {
         $layer = new $this->layerClass;
         return $layer;
     }
 
-    public function getTitle($type){
+    public function getTitle($type)
+    {
 
-        switch($type){
+        switch ($type) {
             case self::TYPE_ERROR:
                 $t = \Yii::t('noty', 'Error');
                 break;
