@@ -8,10 +8,10 @@ in the sequence they were assigned using setFlash. You can set message as follow
  ```php
 public function actionIndex(){
     ...
-     \Yii::$app->getSession()->setFlash('error',   'noty1');
-     \Yii::$app->getSession()->setFlash('info',    'noty2');
-     \Yii::$app->getSession()->setFlash('success', 'noty3');
-     \Yii::$app->getSession()->setFlash('warning', 'noty4');
+     \Yii::$app->getSession()->setFlash('error',   'noty error');
+     \Yii::$app->getSession()->setFlash('info',    'noty info');
+     \Yii::$app->getSession()->setFlash('success', 'noty success');
+     \Yii::$app->getSession()->setFlash('warning', 'noty warning');
     ...
      return $this->render('index');
  }
@@ -19,10 +19,10 @@ public function actionIndex(){
 
  public function actionAjax(){
      ...
-      \Yii::$app->getSession()->setFlash('error',   'ajax-noty1');
-      \Yii::$app->getSession()->setFlash('info',    'ajax-noty2');
-      \Yii::$app->getSession()->setFlash('success', 'ajax-noty3');
-      \Yii::$app->getSession()->setFlash('warning', 'ajax-noty4');
+     \Yii::$app->getSession()->setFlash('error',   'ajax error');
+     \Yii::$app->getSession()->setFlash('info',    'ajax info');
+     \Yii::$app->getSession()->setFlash('success', 'ajax success');
+     \Yii::$app->getSession()->setFlash('warning', 'ajax warning');
      ...
      $data = 'Some data to be returned in response to ajax request';
      Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;

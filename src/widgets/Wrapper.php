@@ -47,7 +47,7 @@ class Wrapper extends \yii\base\Widget
     const TYPE_WARNING = 'warning';
 
     /** @const type wrapper id */
-    const WRAP_ID = 'noty-js';
+    const WRAP_ID = 'noty-warap';
 
 
     /** @var string $types */
@@ -62,12 +62,6 @@ class Wrapper extends \yii\base\Widget
     /** @var array $options */
     public $layerOptions = [];
 
-    /**
-     * Tag Html attributes
-     * @var array()
-     */
-    public $htmlOptions=[];
-
     /** @var array $options */
     public $options = [];
 
@@ -81,12 +75,6 @@ class Wrapper extends \yii\base\Widget
 
         if (!$this->url) {
             $this->url = Yii::$app->getUrlManager()->createUrl(['noty/default/index']);
-        }
-
-        if (!isset($this->htmlOptions['id'])) {
-            $this->htmlOptions['id'] = self::WRAP_ID;
-        } else {
-            $this->id = $this->htmlOptions['id'];
         }
     }
 
@@ -105,7 +93,7 @@ class Wrapper extends \yii\base\Widget
         $layer::widget($config);
 		$this->getFlashes($layer);
 
-        echo Html::tag('div', '', $this->htmlOptions);
+        echo Html::tag('div', '', ['id'=>self::WRAP_ID]);
 
         $options = Json::encode($this->options);
         $layerClass = Json::encode($this->layerClass);
@@ -122,7 +110,7 @@ class Wrapper extends \yii\base\Widget
                             options: '$options'
                         },
                         success: function(data) {
-                           $('#{$this->htmlOptions['id']}').html(data);
+                           $('#".self::WRAP_ID."').html(data);
                         }
                     });
                 }
@@ -159,7 +147,7 @@ class Wrapper extends \yii\base\Widget
             foreach ($data as $i => $message) {
                 $message = Json::encode($message);
                 $type = Json::encode($type);
-                $result[] = $layer->setNotification($type, $message, $options);
+                $result[] = $layer->getNotification($type, $message, $options);
             }
 
             $session->removeFlash($type);
