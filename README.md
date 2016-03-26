@@ -99,10 +99,10 @@ Supported layers
 
 Currently supported layers are:
 
-| Library (Layer) | Bower         | Project homepage                               |
-| --------------- | ------------- | ---------------------------------------------- |
-| Noty            | noty          | https://github.com/needim/noty                 |
-| Toastr          | toastr        | https://github.com/CodeSeven/toastr            |
+| Library (Layer) | Bower         | Project homepage                               | Docs                   |
+| --------------- | ------------- | ---------------------------------------------- | ---------------------- |
+| Noty            | noty          | https://github.com/needim/noty                 | [read](docs/Noty.md)   |
+| Toastr          | toastr        | https://github.com/CodeSeven/toastr            | [read](docs/Toastr.md) |
 
 
 License
