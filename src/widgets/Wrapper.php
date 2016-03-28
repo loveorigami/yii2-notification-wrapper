@@ -47,7 +47,7 @@ class Wrapper extends \yii\base\Widget
     const TYPE_WARNING = 'warning';
 
     /** @const wrapper id */
-    const WRAP_ID = 'noty-warp';
+    const WRAP_ID = 'noty-wrap';
 
     /** @const default Layer */
     const DEFAULT_LAYER = 'lo\modules\noty\widgets\layers\Alert';
