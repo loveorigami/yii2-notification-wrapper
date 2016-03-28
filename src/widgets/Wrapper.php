@@ -5,7 +5,6 @@ use Yii;
 use yii\web\View;
 use yii\helpers\Json;
 use yii\helpers\Html;
-use yii\base\InvalidParamException;
 
 /**
  * This package comes with a Wrapper widget that can be used to regularly poll the server
