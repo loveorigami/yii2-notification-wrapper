@@ -112,6 +112,10 @@ class Wrapper extends \yii\base\Widget
                             options: '$options'
                         },
                         success: function(data) {
+                            if( !$('#" . self::WRAP_ID . "').length )
+                            {
+                                $('body').append('<div id=\'".self::WRAP_ID."\'></div>');
+                            }
                            $('#" . self::WRAP_ID . "').html(data);
                         }
                     });
