@@ -16,7 +16,7 @@ Usage
 ```php
 use lo\modules\noty\widgets\Wrapper;
 
-Wrapper::widget();
+echo Wrapper::widget();
 
 ```
 Since v.2.1 ```'layerClass' => 'lo\modules\noty\widgets\layers\Alert'``` is default for this module

@@ -77,7 +77,7 @@ This widget should be used in your main layout file as follows:
 ```php
 use lo\modules\noty\widgets\Wrapper;
 
-Wrapper::widget([
+echo Wrapper::widget([
     'layerClass' => 'lo\modules\noty\widgets\layers\Noty',
     'layerOptions'=>[
         'registerAnimateCss' => true,
