@@ -13,7 +13,7 @@ use lo\modules\noty\widgets\Wrapper;
  * ---------------------------------------
  *  use lo\modules\noty\widgets\Wrapper;
  *
- *  Wrapper::widget([
+ *  echo Wrapper::widget([
  *      'layerClass' => 'lo\modules\noty\widgets\layers\Toastr',
  *      'options' => [
  *          'closeButton' => false,
