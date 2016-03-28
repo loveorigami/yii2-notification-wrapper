@@ -47,8 +47,10 @@ class Wrapper extends \yii\base\Widget
     const TYPE_WARNING = 'warning';
 
     /** @const wrapper id */
-    const WRAP_ID = 'noty-warap';
+    const WRAP_ID = 'noty-warp';
 
+    /** @const default Layer */
+    const DEFAULT_LAYER = 'lo\modules\noty\widgets\layers\Alert';
 
     /** @var array $types */
     public $types = [self::TYPE_INFO, self::TYPE_ERROR, self::TYPE_SUCCESS, self::TYPE_WARNING];
@@ -82,7 +84,7 @@ class Wrapper extends \yii\base\Widget
     public function run()
     {
         if (!$this->layerClass) {
-            throw new InvalidParamException(Yii::t('noty', 'layerClass not configurated'));
+            $this->layerClass = self::DEFAULT_LAYER;
         }
 
         $this->isAjax = false;
