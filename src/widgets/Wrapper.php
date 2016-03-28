@@ -140,7 +140,7 @@ class Wrapper extends \yii\base\Widget
     {
         $session = \Yii::$app->session;
         $flashes = $session->getAllFlashes();
-        $options = Json::encode($this->options);
+        $options = $this->options;
         $result = [];
 
         foreach ($flashes as $type => $data) {
@@ -148,8 +148,6 @@ class Wrapper extends \yii\base\Widget
             $type = (in_array($type, $this->types)) ? $type : self::TYPE_INFO;
 
             foreach ($data as $i => $message) {
-                $message = Json::encode($message);
-                $type = Json::encode($type);
                 $result[] = $layer->getNotification($type, $message, $options);
             }
 

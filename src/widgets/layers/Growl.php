@@ -42,11 +42,11 @@ class Growl extends Wrapper implements LayerInterface
      */
     public function getNotification($type, $message, $options)
     {
-        $data = Json::decode($options);
-        $data['message'] = Json::decode($message);
-        $data['title'] = $this->getTitle(Json::decode($type));
+        $data = $options;
+        $data['message'] = $message;
+        $data['title'] = $this->getTitle($type);
 
-        switch (Json::decode($type)) {
+        switch ($type) {
             case self::TYPE_ERROR:
                 $type = '.error';
                 break;
@@ -59,7 +59,6 @@ class Growl extends Wrapper implements LayerInterface
             default:
                 $type = '';
         }
-
 
         $msg = Json::encode($data);
 

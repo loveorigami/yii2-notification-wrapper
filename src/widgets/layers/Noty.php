@@ -62,11 +62,14 @@ class Noty extends Wrapper implements LayerInterface
      */
     public function getNotification($type, $message, $options)
     {
-        switch(Json::decode($type)){
+        switch($type){
             case self::TYPE_INFO:
-                $type = Json::encode("information");
+                $type = "information";
                 break;
         }
+
+        $type = Json::encode($type);
+        $message = Json::encode($message);
 
         $result[] = "var n = Noty('".self::WRAP_ID."');";
         $result[] = "$.noty.setText(n.options.id, $message);";

@@ -40,6 +40,10 @@ class Toastr extends Wrapper implements LayerInterface
      */
     public function getNotification($type, $message, $options)
     {
+        $type = Json::encode($type);
+        $message = Json::encode($message);
+        $options = Json::encode($options);
+
         return "toastr[$type]($message, '', $options);";
     }
 }
