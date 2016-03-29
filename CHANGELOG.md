@@ -1,6 +1,6 @@
 # CHANGELOG
 
-* 2.2 [28 March 2016]
+* 2.2 [29 March 2016]
     - `enh` Added new layer - Noty.js
 
 * 2.1 [28 March 2016]
