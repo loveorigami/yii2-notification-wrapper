@@ -1,6 +1,6 @@
 {
     "name": "loveorigami/yii2-notification-wrapper",
-    "description": "Noty module for Yii2",
+    "description": "This module for renders a message from session flash (with ajax, pjax support and etc.)",
     "version": "2.2",
     "type": "yii2-extension",
     "keywords": [
@@ -8,7 +8,7 @@
         "noty", "toastr", "growl", "alert", "notyjs"
     ],
     "homepage": "https://github.com/loveorigami/yii2-notification-wrapper",
-    "time": "2016-03-20",
+    "time": "2016-03-29",
     "license": "MIT",
     "authors": [
         {
