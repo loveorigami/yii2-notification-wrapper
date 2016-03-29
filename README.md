@@ -101,12 +101,13 @@ Supported layers
 
 Currently supported layers are:
 
-| Library (Layer) | Bower         | Project homepage                               | Docs                   |
-| --------------- | ------------- | ---------------------------------------------- | ---------------------- |
-| Noty            | noty          | https://github.com/needim/noty                 | [read](docs/Noty.md)   |
-| Toastr          | toastr        | https://github.com/CodeSeven/toastr            | [read](docs/Toastr.md) |
-| Growl           | jquery-growl  | https://github.com/ksylvest/jquery-growl       | [read](docs/Growl.md)  |
-| Bootstrap Alert | -             | http://getbootstrap.com/components/#alerts     | [read](docs/Alert.md)  |
+| Library (Layer) | Bower         | Project homepage                               | Docs                        |
+| --------------- | ------------- | ---------------------------------------------- | --------------------------- |
+| Bootstrap Alert | -             | http://getbootstrap.com/components/#alerts     | [read](docs/Alert.md)       |
+| Growl           | jquery-growl  | https://github.com/ksylvest/jquery-growl       | [read](docs/Growl.md)       |
+| Notify.js       | notifyjs      | https://github.com/notifyjs/notifyjs           | [read](docs/Notifyjs.md)    |
+| Noty            | noty          | https://github.com/needim/noty                 | [read](docs/Noty.md)        |
+| Toastr          | toastr        | https://github.com/CodeSeven/toastr            | [read](docs/Toastr.md)      |
 
 
 License
