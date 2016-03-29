@@ -10,11 +10,10 @@ use yii\web\AssetBundle;
  */
 class NotifyjsAsset extends AssetBundle
 {
-    public $sourcePath = '@bower/noty';
-    public $style;
+    public $sourcePath = '@bower/notifyjs/dist';
 
     public $js = [
-        'js/noty/packaged/jquery.noty.packaged.min.js'
+        'notify.js'
     ];
 
     public $depends = [
@@ -28,10 +27,6 @@ class NotifyjsAsset extends AssetBundle
      */
     public function registerAssetFiles($view)
     {
-        if ($this->animateCss) {
-            $this->css[] = 'demo/animate.css';
-        }
-
         parent::registerAssetFiles($view);
     }
 

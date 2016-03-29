@@ -1,10 +1,11 @@
 {
     "name": "loveorigami/yii2-notification-wrapper",
     "description": "Noty module for Yii2",
-    "version": "1.0",
+    "version": "2.2",
     "type": "yii2-extension",
     "keywords": [
-        "yii2", "noty", "module", "toastr", "notification", "flash", "growl"
+        "yii2", "module", "notification", "flash",
+        "noty", "toastr", "growl", "alert", "notyjs"
     ],
     "homepage": "https://github.com/loveorigami/yii2-notification-wrapper",
     "time": "2016-03-20",

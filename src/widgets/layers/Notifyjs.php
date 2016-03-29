@@ -7,7 +7,7 @@ use yii\web\View;
 use lo\modules\noty\widgets\Wrapper;
 
 /**
- * Class Noty
+ * Class Notifyjs
  * @package lo\modules\noty\widgets\layers
  *
  * This widget should be used in your main layout file as follows:
@@ -17,16 +17,51 @@ use lo\modules\noty\widgets\Wrapper;
  *  echo Wrapper::widget([
  *      'layerClass' => 'lo\modules\noty\widgets\layers\Notifyjs',
  *      'options' => [
- *          'dismissQueue' => true,
- *          'layout' => 'topRight',
- *          'timeout' => 3000,
- *          'theme' => 'relax',
+ *          // whether to hide the notification on click
+ *          'clickToHide' => true,
  *
- *          // and more for this library...
- *      ],
- *      'layerOptions'=>[
+ *          // whether to auto-hide the notification
+ *          'autoHide' => true,
+ *
+ *          // if autoHide, hide after milliseconds
+ *          'autoHideDelay' => 5000,
+ *
+ *          // show the arrow pointing at the element
+ *          'arrowShow' => true,
+ *
+ *          // arrow size in pixels
+ *          'arrowSize' => 5,
+ *
+ *          // position defines the notification position though uses the defaults below
+ *          'position' => '...',
+ *
+ *          // default positions
+ *          'elementPosition' => 'bottom left',
+ *          'globalPosition' => 'top right',
+ *
+ *          // default style
  *          'style' => 'bootstrap',
- *      ]
+ *
+ *          // default class (string or [string])
+ *          'className' => 'error',
+ *
+ *          // show animation
+ *          'showAnimation' => 'slideDown',
+ *
+ *          // show animation duration
+ *          'showDuration' => 400,
+ *
+ *          // hide animation
+ *          'hideAnimation' => 'slideUp',
+ *
+ *          // hide animation duration
+ *          'hideDuration' => 200,
+ *
+ *          // padding between element and notification
+ *          'gap' => 2
+ *
+ *          // and more for this library https://notifyjs.com
+ *      ],
  *  ]);
  * ---------------------------------------
  */
@@ -43,37 +78,26 @@ class Notifyjs extends Wrapper implements LayerInterface
      */
     public function run()
     {
-        $this->registerAssets();
+        $view = $this->getView();
+        $asset = NotifyjsAsset::register($view);
     }
+
 
     /**
      * @inheritdoc
      */
     public function getNotification($type, $message, $options)
     {
-        switch($type){
-            case self::TYPE_INFO:
-                $type = "information";
+        switch ($type) {
+            case self::TYPE_WARNING:
+                $type = "warn";
                 break;
         }
 
-        $type = Json::encode($type);
-        $message = Json::encode($message);
+        $options['className'] = $type;
+        $options = Json::encode($options);
 
-        $result[] = "var n = Noty('".self::WRAP_ID."');";
-        $result[] = "$.noty.setText(n.options.id, $message);";
-        $result[] = "$.noty.setType(n.options.id, $type);";
-
-        return implode("\n", $result);
+        return "$.notify('$message', $options);";
     }
 
-    /**
-     * Register required assets
-     */
-    public function registerAssets()
-    {
-        $view = $this->getView();
-        $asset = NotifyjsAsset::register($view);
-        $asset->style = $this->style;
-    }
 }
