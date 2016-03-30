@@ -14,5 +14,12 @@ class Module extends \yii\base\Module
 		// initialize the module with the configuration loaded from config.php
         //\Yii::configure($this, require(__DIR__ . '/config.php'));
 
+        if (!isset(\Yii::$app->i18n->translations['noty'])) {
+            \Yii::$app->i18n->translations['noty'] = [
+                'class' => 'yii\i18n\PhpMessageSource',
+                'sourceLanguage' => 'en',
+                'basePath' => __DIR__ . '/messages',
+            ];
+        }
     }
 }
