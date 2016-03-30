@@ -5,7 +5,7 @@
     "type": "yii2-extension",
     "keywords": [
         "yii2", "module", "notification", "flash",
-        "noty", "toastr", "growl", "alert", "notyjs"
+        "noty", "toastr", "growl", "alert", "notyjs", "notyfy", "pnotyfy"
     ],
     "homepage": "https://github.com/loveorigami/yii2-notification-wrapper",
     "time": "2016-03-29",

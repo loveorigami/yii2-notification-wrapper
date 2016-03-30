@@ -108,6 +108,7 @@ Currently supported layers are:
 | Jquery Notify   | jquery.notify | https://github.com/CreativeDream/jquery.notify   | [read](docs/JqueryNotify.md)  |
 | Notify.js       | notifyjs      | https://github.com/notifyjs/notifyjs             | [read](docs/Notifyjs.md)      |
 | Noty            | noty          | https://github.com/needim/noty                   | [read](docs/Noty.md)          |
+| Pnotify         | pnotify       | https://github.com/sciactive/pnotify             | [read](docs/Pnotify.md)       |
 | Toastr          | toastr        | https://github.com/CodeSeven/toastr              | [read](docs/Toastr.md)        |
 
 

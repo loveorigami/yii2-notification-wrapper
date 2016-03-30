@@ -1,4 +1,5 @@
 # JqueryNotify
+!["Jquery Notify"](img/jnotify.jpg)
 
 Installation
 --------
