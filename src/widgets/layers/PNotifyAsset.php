@@ -27,6 +27,7 @@ class PNotifyAsset extends AssetBundle
         'pnotify.js',
         'pnotify.animate.js',
         'pnotify.buttons.js',
+        'pnotify.confirm.js',
         'pnotify.desktop.js',
         'pnotify.history.js',
         'pnotify.mobile.js',

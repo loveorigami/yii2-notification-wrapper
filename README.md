@@ -96,20 +96,26 @@ echo Wrapper::widget([
 
 ```
 
+Some libraries have confirm support for links as:
+
+```
+<a class="btn btn-danger" href="https://github.com" data-confirm="Are you sure?">Go!</a>
+```
+
 Supported layers
 ----------------
 
 Currently supported layers are:
 
-| Library (Layer) | Bower         | Project homepage                                 | Docs                          |
-| --------------- | ------------- | ------------------------------------------------ | ----------------------------- |
-| Bootstrap Alert | -             | http://getbootstrap.com/components/#alerts       | [read](docs/Alert.md)         |
-| Growl           | jquery-growl  | https://github.com/ksylvest/jquery-growl         | [read](docs/Growl.md)         |
-| Jquery Notify   | jquery.notify | https://github.com/CreativeDream/jquery.notify   | [read](docs/JqueryNotify.md)  |
-| Notify.js       | notifyjs      | https://github.com/notifyjs/notifyjs             | [read](docs/Notifyjs.md)      |
-| Noty            | noty          | https://github.com/needim/noty                   | [read](docs/Noty.md)          |
-| PNotify         | pnotify       | https://github.com/sciactive/pnotify             | [read](docs/PNotify.md)       |
-| Toastr          | toastr        | https://github.com/CodeSeven/toastr              | [read](docs/Toastr.md)        |
+| Library (Layer) | Bower         | Confirm | Project homepage                                 | Docs                          |
+| --------------- | ------------- | ------- | ------------------------------------------------ | ----------------------------- |
+| Bootstrap Alert | -             |    -    | http://getbootstrap.com/components/#alerts       | [read](docs/Alert.md)         |
+| Growl           | jquery-growl  |    -    | https://github.com/ksylvest/jquery-growl         | [read](docs/Growl.md)         |
+| Jquery Notify   | jquery.notify |    -    | https://github.com/CreativeDream/jquery.notify   | [read](docs/JqueryNotify.md)  |
+| Notify.js       | notifyjs      |    -    | https://github.com/notifyjs/notifyjs             | [read](docs/Notifyjs.md)      |
+| Noty            | noty          |    -    | https://github.com/needim/noty                   | [read](docs/Noty.md)          |
+| PNotify         | pnotify       |    +    | https://github.com/sciactive/pnotify             | [read](docs/PNotify.md)       |
+| Toastr          | toastr        |    -    | https://github.com/CodeSeven/toastr              | [read](docs/Toastr.md)        |
 
 
 Full installation

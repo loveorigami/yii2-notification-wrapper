@@ -57,6 +57,9 @@ class Wrapper extends \yii\base\Widget
     /** @var string $layerClass */
     public $layerClass;
 
+    /** @var bool $overrideSystemConfirm */
+    public $overrideSystemConfirm = true;
+
     /** @var array $layerOptions */
     public $layerOptions = [];
 
@@ -91,6 +94,7 @@ class Wrapper extends \yii\base\Widget
         $config = $this->layerOptions;
         $config['options'] = $this->options;
         $config['layerClass'] = $this->layerClass;
+        $config['overrideSystemConfirm'] = $this->overrideSystemConfirm;
 
         $layer = $this->loadLayer();
         $layer::widget($config);

@@ -40,8 +40,39 @@ class PNotify extends Wrapper implements LayerInterface
     public function run()
     {
         PNotifyAsset::register($this->getView());
-    }
 
+        if ($this->overrideSystemConfirm) {
+            $title = \Yii::t('noty', 'Confirmation Needed');
+
+            $this->view->registerJs("
+                yii.confirm = function(message, ok, cancel) {
+                    (new PNotify({
+                        title: '$title',
+                        text: message,
+                        icon: 'glyphicon glyphicon-question-sign',
+                        hide: false,
+
+                        confirm: {
+                            confirm: true
+                        },
+                        buttons: {
+                            closer: false,
+                            sticker: false
+                        },
+                        history: {
+                            history: false
+                        },
+                        addclass: 'stack-modal',
+                        stack: {'dir1': 'down', 'dir2': 'right', 'modal': true }
+                    })).get().on('pnotify.confirm', function() {
+                        !ok || ok();
+                    }).on('pnotify.cancel', function() {
+                        !cancel || cancel();
+                    });
+                }
+            ");
+        }
+    }
 
     /**
      * @inheritdoc
