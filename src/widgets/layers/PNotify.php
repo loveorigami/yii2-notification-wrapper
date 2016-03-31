@@ -40,7 +40,26 @@ class PNotify extends Wrapper implements LayerInterface
     public function run()
     {
         PNotifyAsset::register($this->getView());
+        $this->overrideConfirm();
+    }
 
+    /**
+     * @inheritdoc
+     */
+    public function getNotification($type, $message, $options)
+    {
+        $options['title'] = $this->getTitle($type);
+        $options['type'] = $type;
+        $options['text'] = $message;
+        $options = Json::encode($options);
+
+        return "new PNotify($options);";
+    }
+
+    /**
+     * Override Sistem Confirm
+     */
+    public function overrideConfirm(){
         if ($this->overrideSystemConfirm) {
             $title = \Yii::t('noty', 'Confirmation Needed');
 
@@ -51,7 +70,6 @@ class PNotify extends Wrapper implements LayerInterface
                         text: message,
                         icon: 'glyphicon glyphicon-question-sign',
                         hide: false,
-
                         confirm: {
                             confirm: true
                         },
@@ -72,19 +90,6 @@ class PNotify extends Wrapper implements LayerInterface
                 }
             ");
         }
-    }
-
-    /**
-     * @inheritdoc
-     */
-    public function getNotification($type, $message, $options)
-    {
-        $options['title'] = $this->getTitle($type);
-        $options['type'] = $type;
-        $options['text'] = $message;
-        $options = Json::encode($options);
-
-        return "new PNotify($options);";
     }
 
 }

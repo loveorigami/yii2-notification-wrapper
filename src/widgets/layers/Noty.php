@@ -55,6 +55,7 @@ class Noty extends Wrapper implements LayerInterface
     {
         $this->registerAssets();
         $this->registerPlugin();
+        $this->overrideConfirm();
     }
 
     /**
@@ -91,7 +92,7 @@ class Noty extends Wrapper implements LayerInterface
     public function registerPlugin()
     {
         $view = $this->getView();
-        $options = !empty($this->options) ? Json::encode($this->options) : '';
+        $options = ($this->options) ? Json::encode($this->options) : "{}";
         $js = <<< JS
             function Noty(widgetId, options) {
                 var finalOptions = $.extend({}, $options, options);
@@ -111,5 +112,46 @@ JS;
         $asset = NotyAsset::register($view);
         $asset->animateCss = $this->registerAnimateCss;
         $asset->buttonsCss = $this->registerButtonsCss;
+    }
+
+    /**
+     * Override Sistem Confirm
+     */
+    public function overrideConfirm()
+    {
+        if ($this->overrideSystemConfirm) {
+
+            $ok = \Yii::t('noty', 'Ok');
+            $cancel = \Yii::t('noty', 'Cancel');
+
+            $this->view->registerJs("
+                yii.confirm = function(message, ok, cancel) {
+                    noty({
+                        text: message,
+                        type: 'confirm',
+                        layout: 'center',
+                        modal: true,
+                        buttons: [
+                            {
+                                addClass: 'btn btn-primary',
+                                text: '$ok',
+                                onClick: function(res) {
+                                    !ok || ok();
+                                    res.close();
+                                }
+                            },
+                            {
+                                addClass: 'btn btn-danger',
+                                text: '$cancel',
+                                onClick: function(res) {
+                                    !cancel || cancel();
+                                    res.close();
+                                }
+                            }
+                        ]
+                    });
+                }
+            ");
+        }
     }
 }

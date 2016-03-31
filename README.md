@@ -83,6 +83,8 @@ echo Wrapper::widget([
         'registerAnimateCss' => true,
         'registerButtonsCss' => true
     ],
+    'overrideSystemConfirm' => true,
+    
     // clientOptions
     'options' => [
         'dismissQueue' => true,
@@ -113,7 +115,7 @@ Currently supported layers are:
 | Growl           | jquery-growl  |    -    | https://github.com/ksylvest/jquery-growl         | [read](docs/Growl.md)         |
 | Jquery Notify   | jquery.notify |    -    | https://github.com/CreativeDream/jquery.notify   | [read](docs/JqueryNotify.md)  |
 | Notify.js       | notifyjs      |    -    | https://github.com/notifyjs/notifyjs             | [read](docs/Notifyjs.md)      |
-| Noty            | noty          |    -    | https://github.com/needim/noty                   | [read](docs/Noty.md)          |
+| Noty            | noty          |    +    | https://github.com/needim/noty                   | [read](docs/Noty.md)          |
 | PNotify         | pnotify       |    +    | https://github.com/sciactive/pnotify             | [read](docs/PNotify.md)       |
 | Toastr          | toastr        |    -    | https://github.com/CodeSeven/toastr              | [read](docs/Toastr.md)        |
 
