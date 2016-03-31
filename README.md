@@ -84,7 +84,7 @@ echo Wrapper::widget([
         'registerButtonsCss' => true
     ],
     'overrideSystemConfirm' => true,
-    
+
     // clientOptions
     'options' => [
         'dismissQueue' => true,
