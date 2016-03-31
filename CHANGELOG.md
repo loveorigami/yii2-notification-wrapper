@@ -1,5 +1,8 @@
 # CHANGELOG
 
+* 3.0 [31 March 2016]
+    - `enh` Added overriding system confirm (Noty, PNotify)
+
 * 2.3 [30 March 2016]
     - `enh` Added new layer - PNotify
     - `enh` Added new layer - Jquery Notify
