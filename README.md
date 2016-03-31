@@ -96,9 +96,9 @@ echo Wrapper::widget([
 
 ```
 
-Some libraries have confirm support for links as:
+Some libraries can override System Confirm for links as:
 
-```
+```html
 <a class="btn btn-danger" href="https://github.com" data-confirm="Are you sure?">Go!</a>
 ```
 
