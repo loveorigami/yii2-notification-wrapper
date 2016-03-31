@@ -92,7 +92,7 @@ class Noty extends Wrapper implements LayerInterface
     public function registerPlugin()
     {
         $view = $this->getView();
-        $options = ($this->options) ? Json::encode($this->options) : "{}";
+        $options = Json::encode($this->options);
         $js = <<< JS
             function Noty(widgetId, options) {
                 var finalOptions = $.extend({}, $options, options);
