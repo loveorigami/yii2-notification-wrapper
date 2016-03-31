@@ -108,9 +108,26 @@ Currently supported layers are:
 | Jquery Notify   | jquery.notify | https://github.com/CreativeDream/jquery.notify   | [read](docs/JqueryNotify.md)  |
 | Notify.js       | notifyjs      | https://github.com/notifyjs/notifyjs             | [read](docs/Notifyjs.md)      |
 | Noty            | noty          | https://github.com/needim/noty                   | [read](docs/Noty.md)          |
-| Pnotify         | pnotify       | https://github.com/sciactive/pnotify             | [read](docs/PNotify.md)       |
+| PNotify         | pnotify       | https://github.com/sciactive/pnotify             | [read](docs/PNotify.md)       |
 | Toastr          | toastr        | https://github.com/CodeSeven/toastr              | [read](docs/Toastr.md)        |
 
+
+Full installation
+--------
+
+Add
+
+```bash
+"loveorigami/yii2-notification-wrapper": "*",
+"bower-asset/noty": "^2.3",
+"bower-asset/jquery-growl": "^1.3",
+"bower-asset/jquery.notify": "^1.0",
+"bower-asset/notifyjs": "^0.4",
+"bower-asset/pnotify": "^3.0",
+"bower-asset/toastr": "^2.1"
+```
+
+to the ```require``` section of your `composer.json` file.
 
 License
 -------
