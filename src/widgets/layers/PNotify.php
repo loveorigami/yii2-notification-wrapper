@@ -57,7 +57,7 @@ class PNotify extends Wrapper implements LayerInterface
     }
 
     /**
-     * Override Sistem Confirm
+     * Override System Confirm
      */
     public function overrideConfirm(){
         if ($this->overrideSystemConfirm) {

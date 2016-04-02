@@ -50,7 +50,7 @@ class NotifIt extends Wrapper implements LayerInterface
     }
 
     /**
-     * Override Sistem Confirm
+     * Override System Confirm
      */
     public function overrideConfirm()
     {

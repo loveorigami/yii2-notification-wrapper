@@ -115,7 +115,7 @@ JS;
     }
 
     /**
-     * Override Sistem Confirm
+     * Override System Confirm
      */
     public function overrideConfirm()
     {
