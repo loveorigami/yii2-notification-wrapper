@@ -1,5 +1,7 @@
 # CHANGELOG
-
+* 3.1 [2 April 2016]
+    - `enh` Added new layer NotifIt
+	
 * 3.0 [31 March 2016]
     - `enh` Added overriding system confirm (Noty, PNotify)
 

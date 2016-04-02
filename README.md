@@ -114,6 +114,7 @@ Currently supported layers are:
 | Bootstrap Alert | -             |    -    | http://getbootstrap.com/components/#alerts       | [read](docs/Alert.md)         |
 | Growl           | jquery-growl  |    -    | https://github.com/ksylvest/jquery-growl         | [read](docs/Growl.md)         |
 | Jquery Notify   | jquery.notify |    -    | https://github.com/CreativeDream/jquery.notify   | [read](docs/JqueryNotify.md)  |
+| NotifIt         | notifit       |    +    | https://github.com/naoxink/notifIt               | [read](docs/NotifIt.md)       |
 | Notify.js       | notifyjs      |    -    | https://github.com/notifyjs/notifyjs             | [read](docs/Notifyjs.md)      |
 | Noty            | noty          |    +    | https://github.com/needim/noty                   | [read](docs/Noty.md)          |
 | PNotify         | pnotify       |    +    | https://github.com/sciactive/pnotify             | [read](docs/PNotify.md)       |
@@ -130,9 +131,10 @@ Add
 "bower-asset/noty": "^2.3",
 "bower-asset/jquery-growl": "^1.3",
 "bower-asset/jquery.notify": "^1.0",
+"bower-asset/notifit": "^1.1",
 "bower-asset/notifyjs": "^0.4",
 "bower-asset/pnotify": "^3.0",
-"bower-asset/toastr": "^2.1"
+"bower-asset/toastr": "^2.1",
 ```
 
 to the ```require``` section of your `composer.json` file.
