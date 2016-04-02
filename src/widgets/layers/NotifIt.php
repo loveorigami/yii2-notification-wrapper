@@ -56,13 +56,16 @@ class NotifIt extends Wrapper implements LayerInterface
     {
         if ($this->overrideSystemConfirm) {
 
+            $ok = \Yii::t('noty', 'Ok');
+            $cancel = \Yii::t('noty', 'Cancel');
+
             $this->view->registerJs("
                 yii.confirm = function(message, ok, cancel) {
 
                     notif_confirm({
                         'message': message,
-                        'textaccept': 'Yes!',
-                        'textcancel': 'No',
+                        'textaccept': '$ok',
+                        'textcancel': '$cancel',
                         'callback': function(choice){
                             if(choice){
                                 !ok || ok();
