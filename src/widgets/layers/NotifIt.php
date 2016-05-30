@@ -2,6 +2,7 @@
 
 namespace lo\modules\noty\widgets\layers;
 
+use Yii;
 use yii\helpers\Json;
 use lo\modules\noty\widgets\Wrapper;
 
@@ -56,8 +57,8 @@ class NotifIt extends Wrapper implements LayerInterface
     {
         if ($this->overrideSystemConfirm) {
 
-            $ok = \Yii::t('noty', 'Ok');
-            $cancel = \Yii::t('noty', 'Cancel');
+            $ok = Yii::t('noty', 'Ok');
+            $cancel = Yii::t('noty', 'Cancel');
 
             $this->view->registerJs("
                 yii.confirm = function(message, ok, cancel) {
@@ -79,5 +80,4 @@ class NotifIt extends Wrapper implements LayerInterface
             ");
         }
     }
-
 }

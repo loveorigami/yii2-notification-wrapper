@@ -99,5 +99,4 @@ class Notifyjs extends Wrapper implements LayerInterface
 
         return "$.notify('$message', $options);";
     }
-
 }

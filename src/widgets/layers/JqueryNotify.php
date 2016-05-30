@@ -53,5 +53,4 @@ class JqueryNotify extends Wrapper implements LayerInterface
 
         return "notify($options);";
     }
-
 }

@@ -26,5 +26,8 @@
         "psr-4": {
             "lo\\modules\\noty\\": "src/"
         }
+    },
+    "extra": {
+        "bootstrap": "lo\\modules\\noty\\Bootstrap"
     }
 }

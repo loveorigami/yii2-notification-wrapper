@@ -2,6 +2,7 @@
 
 namespace lo\modules\noty\widgets\layers;
 
+use Yii;
 use yii\helpers\Json;
 use yii\web\View;
 use lo\modules\noty\widgets\Wrapper;
@@ -121,8 +122,8 @@ JS;
     {
         if ($this->overrideSystemConfirm) {
 
-            $ok = \Yii::t('noty', 'Ok');
-            $cancel = \Yii::t('noty', 'Cancel');
+            $ok = Yii::t('noty', 'Ok');
+            $cancel = Yii::t('noty', 'Cancel');
 
             $this->view->registerJs("
                 yii.confirm = function(message, ok, cancel) {

@@ -38,5 +38,4 @@ class NotyAsset extends AssetBundle
 
         parent::registerAssetFiles($view);
     }
-
 }

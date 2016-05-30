@@ -29,5 +29,4 @@ class NotifyjsAsset extends AssetBundle
     {
         parent::registerAssetFiles($view);
     }
-
 }

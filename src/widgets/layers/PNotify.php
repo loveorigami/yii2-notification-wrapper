@@ -2,6 +2,7 @@
 
 namespace lo\modules\noty\widgets\layers;
 
+use Yii;
 use yii\helpers\Json;
 use lo\modules\noty\widgets\Wrapper;
 
@@ -61,7 +62,7 @@ class PNotify extends Wrapper implements LayerInterface
      */
     public function overrideConfirm(){
         if ($this->overrideSystemConfirm) {
-            $title = \Yii::t('noty', 'Confirmation Needed');
+            $title = Yii::t('noty', 'Confirmation Needed');
 
             $this->view->registerJs("
                 yii.confirm = function(message, ok, cancel) {
@@ -91,5 +92,4 @@ class PNotify extends Wrapper implements LayerInterface
             ");
         }
     }
-
 }
