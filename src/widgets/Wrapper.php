@@ -1,10 +1,12 @@
 <?php
+
 namespace lo\modules\noty\widgets;
 
 use Yii;
-use yii\web\View;
+use yii\base\Widget;
 use yii\helpers\Json;
 use yii\helpers\Html;
+use yii\web\View;
 
 /**
  * This package comes with a Wrapper widget that can be used to regularly poll the server
@@ -31,7 +33,7 @@ use yii\helpers\Html;
  *  ]);
  * ---------------------------------------
  */
-class Wrapper extends \yii\base\Widget
+class Wrapper extends Widget
 {
     /** @const type info */
     const TYPE_INFO = 'info';
@@ -141,7 +143,7 @@ class Wrapper extends \yii\base\Widget
      */
     protected function getFlashes($layer)
     {
-        $session = \Yii::$app->session;
+        $session = Yii::$app->session;
         $flashes = $session->getAllFlashes();
         $options = $this->options;
         $result = [];
@@ -171,16 +173,16 @@ class Wrapper extends \yii\base\Widget
     {
         switch ($type) {
             case self::TYPE_ERROR:
-                $t = \Yii::t('noty', 'Error');
+                $t = Yii::t('noty', 'Error');
                 break;
             case self::TYPE_INFO:
-                $t = \Yii::t('noty', 'Info');
+                $t = Yii::t('noty', 'Info');
                 break;
             case self::TYPE_WARNING:
-                $t = \Yii::t('noty', 'Warning');
+                $t = Yii::t('noty', 'Warning');
                 break;
             case self::TYPE_SUCCESS:
-                $t = \Yii::t('noty', 'Success');
+                $t = Yii::t('noty', 'Success');
                 break;
             default:
                 $t = '';

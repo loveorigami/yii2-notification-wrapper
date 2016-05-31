@@ -1,23 +1,18 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: loveorigami
- * Date: 20/3/16
- */
 
 namespace lo\modules\noty\controllers;
 
-use yii\web\Controller;
+use Yii;
 use yii\helpers\Json;
+use yii\web\Controller;
 use lo\modules\noty\widgets\Wrapper;
 
 class DefaultController extends Controller
 {
-
     public function actionIndex()
     {
-        $layerClass = \Yii::$app->request->post('layerClass');
-        $options = \Yii::$app->request->post('options');
+        $layerClass = Yii::$app->request->post('layerClass');
+        $options = Yii::$app->request->post('options');
 
         $layerClass = trim($layerClass, '"');
 
@@ -28,5 +23,4 @@ class DefaultController extends Controller
 
         echo $wrapper->ajaxCallback();
     }
-
-} 
+}
