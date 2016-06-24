@@ -59,14 +59,17 @@ class Wrapper extends Widget
     /** @var string $layerClass */
     public $layerClass;
 
-    /** @var bool $overrideSystemConfirm */
-    public $overrideSystemConfirm = true;
-
     /** @var array $layerOptions */
     public $layerOptions = [];
 
     /** @var array $options */
     public $options = [];
+
+    /** @var bool $overrideSystemConfirm */
+    public $overrideSystemConfirm = true;
+
+    /** @var string $options */
+    public $customTitleDelimeter = '|';
 
     /** @var bool $isAjax */
     protected $isAjax;
