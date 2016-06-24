@@ -43,7 +43,7 @@ class Growl extends Wrapper implements LayerInterface
     public function getNotification($type, $message, $options)
     {
         $data = $options;
-        $msg = explode($this->customTitleDelimeter, $message);
+        $msg = explode($this->customTitleDelimiter, $message);
 
         if(isset($msg[1])){
             $data['message'] = $msg[1];

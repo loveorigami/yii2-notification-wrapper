@@ -106,11 +106,11 @@ Some libraries can override System Confirm for links as:
 
 Custom title (example for Growl) 
 ----------------
-If you want change notification title, you can use ```customTitleDelimeter``` in our messages
+If you want change notification title, you can use ```customTitleDelimiter``` in our messages
 ```php
     Wrapper::widget([
         'layerClass' => 'lo\modules\noty\widgets\layers\Growl',
-        'customTitleDelimeter' = '|', // by default
+        'customTitleDelimiter' = '|', // by default
         'options' => [   
             // and more for this library here https://github.com/ksylvest/jquery-growl
         ],

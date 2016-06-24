@@ -68,8 +68,8 @@ class Wrapper extends Widget
     /** @var bool $overrideSystemConfirm */
     public $overrideSystemConfirm = true;
 
-    /** @var string $options */
-    public $customTitleDelimeter = '|';
+    /** @var string $customTitleDelimiter */
+    public $customTitleDelimiter = '|';
 
     /** @var bool $isAjax */
     protected $isAjax;
@@ -96,18 +96,20 @@ class Wrapper extends Widget
 
         $this->isAjax = false;
 
-        $config = $this->layerOptions;
-        $config['options'] = $this->options;
-        $config['layerClass'] = $this->layerClass;
-        $config['overrideSystemConfirm'] = $this->overrideSystemConfirm;
-
         $layer = $this->loadLayer();
-        $layer::widget($config);
+        $layer::widget($this->layerOptions);
+
+       // var_dump();
         $this->getFlashes($layer);
 
         echo Html::tag('div', '', ['id' => self::WRAP_ID]);
 
-        $options = Json::encode($this->options);
+        $config['options'] = $this->options;
+        $config['layerOptions'] = $this->layerOptions;
+        $config['overrideSystemConfirm'] = $this->overrideSystemConfirm;
+        $config['customTitleDelimiter'] = $this->customTitleDelimiter;
+
+        $config = Json::encode($config);
         $layerClass = Json::encode($this->layerClass);
 
         $this->view->registerJs("
@@ -119,7 +121,7 @@ class Wrapper extends Widget
                         cache: false,
                         data: {
                             layerClass: '$layerClass',
-                            options: '$options'
+                            config: '$config'
                         },
                         success: function(data) {
                            $('#" . self::WRAP_ID . "').html(data);
@@ -200,6 +202,8 @@ class Wrapper extends Widget
     protected function loadLayer()
     {
         $layer = new $this->layerClass;
+        $layer->customTitleDelimiter = $this->customTitleDelimiter;
+        $layer->overrideSystemConfirm = $this->overrideSystemConfirm;
         return $layer;
     }
 }

@@ -12,14 +12,13 @@ class DefaultController extends Controller
     public function actionIndex()
     {
         $layerClass = Yii::$app->request->post('layerClass');
-        $options = Yii::$app->request->post('options');
-
         $layerClass = trim($layerClass, '"');
 
-        $wrapper = new Wrapper([
-            'layerClass' => $layerClass,
-            'options' => Json::decode($options)
-        ]);
+        $config = Yii::$app->request->post('config');
+        $config = Json::decode($config);
+        $config['layerClass'] = $layerClass;
+
+        $wrapper = new Wrapper($config);
 
         echo $wrapper->ajaxCallback();
     }
