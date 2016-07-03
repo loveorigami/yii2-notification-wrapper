@@ -83,7 +83,12 @@ class Wrapper extends Widget
     public function init()
     {
         parent::init();
+
         $this->url = Yii::$app->getUrlManager()->createUrl(['noty/default/index']);
+        
+        if (!$this->layerClass) {
+            $this->layerClass = self::DEFAULT_LAYER;
+        }
     }
 
     /**
@@ -91,10 +96,6 @@ class Wrapper extends Widget
      */
     public function run()
     {
-        if (!$this->layerClass) {
-            $this->layerClass = self::DEFAULT_LAYER;
-        }
-
         $this->isAjax = false;
 
         $layer = $this->setLayer();

@@ -124,7 +124,7 @@ If you want change notification title, you can use ```customTitleDelimiter``` in
     ]);
 ```
 and set message in action as
-```
+```php
 public function actionIndex(){
     ...
      \Yii::$app->getSession()->setFlash('success', 'CUSTOM TITLE | noty success');
@@ -143,6 +143,7 @@ Currently supported layers are:
 | Bootstrap Alert | -             |    -    | http://getbootstrap.com/components/#alerts       | [read](docs/Alert.md)         |
 | Growl           | jquery-growl  |    -    | https://github.com/ksylvest/jquery-growl         | [read](docs/Growl.md)         |
 | Jquery Notify   | jquery.notify |    -    | https://github.com/CreativeDream/jquery.notify   | [read](docs/JqueryNotify.md)  |
+| Notie           | notie         |    +    | https://github.com/jaredreich/notie              | [read](docs/Notie.md)         |
 | NotifIt         | notifit       |    +    | https://github.com/naoxink/notifIt               | [read](docs/NotifIt.md)       |
 | Notify.js       | notifyjs      |    -    | https://github.com/notifyjs/notifyjs             | [read](docs/Notifyjs.md)      |
 | Noty            | noty          |    +    | https://github.com/needim/noty                   | [read](docs/Noty.md)          |
