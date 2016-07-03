@@ -1,4 +1,11 @@
 # CHANGELOG
+
+* 4.0 [3 July 2016]
+    - `enh` Added new layer Notie
+    - `enh` Custom title for Growl layer
+    - `enh` All layers extends from base Layer class
+    - `enh` 'customTitleDelimiter' and 'overrideSystemConfirm' moved to 'layerOptions'
+
 * 3.1 [2 April 2016]
     - `enh` Added new layer NotifIt
 	
