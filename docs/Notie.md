@@ -6,7 +6,7 @@ Installation
 
 ```bash
 "loveorigami/yii2-notification-wrapper": "*",
-"bower-asset/notie": "*"
+"bower-asset/notie": "^3.2"
 ```
 
 to the ```require``` section of your `composer.json` file.

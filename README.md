@@ -161,6 +161,7 @@ Add
 "bower-asset/noty": "^2.3",
 "bower-asset/jquery-growl": "^1.3",
 "bower-asset/jquery.notify": "^1.0",
+"bower-asset/notie": "^3.2",
 "bower-asset/notifit": "^1.1",
 "bower-asset/notifyjs": "^0.4",
 "bower-asset/pnotify": "^3.0",
