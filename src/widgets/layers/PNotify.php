@@ -4,7 +4,6 @@ namespace lo\modules\noty\widgets\layers;
 
 use Yii;
 use yii\helpers\Json;
-use lo\modules\noty\widgets\Wrapper;
 
 /**
  * Class PNotify
@@ -33,7 +32,7 @@ use lo\modules\noty\widgets\Wrapper;
  *  ]);
  * ---------------------------------------
  */
-class PNotify extends Wrapper implements LayerInterface
+class PNotify extends Layer implements LayerInterface
 {
     /**
      * @inheritdoc

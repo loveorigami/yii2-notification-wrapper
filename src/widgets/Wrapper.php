@@ -27,6 +27,11 @@ use yii\web\View;
  *          // and more for this library...
  *      ],
  *      'layerOptions'=>[
+ *          // for every layer (by default)
+ *          'customTitleDelimiter' => '|',
+ *          'overrideSystemConfirm' => true,
+ *
+ *          // for custom layer
  *          'registerAnimateCss' => true,
  *          'registerButtonsCss' => true
  *      ]
@@ -35,53 +40,49 @@ use yii\web\View;
  */
 class Wrapper extends Widget
 {
-    /** @const type info */
-    const TYPE_INFO = 'info';
-
-    /** @const type error */
-    const TYPE_ERROR = 'error';
-
-    /** @const type success */
-    const TYPE_SUCCESS = 'success';
-
-    /** @const type warning */
-    const TYPE_WARNING = 'warning';
-
-    /** @const wrapper id */
+    /**
+     * @const wrapper id
+     */
     const WRAP_ID = 'noty-wrap';
 
-    /** @const default Layer */
+    /**
+     * @const default Layer
+     */
     const DEFAULT_LAYER = 'lo\modules\noty\widgets\layers\Alert';
 
-    /** @var array $types */
-    public $types = [self::TYPE_INFO, self::TYPE_ERROR, self::TYPE_SUCCESS, self::TYPE_WARNING];
-
-    /** @var string $layerClass */
+    /**
+     * @var string $layerClass
+     */
     public $layerClass;
 
-    /** @var array $layerOptions */
+    /**
+     * @var array $layerOptions
+     */
     public $layerOptions = [];
 
-    /** @var array $options */
+    /**
+     * @var array $options
+     */
     public $options = [];
 
-    /** @var bool $overrideSystemConfirm */
-    public $overrideSystemConfirm = true;
-
-    /** @var string $customTitleDelimiter */
-    public $customTitleDelimiter = '|';
-
-    /** @var bool $isAjax */
+    /**
+     * @var bool $isAjax
+     */
     protected $isAjax;
 
-    /** @var string $url */
+    /**
+     * @var string $url
+     */
     protected $url;
 
+    /**
+     * @var \lo\modules\noty\widgets\layers\LayerInterface $layer
+     */
+    protected $layer;
 
     public function init()
     {
         parent::init();
-
         $this->url = Yii::$app->getUrlManager()->createUrl(['noty/default/index']);
     }
 
@@ -96,18 +97,62 @@ class Wrapper extends Widget
 
         $this->isAjax = false;
 
-        $layer = $this->loadLayer();
+        $layer = $this->setLayer();
         $layer::widget($this->layerOptions);
 
-       // var_dump();
-        $this->getFlashes($layer);
+        $this->getFlashes();
+        $this->registerJs();
 
+        parent::run();
+    }
+
+    /**
+     * Ajax Callback.
+     */
+    public function ajaxCallback()
+    {
+        $this->isAjax = true;
+        $this->setLayer();
+
+        return $this->getFlashes();
+    }
+
+    /**
+     * Flashes
+     */
+    protected function getFlashes()
+    {
+        $session = Yii::$app->session;
+        $flashes = $session->getAllFlashes();
+        $options = $this->options;
+        $result = [];
+
+        foreach ($flashes as $type => $data) {
+            $type = $this->layer->getType($type);
+            $data = (array)$data;
+            foreach ($data as $i => $message) {
+                $result[] = $this->layer->getNotification($type, $message, $options);
+            }
+
+            $session->removeFlash($type);
+        }
+
+        if ($this->isAjax) {
+            return Html::tag('script', implode("\n", $result));
+        }
+
+        return $this->view->registerJs(implode("\n", $result));
+    }
+
+    /**
+     * Register js for ajax notifications
+     */
+    protected function registerJs()
+    {
         echo Html::tag('div', '', ['id' => self::WRAP_ID]);
 
         $config['options'] = $this->options;
         $config['layerOptions'] = $this->layerOptions;
-        $config['overrideSystemConfirm'] = $this->overrideSystemConfirm;
-        $config['customTitleDelimiter'] = $this->customTitleDelimiter;
 
         $config = Json::encode($config);
         $layerClass = Json::encode($this->layerClass);
@@ -131,79 +176,15 @@ class Wrapper extends Widget
             });
         ", View::POS_END);
     }
-
-    /**
-     * Ajax Callback.
-     */
-    public function ajaxCallback()
-    {
-        $this->isAjax = true;
-        $layer = $this->loadLayer();
-
-        return $this->getFlashes($layer);
-    }
-
-    /**
-     * Flashes
-     */
-    protected function getFlashes($layer)
-    {
-        $session = Yii::$app->session;
-        $flashes = $session->getAllFlashes();
-        $options = $this->options;
-        $result = [];
-
-        foreach ($flashes as $type => $data) {
-            $data = (array)$data;
-            $type = (in_array($type, $this->types)) ? $type : self::TYPE_INFO;
-
-            foreach ($data as $i => $message) {
-                $result[] = $layer->getNotification($type, $message, $options);
-            }
-
-            $session->removeFlash($type);
-        }
-
-        if ($this->isAjax) {
-            return Html::tag('script', implode("\n", $result));
-        }
-
-        return $this->view->registerJs(implode("\n", $result));
-    }
-
-    /**
-     * Get title
-     */
-    public function getTitle($type)
-    {
-        switch ($type) {
-            case self::TYPE_ERROR:
-                $t = Yii::t('noty', 'Error');
-                break;
-            case self::TYPE_INFO:
-                $t = Yii::t('noty', 'Info');
-                break;
-            case self::TYPE_WARNING:
-                $t = Yii::t('noty', 'Warning');
-                break;
-            case self::TYPE_SUCCESS:
-                $t = Yii::t('noty', 'Success');
-                break;
-            default:
-                $t = '';
-        }
-
-        return $t;
-    }
-
+    
     /**
      * load layer
      */
-    protected function loadLayer()
+    protected function setLayer()
     {
-        $layer = new $this->layerClass;
-        $layer->customTitleDelimiter = $this->customTitleDelimiter;
-        $layer->overrideSystemConfirm = $this->overrideSystemConfirm;
-        return $layer;
+        $config = $this->layerOptions;
+        $config['class'] = $this->layerClass;
+        $this->layer = Yii::createObject($config);
+        return $this->layer;
     }
 }

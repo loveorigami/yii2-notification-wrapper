@@ -19,7 +19,7 @@ use lo\modules\noty\widgets\Wrapper;
  *  ]);
  * ---------------------------------------
  */
-class Alert extends Wrapper implements LayerInterface
+class Alert extends Layer implements LayerInterface
 {
     /**
      * @var array the alert types configuration for the flash messages.
@@ -70,7 +70,7 @@ class Alert extends Wrapper implements LayerInterface
         $msg = Json::encode($msg);
         $msg = trim($msg, '"');
 
-        $id = self::WRAP_ID;
+        $id = Wrapper::WRAP_ID;
 
         return "$('#$id').append('$msg');";
 

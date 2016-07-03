@@ -3,7 +3,6 @@
 namespace lo\modules\noty\widgets\layers;
 
 use yii\helpers\Json;
-use lo\modules\noty\widgets\Wrapper;
 
 /**
  * Class JqueryNotify
@@ -30,7 +29,7 @@ use lo\modules\noty\widgets\Wrapper;
  *  ]);
  * ---------------------------------------
  */
-class JqueryNotify extends Wrapper implements LayerInterface
+class JqueryNotify extends Layer implements LayerInterface
 {
     /**
      * @inheritdoc

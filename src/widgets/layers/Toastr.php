@@ -3,7 +3,6 @@
 namespace lo\modules\noty\widgets\layers;
 
 use yii\helpers\Json;
-use lo\modules\noty\widgets\Wrapper;
 
 /**
  * Class Toastr
@@ -26,7 +25,7 @@ use lo\modules\noty\widgets\Wrapper;
  * ---------------------------------------
  */
 
-class Toastr extends Wrapper implements LayerInterface
+class Toastr extends Layer implements LayerInterface
 {
 
     public function run()

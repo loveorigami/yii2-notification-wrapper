@@ -80,6 +80,11 @@ use lo\modules\noty\widgets\Wrapper;
 echo Wrapper::widget([
     'layerClass' => 'lo\modules\noty\widgets\layers\Noty',
     'layerOptions'=>[
+        // for every layer (by default)
+        'customTitleDelimiter' => '|',
+        'overrideSystemConfirm' => true,
+
+        // for custom layer
         'registerAnimateCss' => true,
         'registerButtonsCss' => true
     ],
@@ -110,7 +115,9 @@ If you want change notification title, you can use ```customTitleDelimiter``` in
 ```php
     Wrapper::widget([
         'layerClass' => 'lo\modules\noty\widgets\layers\Growl',
-        'customTitleDelimiter' = '|', // by default
+        'layerOptions' => [
+            'customTitleDelimiter' = '|', // by default
+        ],
         'options' => [   
             // and more for this library here https://github.com/ksylvest/jquery-growl
         ],

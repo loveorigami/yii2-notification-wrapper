@@ -3,8 +3,6 @@
 namespace lo\modules\noty\widgets\layers;
 
 use yii\helpers\Json;
-use yii\web\View;
-use lo\modules\noty\widgets\Wrapper;
 
 /**
  * Class Growl
@@ -28,17 +26,25 @@ use lo\modules\noty\widgets\Wrapper;
  *  ]);
  * ---------------------------------------
  */
-class Growl extends Wrapper implements LayerInterface
+class Growl extends Layer implements LayerInterface
 {
 
+    /**
+     * register asset
+     */
     public function run()
     {
         $view = $this->getView();
         $asset = GrowlAsset::register($view);
+        parent::run();
     }
 
+
     /**
-     * @inheritdoc
+     * @param $type
+     * @param $message
+     * @param $options
+     * @return string
      */
     public function getNotification($type, $message, $options)
     {
@@ -53,14 +59,18 @@ class Growl extends Wrapper implements LayerInterface
             $data['title'] = $this->getTitle($type);
         }
 
-        $style = $this->getType($type);
+        $style = $this->getStyle($type);
         $msg = Json::encode($data);
 
         return " $.growl$style($msg);";
     }
     
     
-    public function getType($type){
+    /**
+     * @param $type
+     * @return string
+     */
+    public function getStyle($type){
         switch ($type) {
             case self::TYPE_ERROR:
                 $style = '.error';

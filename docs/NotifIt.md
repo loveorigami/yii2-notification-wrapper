@@ -19,16 +19,15 @@ Usage
 use lo\modules\noty\widgets\Wrapper;
 
 echo Wrapper::widget([
-         'layerClass' => 'lo\modules\noty\widgets\layers\PNotify',
-         'options' => [
-            'multiline' => true,
-            'position' => 'right',
-            'append' => true,
-            'clickable' => true,
+  'layerClass' => 'lo\modules\noty\widgets\layers\NotifIt',
+  'options' => [
+      'multiline' => true,
+      'position' => 'right',
+     'append' => true,
+      'clickable' => true,
 
-              // and more for this library here https://github.com/naoxink/notifIt
-
-         ],
-     ]);
+      // and more for this library...
+  ],
+]);
 
 ```

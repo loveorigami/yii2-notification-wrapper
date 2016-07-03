@@ -4,8 +4,6 @@ namespace lo\modules\noty\widgets\layers;
 
 use Yii;
 use yii\helpers\Json;
-use yii\web\View;
-use lo\modules\noty\widgets\Wrapper;
 
 /**
  * Class Noty
@@ -32,7 +30,7 @@ use lo\modules\noty\widgets\Wrapper;
  *  ]);
  * ---------------------------------------
  */
-class Noty extends Wrapper implements LayerInterface
+class Noty extends Layer implements LayerInterface
 {
     /**
      * Register animate.css
@@ -55,7 +53,6 @@ class Noty extends Wrapper implements LayerInterface
     public function run()
     {
         $this->registerAssets();
-        $this->registerPlugin();
         $this->overrideConfirm();
     }
 
@@ -70,38 +67,12 @@ class Noty extends Wrapper implements LayerInterface
                 break;
         }
 
-        $type = Json::encode($type);
-        $message = Json::encode($message);
+        $options['type'] = $type;
+        $options['text'] = $message;
 
-        $result[] = "var n = Noty('".self::WRAP_ID."');";
-        $result[] = "$.noty.setText(n.options.id, $message);";
-        $result[] = "$.noty.setType(n.options.id, $type);";
+        $options = Json::encode($options);
+        return "noty($options);";
 
-        return implode("\n", $result);
-    }
-
-    /**
-     * Register Noty plugin by creating a wrapper function called 'Noty()'
-     * This will be available globally for use
-     *
-     * ~~~
-     * js: var n = Noty('id');
-     * $.noty.setText(n.options.id, 'Hi I am noty alert!');
-     * $.noty.setType(n.options.id, 'information');
-     * ~~~
-     */
-    public function registerPlugin()
-    {
-        $view = $this->getView();
-        $options = Json::encode($this->options);
-        $js = <<< JS
-            function Noty(widgetId, options) {
-                var finalOptions = $.extend({}, $options, options);
-                return noty(finalOptions);
-            }
-JS;
-
-        $view->registerJs($js, View::POS_END);
     }
 
     /**

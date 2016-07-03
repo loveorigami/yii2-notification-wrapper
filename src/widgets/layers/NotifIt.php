@@ -4,7 +4,6 @@ namespace lo\modules\noty\widgets\layers;
 
 use Yii;
 use yii\helpers\Json;
-use lo\modules\noty\widgets\Wrapper;
 
 /**
  * Class NotifIt
@@ -27,7 +26,7 @@ use lo\modules\noty\widgets\Wrapper;
  *  ]);
  * ---------------------------------------
  */
-class NotifIt extends Wrapper implements LayerInterface
+class NotifIt extends Layer implements LayerInterface
 {
     /**
      * @inheritdoc
@@ -38,8 +37,12 @@ class NotifIt extends Wrapper implements LayerInterface
         $this->overrideConfirm();
     }
 
+
     /**
-     * @inheritdoc
+     * @param $type
+     * @param $message
+     * @param $options
+     * @return string
      */
     public function getNotification($type, $message, $options)
     {

@@ -3,8 +3,6 @@
 namespace lo\modules\noty\widgets\layers;
 
 use yii\helpers\Json;
-use yii\web\View;
-use lo\modules\noty\widgets\Wrapper;
 
 /**
  * Class Notifyjs
@@ -65,7 +63,7 @@ use lo\modules\noty\widgets\Wrapper;
  *  ]);
  * ---------------------------------------
  */
-class Notifyjs extends Wrapper implements LayerInterface
+class Notifyjs extends Layer implements LayerInterface
 {
     /**
      * Register notify style
