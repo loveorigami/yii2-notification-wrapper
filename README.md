@@ -2,6 +2,7 @@
 [![Latest Stable Version](https://poser.pugx.org/loveorigami/yii2-notification-wrapper/v/stable)](https://packagist.org/packages/loveorigami/yii2-notification-wrapper) 
 [![Total Downloads](https://poser.pugx.org/loveorigami/yii2-notification-wrapper/downloads)](https://packagist.org/packages/loveorigami/yii2-notification-wrapper)
 [![License](https://poser.pugx.org/loveorigami/yii2-notification-wrapper/license)](https://packagist.org/packages/loveorigami/yii2-notification-wrapper)
+
 Yii2-notification-wrapper module renders a message from session flash (with ajax support). All flash messages are displayed in the sequence they were assigned using setFlash.
 
 !["Demo"](docs/img/noty-demo.jpg)
