@@ -91,7 +91,6 @@ echo Wrapper::widget([
         'registerAnimateCss' => true,
         'registerButtonsCss' => true
     ],
-    'overrideSystemConfirm' => true,
 
     // clientOptions
     'options' => [
