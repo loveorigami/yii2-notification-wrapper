@@ -159,7 +159,7 @@ class Wrapper extends Widget
         $layerClass = Json::encode($this->layerClass);
 
         $this->view->registerJs("
-            $(document).ajaxSuccess(function (event, xhr, settings) {
+            $(document).ajaxComplete(function (event, xhr, settings) {
               if (settings.url != '$this->url' ) {
                     $.ajax({
                         url: '$this->url',
