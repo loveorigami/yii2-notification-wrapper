@@ -1,5 +1,9 @@
 # CHANGELOG
 
+* 4.1 [11 July 2016]
+    - `enh` Added new layer Notific8
+    - `fix` Replace AjaxSuccess to AjaxComplete
+
 * 4.0 [3 July 2016]
     - `enh` Added new layer Notie
     - `enh` Custom title for Growl layer

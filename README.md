@@ -146,6 +146,7 @@ Currently supported layers are:
 | Growl           | jquery-growl  |    -    | https://github.com/ksylvest/jquery-growl         | [read](docs/Growl.md)         |
 | Jquery Notify   | jquery.notify |    -    | https://github.com/CreativeDream/jquery.notify   | [read](docs/JqueryNotify.md)  |
 | Notie           | notie         |    +    | https://github.com/jaredreich/notie              | [read](docs/Notie.md)         |
+| Notific8        | notific8      |    -    | https://github.com/ralivue/notific8              | [read](docs/Notific8.md)      |
 | NotifIt         | notifit       |    +    | https://github.com/naoxink/notifIt               | [read](docs/NotifIt.md)       |
 | Notify.js       | notifyjs      |    -    | https://github.com/notifyjs/notifyjs             | [read](docs/Notifyjs.md)      |
 | Noty            | noty          |    +    | https://github.com/needim/noty                   | [read](docs/Noty.md)          |
@@ -165,6 +166,7 @@ Add
 "bower-asset/jquery.notify": "^1.0",
 "bower-asset/notie": "^3.2",
 "bower-asset/notifit": "^1.1",
+"bower-asset/notific8": "^3.5",
 "bower-asset/notifyjs": "^0.4",
 "bower-asset/pnotify": "^3.0",
 "bower-asset/toastr": "^2.1",
