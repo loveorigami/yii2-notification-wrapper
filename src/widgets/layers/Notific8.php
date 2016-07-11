@@ -52,7 +52,7 @@ class Notific8 extends Layer implements LayerInterface
 
         $options = Json::encode($options);
 
-        return "notific8('$message', $options);";
+        return "jQuery.notific8('$message', $options);";
     }
 
     /**
