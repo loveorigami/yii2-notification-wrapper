@@ -1,6 +1,6 @@
 <?php
 
-namespace lo\modules\noty\widgets;
+namespace lo\modules\noty;
 
 use Yii;
 use yii\base\Widget;
@@ -14,10 +14,10 @@ use yii\web\View;
  *
  * This widget should be used in your main layout file as follows:
  * ---------------------------------------
- *  use lo\modules\noty\widgets\Wrapper;
+ *  use lo\modules\noty\Wrapper;
  *
  *  echo Wrapper::widget([
- *      'layerClass' => 'lo\modules\noty\widgets\layers\Noty',
+ *      'layerClass' => 'lo\modules\noty\layers\Noty',
  *      'options' => [
  *          'dismissQueue' => true,
  *          'layout' => 'topRight',
@@ -48,7 +48,7 @@ class Wrapper extends Widget
     /**
      * @const default Layer
      */
-    const DEFAULT_LAYER = 'lo\modules\noty\widgets\layers\Alert';
+    const DEFAULT_LAYER = 'lo\modules\noty\layers\Alert';
 
     /**
      * @var string $layerClass
@@ -76,7 +76,7 @@ class Wrapper extends Widget
     protected $url;
 
     /**
-     * @var \lo\modules\noty\widgets\layers\LayerInterface $layer
+     * @var \lo\modules\noty\layers\LayerInterface $layer
      */
     protected $layer;
 

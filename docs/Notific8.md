@@ -16,10 +16,10 @@ Usage
 -----
 
 ```php
-use lo\modules\noty\widgets\Wrapper;
+use lo\modules\noty\Wrapper;
 
 echo Wrapper::widget([
-  'layerClass' => 'lo\modules\noty\widgets\layers\Notific8',
+  'layerClass' => 'lo\modules\noty\layers\Notific8',
   'options' => [
         'life' => 5000,
         'sticky' => false,

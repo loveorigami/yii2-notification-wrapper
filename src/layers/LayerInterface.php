@@ -1,6 +1,6 @@
 <?php
 
-namespace lo\modules\noty\widgets\layers;
+namespace lo\modules\noty\layers;
 
 interface LayerInterface
 {

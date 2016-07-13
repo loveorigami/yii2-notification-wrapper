@@ -16,10 +16,10 @@ Usage
 -----
 
 ```php
-use lo\modules\noty\widgets\Wrapper;
+use lo\modules\noty\Wrapper;
 
 echo Wrapper::widget([
-         'layerClass' => 'lo\modules\noty\widgets\layers\PNotify',
+         'layerClass' => 'lo\modules\noty\layers\PNotify',
          'options' => [
              'styling' => 'brighttheme', // jqueryui, bootstrap3, brighttheme
              'min_height' => '16px',

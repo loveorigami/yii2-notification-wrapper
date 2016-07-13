@@ -5,7 +5,7 @@ namespace lo\modules\noty\controllers;
 use Yii;
 use yii\helpers\Json;
 use yii\web\Controller;
-use lo\modules\noty\widgets\Wrapper;
+use lo\modules\noty\Wrapper;
 
 class DefaultController extends Controller
 {

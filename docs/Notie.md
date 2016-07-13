@@ -16,10 +16,10 @@ Usage
 -----
 
 ```php
-use lo\modules\noty\widgets\Wrapper;
+use lo\modules\noty\Wrapper;
 
 echo Wrapper::widget([
-    'layerClass' => 'lo\modules\noty\widgets\layers\Notie',
+    'layerClass' => 'lo\modules\noty\layers\Notie',
     // clientOptions
     'options' => [
           'colorSuccess' => '#57BF57',

@@ -1,19 +1,20 @@
 <?php
 
-namespace lo\modules\noty\widgets\layers;
+namespace lo\modules\noty\layers;
 
 use yii\helpers\Json;
+use lo\modules\noty\assets\ToastrAsset;
 
 /**
  * Class Toastr
- * @package lo\modules\noty\widgets\layers
+ * @package lo\modules\noty\layers
  *
  * This widget should be used in your main layout file as follows:
  * ---------------------------------------
- *  use lo\modules\noty\widgets\Wrapper;
+ *  use lo\modules\noty\Wrapper;
  *
  *  echo Wrapper::widget([
- *      'layerClass' => 'lo\modules\noty\widgets\layers\Toastr',
+ *      'layerClass' => 'lo\modules\noty\layers\Toastr',
  *      'options' => [
  *          'closeButton' => false,
  *          'debug' => false,
@@ -31,7 +32,8 @@ class Toastr extends Layer implements LayerInterface
     public function run()
     {
         $view = $this->getView();
-        $asset = ToastrAsset::register($view);
+        ToastrAsset::register($view);
+        parent::run();
     }
 
     /**

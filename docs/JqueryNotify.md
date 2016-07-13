@@ -16,10 +16,10 @@ Usage
 -----
 
 ```php
-use lo\modules\noty\widgets\Wrapper;
+use lo\modules\noty\Wrapper;
 
 echo Wrapper::widget([
-         'layerClass' => 'lo\modules\noty\widgets\layers\JqueryNotify',
+         'layerClass' => 'lo\modules\noty\layers\JqueryNotify',
          'options' => [
              'theme' => 'default', // or 'dark-theme'
              'position' =>[

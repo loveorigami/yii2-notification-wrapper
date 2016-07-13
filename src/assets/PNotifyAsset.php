@@ -1,12 +1,12 @@
 <?php
 
-namespace lo\modules\noty\widgets\layers;
+namespace lo\modules\noty\assets;
 
 use yii\web\AssetBundle;
 
 /**
  * Class PNotifyAsset
- * @package lo\modules\noty\widgets\layers
+ * @package lo\modules\noty\layers
  */
 class PNotifyAsset extends AssetBundle
 {

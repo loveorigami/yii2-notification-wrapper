@@ -1,20 +1,21 @@
 <?php
 
-namespace lo\modules\noty\widgets\layers;
+namespace lo\modules\noty\layers;
 
 use Yii;
 use yii\helpers\Json;
+use lo\modules\noty\assets\NotifItAsset;
 
 /**
  * Class NotifIt
- * @package lo\modules\noty\widgets\layers
+ * @package lo\modules\noty\layers
  *
  * This widget should be used in your main layout file as follows:
  * ---------------------------------------
- *  use lo\modules\noty\widgets\Wrapper;
+ *  use lo\modules\noty\Wrapper;
  *
  *  echo Wrapper::widget([
- *      'layerClass' => 'lo\modules\noty\widgets\layers\NotifIt',
+ *      'layerClass' => 'lo\modules\noty\layers\NotifIt',
  *      'options' => [
  *          'multiline' => true,
  *          'position' => 'right',
@@ -35,6 +36,7 @@ class NotifIt extends Layer implements LayerInterface
     {
         NotifItAsset::register($this->getView());
         $this->overrideConfirm();
+        parent::run();
     }
 
 

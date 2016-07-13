@@ -78,10 +78,10 @@ This package comes with a Wrapper widget that can be used to regularly poll the 
 This widget should be used in your main layout file as follows:
 
 ```php
-use lo\modules\noty\widgets\Wrapper;
+use lo\modules\noty\Wrapper;
 
 echo Wrapper::widget([
-    'layerClass' => 'lo\modules\noty\widgets\layers\Noty',
+    'layerClass' => 'lo\modules\noty\layers\Noty',
     'layerOptions'=>[
         // for every layer (by default)
         'customTitleDelimiter' => '|',
@@ -116,7 +116,7 @@ Custom title (example for Growl)
 If you want change notification title, you can use ```customTitleDelimiter``` in our messages
 ```php
     Wrapper::widget([
-        'layerClass' => 'lo\modules\noty\widgets\layers\Growl',
+        'layerClass' => 'lo\modules\noty\layers\Growl',
         'layerOptions' => [
             'customTitleDelimiter' = '|', // by default
         ],
@@ -169,7 +169,7 @@ Add
 "bower-asset/notific8": "^3.5",
 "bower-asset/notifyjs": "^0.4",
 "bower-asset/pnotify": "^3.0",
-"bower-asset/toastr": "^2.1",
+"bower-asset/toastr": "^2.1"
 ```
 
 to the ```require``` section of your `composer.json` file.

@@ -1,26 +1,26 @@
 <?php
 
-namespace lo\modules\noty\widgets\layers;
+namespace lo\modules\noty\assets;
 
 use yii\web\AssetBundle;
 
 /**
- * Class GrowlAsset
- * @package lo\modules\noty\widgets\layers
+ * Class NotifItAsset
+ * @package lo\modules\noty\layers
  */
-class GrowlAsset extends AssetBundle
+class NotifItAsset extends AssetBundle
 {
     /** @var string  */
-    public $sourcePath = '@bower/jquery-growl';
+    public $sourcePath = '@bower/notifit/notifIt';
 
     /** @var array $css */
     public $css = [
-        'stylesheets/jquery.growl.css'
+        'css/notifIt.css',
     ];
 
     /** @var array $js */
     public $js = [
-        'javascripts/jquery.growl.js'
+        'js/notifIt.min.js',
     ];
 
     /** @var array $depends */

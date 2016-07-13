@@ -1,26 +1,26 @@
 <?php
 
-namespace lo\modules\noty\widgets\layers;
+namespace lo\modules\noty\assets;
 
 use yii\web\AssetBundle;
 
 /**
- * Class NotifItAsset
- * @package lo\modules\noty\widgets\layers
+ * Class NotieAsset
+ * @package lo\modules\noty\layers
  */
-class NotifItAsset extends AssetBundle
+class NotieAsset extends AssetBundle
 {
     /** @var string  */
-    public $sourcePath = '@bower/notifit/notifIt';
+    public $sourcePath = '@bower/notie/dist';
 
     /** @var array $css */
     public $css = [
-        'css/notifIt.css',
+        'notie.css'
     ];
 
     /** @var array $js */
     public $js = [
-        'js/notifIt.min.js',
+        'notie.min.js'
     ];
 
     /** @var array $depends */

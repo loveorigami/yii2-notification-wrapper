@@ -1,20 +1,21 @@
 <?php
 
-namespace lo\modules\noty\widgets\layers;
+namespace lo\modules\noty\layers;
 
 use Yii;
 use yii\helpers\Json;
+use lo\modules\noty\assets\NotieAsset;
 
 /**
  * Class Notie
- * @package lo\modules\noty\widgets\layers
+ * @package lo\modules\noty\layers
  *
  * This widget should be used in your main layout file as follows:
  * ---------------------------------------
- *  use lo\modules\noty\widgets\Wrapper;
+ *  use lo\modules\noty\Wrapper;
  *
  *  echo Wrapper::widget([
- *      'layerClass' => 'lo\modules\noty\widgets\layers\Notie',
+ *      'layerClass' => 'lo\modules\noty\layers\Notie',
  *      'options' => [
  *          'colorSuccess' => '#57BF57',
  *          'colorWarning' => '#D6A14D',

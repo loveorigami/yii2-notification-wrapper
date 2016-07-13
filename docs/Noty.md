@@ -15,10 +15,10 @@ Usage
 -----
 
 ```php
-use lo\modules\noty\widgets\Wrapper;
+use lo\modules\noty\Wrapper;
 
 echo Wrapper::widget([
-    'layerClass' => 'lo\modules\noty\widgets\layers\Noty',
+    'layerClass' => 'lo\modules\noty\layers\Noty',
     'layerOptions'=>[
         'registerAnimateCss' => false,
         'registerButtonsCss' => false
