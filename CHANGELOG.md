@@ -1,4 +1,6 @@
 # CHANGELOG
+* 5.0 [13 July 2016]
+    - `fix` New namespace
 
 * 4.1 [11 July 2016]
     - `enh` Added new layer Notific8
