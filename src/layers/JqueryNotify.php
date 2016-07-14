@@ -43,13 +43,14 @@ class JqueryNotify extends Layer implements LayerInterface
 
 
     /**
-     * @inheritdoc
+     * @param $options
+     * @return string
      */
-    public function getNotification($type, $message, $options)
+    public function getNotification($options)
     {
-        $options['type'] = $type;
-        $options['title'] = $this->getTitle($type);
-        $options['message'] = $message;
+        $options['type'] = $this->type;
+        $options['title'] = $this->title;
+        $options['message'] = $this->message;
         $options = Json::encode($options);
 
         return "notify($options);";

@@ -59,22 +59,32 @@ class Noty extends Layer implements LayerInterface
     }
 
     /**
-     * @inheritdoc
+     * @param $options
+     * @return string
      */
-    public function getNotification($type, $message, $options)
+    public function getNotification($options)
     {
-        switch($type){
-            case self::TYPE_INFO:
-                $type = "information";
-                break;
-        }
 
-        $options['type'] = $type;
-        $options['text'] = $message;
+        $options['type'] = $this->getStyle();
+        $options['text'] = $this->getMessageWithTitle();
 
         $options = Json::encode($options);
         return "noty($options);";
 
+    }
+
+    /**
+     * @return string
+     */
+    public function getStyle(){
+        switch ($this->type) {
+            case self::TYPE_INFO:
+                $style = "information";
+                break;
+            default:
+                $style = $this->type;
+        }
+        return $style;
     }
 
     /**

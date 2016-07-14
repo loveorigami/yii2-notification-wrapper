@@ -46,13 +46,14 @@ class PNotify extends Layer implements LayerInterface
     }
 
     /**
-     * @inheritdoc
+     * @param $options
+     * @return string
      */
-    public function getNotification($type, $message, $options)
+    public function getNotification($options)
     {
-        $options['title'] = $this->getTitle($type);
-        $options['type'] = $type;
-        $options['text'] = $message;
+        $options['title'] = $this->title;
+        $options['type'] = $this->type;
+        $options['text'] = $this->message;
         $options = Json::encode($options);
 
         return "new PNotify($options);";

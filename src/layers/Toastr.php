@@ -37,12 +37,13 @@ class Toastr extends Layer implements LayerInterface
     }
 
     /**
-     * @inheritdoc
+     * @param $options
+     * @return string
      */
-    public function getNotification($type, $message, $options)
+    public function getNotification($options)
     {
-        $type = Json::encode($type);
-        $message = Json::encode($message);
+        $type = Json::encode($this->type);
+        $message = Json::encode($this->getMessageWithTitle());
         $options = Json::encode($options);
 
         return "toastr[$type]($message, '', $options);";

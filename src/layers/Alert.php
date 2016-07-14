@@ -49,6 +49,9 @@ class Alert extends Layer implements LayerInterface
         ],
     ];
 
+    /**
+     * @inheritdoc
+     */
     public function run()
     {
         $view = $this->getView();
@@ -57,15 +60,16 @@ class Alert extends Layer implements LayerInterface
     }
 
     /**
-     * @inheritdoc
+     * @param $options
+     * @return string
      */
-    public function getNotification($type, $message, $options)
+    public function getNotification($options)
     {
 
-        $options['class'] = $this->alertTypes[$type]['class'];
+        $options['class'] = $this->alertTypes[$this->type]['class'];
 
         $msg = BootstrapAlert::widget([
-            'body' => $this->alertTypes[$type]['icon'] . ' <strong>' .$this->getTitle($type). '</strong> '. $message,
+            'body' => $this->alertTypes[$this->type]['icon']. ' '. $this->getMessageWithTitle(),
             'options' => $options,
         ]);
 

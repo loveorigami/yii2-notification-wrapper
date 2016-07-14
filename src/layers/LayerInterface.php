@@ -6,11 +6,28 @@ interface LayerInterface
 {
     /*
      * Get js notification
+     * @param $options
+     * @return mixed
      */
-    public function getNotification($type, $message, $options);
+    public function getNotification($options);
 
-    /*
-     * Get type
+
+    /**
+     * @param $type
+     * @return string
      */
-    public function getType($type);
+    public function setType($type);
+    
+    
+    /**
+     * @return string
+     */
+    public function setTitle();
+
+
+    /**
+     * @param $message
+     * @return string
+     */
+    public function setMessage($message);
 }

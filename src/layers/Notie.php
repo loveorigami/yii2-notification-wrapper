@@ -45,29 +45,26 @@ class Notie extends Layer implements LayerInterface
     }
 
     /**
-     * @param $type
-     * @param $message
      * @param $options
      * @return string
      */
-    public function getNotification($type, $message, $options)
+    public function getNotification($options)
     {
-        $style = $this->getStyle($type);
+        $style = $this->getStyle();
         $options = Json::encode($options);
 
         $js[] = "notie.setOptions($options);";
-        $js[] = "notie.alert($style, '$message');";
+        $js[] = "notie.alert($style, '$this->message');";
 
         return implode($js,"\r\n");
 
     }
 
     /**
-     * @param $type
      * @return string
      */
-    public function getStyle($type){
-        switch ($type) {
+    public function getStyle(){
+        switch ($this->type) {
             case self::TYPE_ERROR:
                 $style = 3;
                 break;

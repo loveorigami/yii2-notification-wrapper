@@ -129,10 +129,14 @@ class Wrapper extends Widget
         $result = [];
 
         foreach ($flashes as $type => $data) {
-            $type = $this->layer->getType($type);
             $data = (array)$data;
             foreach ($data as $i => $message) {
-                $result[] = $this->layer->getNotification($type, $message, $options);
+                
+                $this->layer->setType($type);
+                $this->layer->setTitle();
+                $this->layer->setMessage($message);
+
+                $result[] = $this->layer->getNotification($options);
             }
 
             $session->removeFlash($type);

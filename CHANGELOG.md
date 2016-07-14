@@ -1,4 +1,7 @@
 # CHANGELOG
+* 5.1 [13 July 2016]
+    - `enh` Custom title for all layers
+
 * 5.0 [13 July 2016]
     - `fix` New namespace
 

@@ -66,11 +66,6 @@ use lo\modules\noty\assets\NotifyjsAsset;
  */
 class Notifyjs extends Layer implements LayerInterface
 {
-    /**
-     * Register notify style
-     * @var string defaults false
-     */
-    public $style = false;
 
     /**
      * @inheritdoc
@@ -84,19 +79,29 @@ class Notifyjs extends Layer implements LayerInterface
 
 
     /**
-     * @inheritdoc
+     * @param $options
+     * @return string
      */
-    public function getNotification($type, $message, $options)
+    public function getNotification($options)
     {
-        switch ($type) {
-            case self::TYPE_WARNING:
-                $type = "warn";
-                break;
-        }
-
-        $options['className'] = $type;
+        $options['className'] = $this->getStyle();
         $options = Json::encode($options);
 
-        return "$.notify('$message', $options);";
+        return "$.notify('$this->message', $options);";
+    }
+
+
+    /**
+     * @return string
+     */
+    public function getStyle(){
+        switch ($this->type) {
+            case self::TYPE_WARNING:
+                $style = "warn";
+                break;
+            default:
+                $style = $this->type;
+        }
+        return $style;
     }
 }

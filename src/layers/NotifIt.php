@@ -41,15 +41,13 @@ class NotifIt extends Layer implements LayerInterface
 
 
     /**
-     * @param $type
-     * @param $message
      * @param $options
      * @return string
      */
-    public function getNotification($type, $message, $options)
+    public function getNotification($options)
     {
-        $options['type'] = $type;
-        $options['msg'] = $message;
+        $options['type'] = $this->type;
+        $options['msg'] = $this->message;
         $options = Json::encode($options);
 
         return "notif($options);";

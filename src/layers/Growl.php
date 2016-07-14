@@ -42,25 +42,17 @@ class Growl extends Layer implements LayerInterface
 
 
     /**
-     * @param $type
-     * @param $message
      * @param $options
      * @return string
      */
-    public function getNotification($type, $message, $options)
+    public function getNotification($options)
     {
         $data = $options;
-        $msg = explode($this->customTitleDelimiter, $message);
-
-        if(isset($msg[1])){
-            $data['message'] = $msg[1];
-            $data['title'] = $msg[0];
-        } else {
-            $data['message'] = $message;
-            $data['title'] = $this->getTitle($type);
-        }
-
-        $style = $this->getStyle($type);
+        
+        $data['message'] = $this->message;
+        $data['title'] = $this->title;
+        
+        $style = $this->getStyle();
         $msg = Json::encode($data);
 
         return " $.growl$style($msg);";
@@ -68,11 +60,10 @@ class Growl extends Layer implements LayerInterface
     
     
     /**
-     * @param $type
      * @return string
      */
-    public function getStyle($type){
-        switch ($type) {
+    public function getStyle(){
+        switch ($this->type) {
             case self::TYPE_ERROR:
                 $style = '.error';
                 break;

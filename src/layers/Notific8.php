@@ -41,29 +41,26 @@ class Notific8 extends Layer implements LayerInterface
 
 
     /**
-     * @param $type
-     * @param $message
      * @param $options
      * @return string
      */
-    public function getNotification($type, $message, $options)
+    public function getNotification($options)
     {
-        $options['heading'] = $this->getTitle($type);
-        $options['theme'] = $this->getTheme($type);
-        $options['icon'] = $this->getIcon($type);
+        $options['heading'] = $this->title;
+        $options['theme'] = $this->getTheme();
+        $options['icon'] = $this->getIcon();
 
         $options = Json::encode($options);
 
-        return "jQuery.notific8('$message', $options);";
+        return "jQuery.notific8('$this->message', $options);";
     }
 
     /**
-     * @param $type
      * @return string
      */
-    public function getTheme($type)
+    public function getTheme()
     {
-        switch ($type) {
+        switch ($this->type) {
             case self::TYPE_ERROR:
                 $theme = 'ruby';
                 break;
@@ -84,12 +81,11 @@ class Notific8 extends Layer implements LayerInterface
     }
 
     /**
-     * @param $type
      * @return string
      */
-    public function getIcon($type)
+    public function getIcon()
     {
-        switch ($type) {
+        switch ($this->type) {
             case self::TYPE_ERROR:
                 $icon = 'code';
                 break;

@@ -111,17 +111,14 @@ Some libraries can override System Confirm for links as:
 <a href="https://github.com" data-confirm="Are you sure?">Go!</a>
 ```
 
-Custom title (example for Growl) 
+Custom title
 ----------------
 If you want change notification title, you can use ```customTitleDelimiter``` in our messages
 ```php
     Wrapper::widget([
-        'layerClass' => 'lo\modules\noty\layers\Growl',
+        'layerClass' => '...',
         'layerOptions' => [
             'customTitleDelimiter' = '|', // by default
-        ],
-        'options' => [   
-            // and more for this library here https://github.com/ksylvest/jquery-growl
         ],
     ]);
 ```
@@ -134,6 +131,8 @@ public function actionIndex(){
  }
 ```
 !["Custom Title"](docs/img/custom_title.png)
+
+Since ```v.5.1``` it worked for all layers
 
 Supported layers
 ----------------
