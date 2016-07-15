@@ -20,6 +20,7 @@ use lo\modules\noty\Wrapper;
 
 echo Wrapper::widget([
          'layerClass' => 'lo\modules\noty\layers\JqueryNotify',
+         // default options
          'options' => [
              'theme' => 'default', // or 'dark-theme'
              'position' =>[

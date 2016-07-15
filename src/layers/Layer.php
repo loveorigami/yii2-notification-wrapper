@@ -46,6 +46,11 @@ class Layer extends Widget
     public $customTitleDelimiter = '|';
 
     /**
+     * @var array $defaultOptions
+     */
+    protected $defaultOptions = [];
+
+    /**
      * @var string $type
      */
     protected $type;
@@ -109,6 +114,14 @@ class Layer extends Widget
         } else {
             $this->message = $message;
         }
+    }
+
+    /**
+     * @return array
+     */
+    public function getDefaultOption()
+    {
+        return $this->defaultOptions;
     }
 
     /**

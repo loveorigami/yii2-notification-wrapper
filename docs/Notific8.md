@@ -20,6 +20,7 @@ use lo\modules\noty\Wrapper;
 
 echo Wrapper::widget([
   'layerClass' => 'lo\modules\noty\layers\Notific8',
+  // default options
   'options' => [
         'life' => 5000,
         'sticky' => false,

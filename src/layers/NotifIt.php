@@ -30,7 +30,17 @@ use lo\modules\noty\assets\NotifItAsset;
 class NotifIt extends Layer implements LayerInterface
 {
     /**
-     * @inheritdoc
+     * @var array $defaultOptions
+     */
+    protected $defaultOptions = [
+        'multiline' => true,
+        'position' => 'right',
+        'append' => true,
+        'clickable' => true,
+    ];
+
+    /**
+     * register asset
      */
     public function run()
     {

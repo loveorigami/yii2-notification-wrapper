@@ -19,6 +19,7 @@ use lo\modules\noty\Wrapper;
 
 echo Wrapper::widget([
     'layerClass' => 'lo\modules\noty\layers\Toastr',
+    // default options
     'options' => [
        'closeButton' => false,
        'debug' => false,

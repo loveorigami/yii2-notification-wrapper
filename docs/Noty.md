@@ -23,7 +23,7 @@ echo Wrapper::widget([
         'registerAnimateCss' => false,
         'registerButtonsCss' => false
     ],
-    // clientOptions
+    // default options
     'options' => [
         'dismissQueue' => true,
         'layout' => 'topRight',

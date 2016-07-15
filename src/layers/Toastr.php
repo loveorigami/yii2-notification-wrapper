@@ -25,10 +25,20 @@ use lo\modules\noty\assets\ToastrAsset;
  *  ]);
  * ---------------------------------------
  */
-
 class Toastr extends Layer implements LayerInterface
 {
+    /**
+     * @var array $defaultOptions
+     */
+    protected $defaultOptions = [
+        'closeButton' => false,
+        'debug' => false,
+        'newestOnTop' => true,
+    ];
 
+    /**
+     * register asset
+     */
     public function run()
     {
         $view = $this->getView();

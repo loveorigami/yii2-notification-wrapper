@@ -49,7 +49,17 @@ class Noty extends Layer implements LayerInterface
     public $registerButtonsCss = false;
 
     /**
-     * @inheritdoc
+     * @var array $defaultOptions
+     */
+    protected $defaultOptions = [
+        'dismissQueue' => true,
+        'layout' => 'topRight',
+        'timeout' => 3000,
+        'theme' => 'relax',
+    ];
+
+    /**
+     * register asset
      */
     public function run()
     {

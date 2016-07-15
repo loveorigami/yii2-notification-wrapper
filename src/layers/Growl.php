@@ -18,7 +18,6 @@ use lo\modules\noty\assets\GrowlAsset;
  *      'options' => [
  *          'fixed' => true,
  *          'size' => 'medium',
- *          'style' => 'default',
  *          'location' => 'tr',
  *          'delayOnHover' => true,
  *
@@ -29,6 +28,16 @@ use lo\modules\noty\assets\GrowlAsset;
  */
 class Growl extends Layer implements LayerInterface
 {
+
+    /**
+     * @var array $defaultOptions
+     */
+    protected $defaultOptions = [
+        'fixed' => true,
+        'size' => 'medium',
+        'location' => 'tr',
+        'delayOnHover' => true,
+    ];
 
     /**
      * register asset
@@ -48,21 +57,22 @@ class Growl extends Layer implements LayerInterface
     public function getNotification($options)
     {
         $data = $options;
-        
+
         $data['message'] = $this->message;
         $data['title'] = $this->title;
-        
+
         $style = $this->getStyle();
         $msg = Json::encode($data);
 
         return " $.growl$style($msg);";
     }
-    
-    
+
+
     /**
      * @return string
      */
-    public function getStyle(){
+    public function getStyle()
+    {
         switch ($this->type) {
             case self::TYPE_ERROR:
                 $style = '.error';

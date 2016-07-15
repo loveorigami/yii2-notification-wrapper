@@ -1,5 +1,9 @@
 # CHANGELOG
-* 5.1 [13 July 2016]
+* 5.2 [15 July 2016]
+    - `enh` Default options for all layers
+    - `fix` Remove default style in growl layer
+
+* 5.1 [14 July 2016]
     - `enh` Custom title for all layers
 
 * 5.0 [13 July 2016]

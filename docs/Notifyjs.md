@@ -19,6 +19,7 @@ use lo\modules\noty\Wrapper;
 
 echo Wrapper::widget([
     'layerClass' => 'lo\modules\noty\layers\Notifyjs',
+    // default options
     'options' => [
            // whether to hide the notification on click
           'clickToHide' => true,

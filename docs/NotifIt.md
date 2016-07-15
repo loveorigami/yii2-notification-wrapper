@@ -20,6 +20,7 @@ use lo\modules\noty\Wrapper;
 
 echo Wrapper::widget([
   'layerClass' => 'lo\modules\noty\layers\NotifIt',
+  // default options
   'options' => [
       'multiline' => true,
       'position' => 'right',

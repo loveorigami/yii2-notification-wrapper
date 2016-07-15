@@ -34,6 +34,20 @@ use lo\modules\noty\assets\NotieAsset;
 class Notie extends Layer implements LayerInterface
 {
     /**
+     * @var array $defaultOptions
+     */
+    protected $defaultOptions = [
+        'colorSuccess' => '#000',
+        'colorWarning' => '#D6A14D',
+        'colorError' => '#E1715B',
+        'colorInfo' => '#4D82D6',
+        'colorNeutral' => '#A0A0A0',
+        'colorText' => '#FFFFFF',
+        'animationDelay' => 3,
+        'backgroundClickDismiss' => true
+    ];
+
+    /**
      * register asset
      */
     public function run()

@@ -31,7 +31,19 @@ use lo\modules\noty\assets\Notific8Asset;
 class Notific8 extends Layer implements LayerInterface
 {
     /**
-     * @inheritdoc
+     * @var array $defaultOptions
+     */
+    protected $defaultOptions = [
+        'life' => 5000,
+        'sticky' => false,
+        'horizontalEdge' => 'top',
+        'verticalEdge' => 'right',
+        'family' => 'legacy',
+        'queue' => 'false',
+    ];
+
+    /**
+     * register asset
      */
     public function run()
     {

@@ -20,6 +20,7 @@ use lo\modules\noty\Wrapper;
 
 echo Wrapper::widget([
          'layerClass' => 'lo\modules\noty\layers\PNotify',
+         // default options
          'options' => [
              'styling' => 'brighttheme', // jqueryui, bootstrap3, brighttheme
              'min_height' => '16px',

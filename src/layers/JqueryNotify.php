@@ -33,14 +33,27 @@ use lo\modules\noty\assets\JqueryNotifyAsset;
 class JqueryNotify extends Layer implements LayerInterface
 {
     /**
-     * @inheritdoc
+     * @var array $defaultOptions
+     */
+    protected $defaultOptions = [
+        'theme' => 'default', // or 'dark-theme'
+        'position' =>[
+            'x' => 'right',
+            'y' => 'top'
+        ],
+        'overlay' => false,
+        'overflowHide' => false,
+        'autoHide' => true,
+    ];
+
+    /**
+     * register asset
      */
     public function run()
     {
         JqueryNotifyAsset::register($this->getView());
         parent::run();
     }
-
 
     /**
      * @param $options

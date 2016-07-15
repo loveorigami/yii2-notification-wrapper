@@ -66,9 +66,29 @@ use lo\modules\noty\assets\NotifyjsAsset;
  */
 class Notifyjs extends Layer implements LayerInterface
 {
+    /**
+     * @var array $defaultOptions
+     */
+    protected $defaultOptions = [
+        'clickToHide' => true,
+        'autoHide' => true,
+        'autoHideDelay' => 5000,
+        'arrowShow' => true,
+        'arrowSize' => 5,
+        'position' => 'top right',
+        'elementPosition' => 'bottom left',
+        'globalPosition' => 'top right',
+        'style' => 'bootstrap',
+        'className' => 'error',
+        'showAnimation' => 'slideDown',
+        'showDuration' => 400,
+        'hideAnimation' => 'slideUp',
+        'hideDuration' => 200,
+        'gap' => 2
+    ];
 
     /**
-     * @inheritdoc
+     * register asset
      */
     public function run()
     {

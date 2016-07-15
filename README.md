@@ -12,10 +12,10 @@ You can set message as following:
  ```php
 public function actionIndex(){
     ...
-     \Yii::$app->getSession()->setFlash('error',   'noty error');
-     \Yii::$app->getSession()->setFlash('info',    'noty info');
-     \Yii::$app->getSession()->setFlash('success', 'noty success');
-     \Yii::$app->getSession()->setFlash('warning', 'noty warning');
+     Yii::$app->session->setFlash('error',   'noty error');
+     Yii::$app->session->setFlash('info',    'noty info');
+     Yii::$app->session->setFlash('success', 'noty success');
+     Yii::$app->session->setFlash('warning', 'noty warning');
     ...
      return $this->render('index');
  }
@@ -24,10 +24,10 @@ public function actionIndex(){
 
  public function actionAjax(){
      ...
-     \Yii::$app->getSession()->setFlash('error',   'ajax error');
-     \Yii::$app->getSession()->setFlash('info',    'ajax info');
-     \Yii::$app->getSession()->setFlash('success', 'ajax success');
-     \Yii::$app->getSession()->setFlash('warning', 'ajax warning');
+     Yii::$app->session->setFlash('error',   'ajax error');
+     Yii::$app->session->setFlash('info',    'ajax info');
+     Yii::$app->session->setFlash('success', 'ajax success');
+     Yii::$app->session->setFlash('warning', 'ajax warning');
      ...
      $data = 'Some data to be returned in response to ajax request';
      Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
@@ -36,21 +36,24 @@ public function actionIndex(){
  ```
 
 Installation
---------
+------------
 The preferred way to install this extension is through [composer](http://getcomposer.org/download/).
 
 To install with bower package for one of supported layers, either run
 
 ```bash
 $ php composer.phar require loveorigami/yii2-notification-wrapper "*"
+// if you want use it
 $ php composer.phar require bower-asset/noty "^2.3"
+$ php composer.phar require bower-asset/jquery-growl "^1.3" 
 ```
 
 or add
 
 ```bash
 "loveorigami/yii2-notification-wrapper": "*",
-"bower-asset/noty": "^2.3"
+"bower-asset/noty": "^2.3",
+"bower-asset/jquery-growl": "^1.3"
 ```
 
 to the ```require``` section of your `composer.json` file.
@@ -58,7 +61,6 @@ to the ```require``` section of your `composer.json` file.
 
 Configure application
 ---------------------
-
 Let's start with defining module in our config file (`@common/config/main.php`):
 
 ```php
@@ -72,10 +74,32 @@ That's all, now you have module installed and configured.
 
 Usage
 -----
-
 This package comes with a Wrapper widget that can be used to regularly poll the server for new notifications and trigger them visually using either Noty (or Toastr, or Growl etc.).
 
 This widget should be used in your main layout file as follows:
+
+```php
+use lo\modules\noty\Wrapper;
+
+// for Bootstrap Alert
+echo Wrapper::widget();
+
+// or for Growl
+echo Wrapper::widget([
+    'layerClass' => 'lo\modules\noty\layers\Growl',
+]);
+
+// or for Noty
+echo Wrapper::widget([
+    'layerClass' => 'lo\modules\noty\layers\Noty',
+]);
+```
+
+
+Advanced usage
+--------------
+Every layer may be customizable from parameter ```options``` in the widget.
+For more information - read documentation.
 
 ```php
 use lo\modules\noty\Wrapper;
@@ -112,8 +136,9 @@ Some libraries can override System Confirm for links as:
 ```
 
 Custom title
-----------------
+------------
 If you want change notification title, you can use ```customTitleDelimiter``` in our messages
+
 ```php
     Wrapper::widget([
         'layerClass' => '...',
@@ -122,7 +147,9 @@ If you want change notification title, you can use ```customTitleDelimiter``` in
         ],
     ]);
 ```
+
 and set message in action as
+
 ```php
 public function actionIndex(){
     ...
@@ -132,11 +159,9 @@ public function actionIndex(){
 ```
 !["Custom Title"](docs/img/custom_title.png)
 
-Since ```v.5.1``` it worked for all layers
 
 Supported layers
 ----------------
-
 Currently supported layers are:
 
 | Library (Layer) | Bower         | Confirm | Project homepage                                 | Docs                          |
@@ -155,7 +180,6 @@ Currently supported layers are:
 
 Full installation
 --------
-
 Add
 
 ```bash
@@ -175,6 +199,5 @@ to the ```require``` section of your `composer.json` file.
 
 License
 -------
-
 Yii2-notification-wrapper is released under the MIT License. See the bundled [LICENSE.md](LICENSE.md)
 for details.

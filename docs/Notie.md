@@ -20,7 +20,7 @@ use lo\modules\noty\Wrapper;
 
 echo Wrapper::widget([
     'layerClass' => 'lo\modules\noty\layers\Notie',
-    // clientOptions
+    // default options
     'options' => [
           'colorSuccess' => '#57BF57',
           'colorWarning' => '#D6A14D',

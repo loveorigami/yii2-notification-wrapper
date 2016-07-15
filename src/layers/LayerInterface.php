@@ -4,7 +4,14 @@ namespace lo\modules\noty\layers;
 
 interface LayerInterface
 {
-    /*
+
+    /**
+     * Get default client options for current layer
+     * @return array
+     */
+    public function getDefaultOption();
+
+    /**
      * Get js notification
      * @param $options
      * @return mixed
@@ -17,8 +24,8 @@ interface LayerInterface
      * @return string
      */
     public function setType($type);
-    
-    
+
+
     /**
      * @return string
      */

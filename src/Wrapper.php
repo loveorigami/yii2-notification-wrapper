@@ -4,6 +4,7 @@ namespace lo\modules\noty;
 
 use Yii;
 use yii\base\Widget;
+use yii\helpers\ArrayHelper;
 use yii\helpers\Json;
 use yii\helpers\Html;
 use yii\web\View;
@@ -125,7 +126,7 @@ class Wrapper extends Widget
     {
         $session = Yii::$app->session;
         $flashes = $session->getAllFlashes();
-        $options = $this->options;
+        $options = ArrayHelper::merge($this->layer->getDefaultOption(), $this->options);
         $result = [];
 
         foreach ($flashes as $type => $data) {

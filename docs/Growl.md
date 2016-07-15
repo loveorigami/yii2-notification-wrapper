@@ -19,10 +19,10 @@ use lo\modules\noty\Wrapper;
 
 echo Wrapper::widget([
     'layerClass' => 'lo\modules\noty\layers\Growl',
+    // default options
     'options' => [
        'fixed' => true,
        'size' => 'medium',
-       'style' => 'default',
        'location' => 'tr',
        'delayOnHover' => true,
 

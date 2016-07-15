@@ -36,7 +36,24 @@ use lo\modules\noty\assets\PNotifyAsset;
 class PNotify extends Layer implements LayerInterface
 {
     /**
-     * @inheritdoc
+     * @var array $defaultOptions
+     */
+    protected $defaultOptions = [
+        'styling' => 'brighttheme', // jqueryui, bootstrap3, brighttheme
+        'min_height' => '16px',
+        'delay' => 3000,
+        'icon' => true,
+        'remove' => false,
+        'shadow' => true,
+        'mouse_reset' => true,
+        'buttons' =>[
+            'closer' => true,
+            'sticker' => true
+        ]
+    ];
+
+    /**
+     * register asset
      */
     public function run()
     {
