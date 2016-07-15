@@ -43,7 +43,7 @@ To install with bower package for one of supported layers, either run
 
 ```bash
 $ php composer.phar require loveorigami/yii2-notification-wrapper "*"
-// if you want use it
+# if you want use it
 $ php composer.phar require bower-asset/noty "^2.3"
 $ php composer.phar require bower-asset/jquery-growl "^1.3" 
 ```
