@@ -153,7 +153,7 @@ and set message in action as
 ```php
 public function actionIndex(){
     ...
-     \Yii::$app->getSession()->setFlash('success', 'CUSTOM TITLE | noty success');
+     Yii::$app->session->setFlash('success', 'CUSTOM TITLE | noty success');
     ...
  }
 ```
