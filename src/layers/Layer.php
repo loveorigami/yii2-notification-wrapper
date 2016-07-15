@@ -110,7 +110,7 @@ class Layer extends Widget
 
         if (isset($msg[1])) {
             $this->message = $msg[1];
-            $this->title = $msg[0];
+            $this->title = trim($msg[0]);
         } else {
             $this->message = $message;
         }
