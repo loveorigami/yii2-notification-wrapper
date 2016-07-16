@@ -103,9 +103,9 @@ class Noty extends Layer implements LayerInterface
     public function registerAssets()
     {
         $view = $this->getView();
-        $asset = NotyAsset::register($view);
-        $asset->animateCss = $this->registerAnimateCss;
-        $asset->buttonsCss = $this->registerButtonsCss;
+        $bundle = NotyAsset::register($view);
+        $bundle->animateCss = $this->registerAnimateCss;
+        $bundle->buttonsCss = $this->registerButtonsCss;
     }
 
     /**
