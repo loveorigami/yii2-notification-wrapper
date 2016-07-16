@@ -83,7 +83,6 @@ class Layer extends Widget
         } else {
             $this->id = $this->layerId;
         }
-
     }
 
     /**
@@ -119,7 +118,6 @@ class Layer extends Widget
 
         $this->title = $t;
     }
-
 
     /**
      * @param $message
