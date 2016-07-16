@@ -5,7 +5,6 @@ namespace lo\modules\noty\layers;
 use yii\bootstrap\Alert as BootstrapAlert;
 use yii\helpers\Json;
 use lo\modules\noty\assets\AlertAsset;
-use lo\modules\noty\Wrapper;
 
 /**
  * Class Noty
@@ -76,7 +75,7 @@ class Alert extends Layer implements LayerInterface
         $msg = Json::encode($msg);
         $msg = trim($msg, '"');
 
-        $id = Wrapper::WRAP_ID;
+        $id = $this->layerId;
 
         return "$('#$id').append('$msg');";
 

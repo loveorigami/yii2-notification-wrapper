@@ -31,6 +31,11 @@ class Layer extends Widget
     const TYPE_WARNING = 'warning';
 
     /**
+     * @var string $layerId
+     */
+    public $layerId = 'noty-layer';
+
+    /**
      * @var array $types
      */
     public $types = [self::TYPE_INFO, self::TYPE_ERROR, self::TYPE_SUCCESS, self::TYPE_WARNING];
@@ -65,6 +70,21 @@ class Layer extends Widget
      */
     protected $message;
 
+
+    /**
+     * init widget
+     */
+    public function init()
+    {
+        parent::init();
+
+        if (!$this->layerId) {
+            $this->layerId = $this->id;
+        } else {
+            $this->id = $this->layerId;
+        }
+
+    }
 
     /**
      * @param $type
@@ -109,7 +129,7 @@ class Layer extends Widget
         $msg = explode($this->customTitleDelimiter, $message);
 
         if (isset($msg[1])) {
-            $this->message = $msg[1];
+            $this->message = trim($msg[1]);
             $this->title = trim($msg[0]);
         } else {
             $this->message = $message;

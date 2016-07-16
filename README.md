@@ -108,6 +108,7 @@ echo Wrapper::widget([
     'layerClass' => 'lo\modules\noty\layers\Noty',
     'layerOptions'=>[
         // for every layer (by default)
+        'layerId' => 'noty-layer',
         'customTitleDelimiter' => '|',
         'overrideSystemConfirm' => true,
 

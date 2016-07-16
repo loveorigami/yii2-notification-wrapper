@@ -2,6 +2,13 @@
 
 namespace lo\modules\noty\layers;
 
+
+/**
+ * Interface LayerInterface
+ * @package lo\modules\noty\layers
+ *
+ * @property string $layerId
+ */
 interface LayerInterface
 {
 

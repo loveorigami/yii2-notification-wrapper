@@ -42,11 +42,6 @@ use yii\web\View;
 class Wrapper extends Widget
 {
     /**
-     * @const wrapper id
-     */
-    const WRAP_ID = 'noty-wrap';
-
-    /**
      * @const default Layer
      */
     const DEFAULT_LAYER = 'lo\modules\noty\layers\Alert';
@@ -155,10 +150,11 @@ class Wrapper extends Widget
      */
     protected function registerJs()
     {
-        echo Html::tag('div', '', ['id' => self::WRAP_ID]);
+        echo Html::tag('div', '', ['id' => $this->layer->layerId]);
 
         $config['options'] = $this->options;
         $config['layerOptions'] = $this->layerOptions;
+        $config['layerOptions']['layerId'] = $this->layer->layerId;
 
         $config = Json::encode($config);
         $layerClass = Json::encode($this->layerClass);
@@ -175,7 +171,7 @@ class Wrapper extends Widget
                             config: '$config'
                         },
                         success: function(data) {
-                           $('#" . self::WRAP_ID . "').html(data);
+                           $('#" . $this->layer->layerId . "').html(data);
                         }
                     });
                 }
