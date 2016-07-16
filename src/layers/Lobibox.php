@@ -2,6 +2,7 @@
 
 namespace lo\modules\noty\layers;
 
+use Yii;
 use yii\helpers\Json;
 use lo\modules\noty\assets\LobiboxAsset;
 
@@ -60,6 +61,7 @@ class Lobibox extends Layer implements LayerInterface
         if (!$this->soundPath) {
             $this->soundPath = $bundle->baseUrl . '/sounds/';
         }
+        $this->overrideConfirm();
         parent::init();
     }
 
@@ -105,6 +107,45 @@ class Lobibox extends Layer implements LayerInterface
                 $sound = false;
         }
         return $sound;
+    }
+
+    /**
+     * Override System Confirm
+     */
+    public function overrideConfirm()
+    {
+        if ($this->overrideSystemConfirm) {
+
+            $ok = Yii::t('noty', 'Ok');
+            $cancel = Yii::t('noty', 'Cancel');
+            $question = Yii::t('noty', 'Question');
+
+            $this->view->registerJs("
+                yii.confirm = function(message, ok, cancel) {
+                    Lobibox.confirm({
+                        title: '$question',
+                        msg: message,
+                        buttons: {
+                            ok: {
+                                text: '$ok',
+                                closeOnClick: true
+                            },
+                            cancel: {
+                                text: '$cancel',
+                                closeOnClick: true
+                            }
+                        },
+                        callback: function(lobibox, type){
+                            if (type === 'cancel'){
+                                !cancel || cancel();
+                            } else {
+                                !ok || ok();
+                            }
+                        }
+                    });
+                }
+            ");
+        }
     }
 
 }
