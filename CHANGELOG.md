@@ -1,4 +1,7 @@
 # CHANGELOG
+* 5.3 [16 July 2016]
+    - `enh` Remove const ```WRAP_ID``` and add property ```layerId```
+
 * 5.2 [15 July 2016]
     - `enh` Default options for all layers
     - `fix` Remove default style in growl layer
