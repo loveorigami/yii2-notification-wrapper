@@ -1,4 +1,7 @@
 # CHANGELOG
+* 5.4 [16 July 2016]
+    - `enh` Lobibox layer
+    
 * 5.3 [16 July 2016]
     - `enh` Remove const ```WRAP_ID``` and add property ```layerId```
 
