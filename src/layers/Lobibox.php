@@ -11,11 +11,15 @@ use lo\modules\noty\assets\LobiboxAsset;
  * @package lo\modules\noty\layers
  *
  * This widget should be used in your main layout file as follows:
- * ---------------------------------------
+ * ```php
  *  use lo\modules\noty\Wrapper;
  *
  *  echo Wrapper::widget([
  *      'layerClass' => 'lo\modules\noty\layers\Lobibox',
+ *      'layerOptions'=>[
+ *          'soundPath' => false,
+ *          'sound' => false
+ *      ],
  *      // default options
  *      'options' => [
  *          'pauseDelayOnHover' => true,
@@ -26,7 +30,7 @@ use lo\modules\noty\assets\LobiboxAsset;
  *          // and more for this library...
  *      ],
  *  ]);
- * ---------------------------------------
+ * ```
  */
 class Lobibox extends Layer implements LayerInterface
 {
@@ -46,9 +50,8 @@ class Lobibox extends Layer implements LayerInterface
     protected $defaultOptions = [
         'pauseDelayOnHover' => true,
         'continueDelayOnInactiveTab' => false,
-        'delay' => 5000,  //In milliseconds,
+        'delay' => 5000,
         'position' => 'top right',
-        'sound' => false
     ];
 
     /**

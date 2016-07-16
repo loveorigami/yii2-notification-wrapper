@@ -170,6 +170,7 @@ Currently supported layers are:
 | Bootstrap Alert | -             |    -    | http://getbootstrap.com/components/#alerts       | [read](docs/Alert.md)         |
 | Growl           | jquery-growl  |    -    | https://github.com/ksylvest/jquery-growl         | [read](docs/Growl.md)         |
 | Jquery Notify   | jquery.notify |    -    | https://github.com/CreativeDream/jquery.notify   | [read](docs/JqueryNotify.md)  |
+| Lobibox         | lobibox       |    +    | https://github.com/arboshiki/lobibox             | [read](docs/Lobibox.md)       |
 | Notie           | notie         |    +    | https://github.com/jaredreich/notie              | [read](docs/Notie.md)         |
 | Notific8        | notific8      |    -    | https://github.com/ralivue/notific8              | [read](docs/Notific8.md)      |
 | NotifIt         | notifit       |    +    | https://github.com/naoxink/notifIt               | [read](docs/NotifIt.md)       |
@@ -188,6 +189,7 @@ Add
 "bower-asset/noty": "^2.3",
 "bower-asset/jquery-growl": "^1.3",
 "bower-asset/jquery.notify": "^1.0",
+"bower-asset/lobibox": "^1.2",
 "bower-asset/notie": "^3.2",
 "bower-asset/notifit": "^1.1",
 "bower-asset/notific8": "^3.5",
