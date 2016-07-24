@@ -1,4 +1,7 @@
 # CHANGELOG
+* 5.5 [24 July 2016]
+    - `enh` Sweetalert layer
+    
 * 5.4 [16 July 2016]
     - `enh` Lobibox layer
     
