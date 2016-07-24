@@ -1,7 +1,6 @@
 # Yii2-notification-wrapper
 [![Latest Stable Version](https://poser.pugx.org/loveorigami/yii2-notification-wrapper/v/stable)](https://packagist.org/packages/loveorigami/yii2-notification-wrapper) 
 [![Total Downloads](https://poser.pugx.org/loveorigami/yii2-notification-wrapper/downloads)](https://packagist.org/packages/loveorigami/yii2-notification-wrapper)
-[![Monthly Downloads](https://poser.pugx.org/loveorigami/yii2-notification-wrapper/d/monthly)](https://packagist.org/packages/loveorigami/yii2-notification-wrapper)
 [![License](https://poser.pugx.org/loveorigami/yii2-notification-wrapper/license)](https://packagist.org/packages/loveorigami/yii2-notification-wrapper)
 
 Yii2-notification-wrapper module renders a message from session flash (with ajax support). All flash messages are displayed in the sequence they were assigned using setFlash.
@@ -190,7 +189,7 @@ Add
 "bower-asset/noty": "^2.3",
 "bower-asset/jquery-growl": "^1.3",
 "bower-asset/jquery.notify": "^1.0",
-"bower-asset/lobibox": "^1.2",
+"bower-asset/lobibox": "*",
 "bower-asset/notie": "^3.2",
 "bower-asset/notifit": "^1.1",
 "bower-asset/notific8": "^3.5",
