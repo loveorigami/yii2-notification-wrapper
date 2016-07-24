@@ -177,6 +177,7 @@ Currently supported layers are:
 | Notify.js       | notifyjs      |    -    | https://github.com/notifyjs/notifyjs             | [read](docs/Notifyjs.md)      |
 | Noty            | noty          |    +    | https://github.com/needim/noty                   | [read](docs/Noty.md)          |
 | PNotify         | pnotify       |    +    | https://github.com/sciactive/pnotify             | [read](docs/PNotify.md)       |
+| Sweetalert      | sweetalert    |    +    | https://github.com/t4t5/sweetalert               | [read](docs/Sweetalert.md)    |
 | Toastr          | toastr        |    -    | https://github.com/CodeSeven/toastr              | [read](docs/Toastr.md)        |
 
 
@@ -195,6 +196,7 @@ Add
 "bower-asset/notific8": "^3.5",
 "bower-asset/notifyjs": "^0.4",
 "bower-asset/pnotify": "^3.0",
+"bower-asset/sweetalert": "^1.1",
 "bower-asset/toastr": "^2.1"
 ```
 
