@@ -11,24 +11,24 @@ use lo\modules\noty\assets\SweetalertAsset;
  * @package lo\modules\noty\layers
  *
  * This widget should be used in your main layout file as follows:
- * ---------------------------------------
+ * ```php
  *  use lo\modules\noty\Wrapper;
  *
  *  echo Wrapper::widget([
  *      'layerClass' => 'lo\modules\noty\layers\Sweetalert',
  *      'layerOptions' => [
- *          'theme' => twitter, // facebook, google, twitter
+ *          'theme' => 'twitter' // facebook, google, twitter
  *      ],
  *      'options' => [
  *          'showCancelButton' => false,
  *          'closeOnConfirm' => false,
  *          'disableButtonsOnConfirm' => true,
- *          'html' => false,
+ *          'html' => false
  *
  *          // and more for this library...
  *      ],
  *  ]);
- * ---------------------------------------
+ * ```
  */
 class Sweetalert extends Layer implements LayerInterface
 {
