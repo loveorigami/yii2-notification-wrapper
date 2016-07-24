@@ -187,6 +187,7 @@ Add
 
 ```bash
 "loveorigami/yii2-notification-wrapper": "*",
+"bower-asset/bootstrap-sweetalert": "^1.0",
 "bower-asset/noty": "^2.3",
 "bower-asset/jquery-growl": "^1.3",
 "bower-asset/jquery.notify": "^1.0",
