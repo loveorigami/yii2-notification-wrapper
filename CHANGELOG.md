@@ -2,6 +2,7 @@
 * 5.6 [25 July 2016]
     - `enh` iGrowl layer
     - `enh` JqueryNotifyBar layer
+    - `fix` new default options in NotifIt layer
     
 * 5.5 [24 July 2016]
     - `enh` Sweetalert layer
