@@ -8,6 +8,7 @@ use yii\helpers\ArrayHelper;
 use yii\helpers\Json;
 use yii\helpers\Html;
 use yii\web\View;
+use lo\modules\noty\layers;
 
 /**
  * This package comes with a Wrapper widget that can be used to regularly poll the server
@@ -72,7 +73,7 @@ class Wrapper extends Widget
     protected $url;
 
     /**
-     * @var \lo\modules\noty\layers\LayerInterface $layer
+     * @var layers\LayerInterface | layers\Layer $layer
      */
     protected $layer;
 

@@ -2,16 +2,12 @@
 
 namespace lo\modules\noty\layers;
 
-
 /**
  * Interface LayerInterface
  * @package lo\modules\noty\layers
- *
- * @property string $layerId
  */
 interface LayerInterface
 {
-
     /**
      * Get default client options for current layer
      * @return array
@@ -25,19 +21,16 @@ interface LayerInterface
      */
     public function getNotification($options);
 
-
     /**
      * @param $type
      * @return string
      */
     public function setType($type);
 
-
     /**
      * @return string
      */
     public function setTitle();
-
 
     /**
      * @param $message
