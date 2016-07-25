@@ -15,7 +15,7 @@ use lo\modules\noty\layers;
  * for new notifications and trigger them visually using either Toastr, or Noty.
  *
  * This widget should be used in your main layout file as follows:
- * ---------------------------------------
+ * ```php
  *  use lo\modules\noty\Wrapper;
  *
  *  echo Wrapper::widget([
@@ -38,7 +38,7 @@ use lo\modules\noty\layers;
  *          'registerButtonsCss' => true
  *      ]
  *  ]);
- * ---------------------------------------
+ * ```
  */
 class Wrapper extends Widget
 {
