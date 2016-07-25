@@ -1,7 +1,7 @@
 # CHANGELOG
 * 5.6 [25 July 2016]
     - `enh` iGrowl layer
-    - `enh` JqNotifyBar layer
+    - `enh` JqueryNotifyBar layer
     
 * 5.5 [24 July 2016]
     - `enh` Sweetalert layer

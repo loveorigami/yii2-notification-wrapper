@@ -5,10 +5,10 @@ namespace lo\modules\noty\assets;
 use yii\web\AssetBundle;
 
 /**
- * Class JqNotifyBarAsset
+ * Class JqueryNotifyBarAsset
  * @package lo\modules\noty\layers
  */
-class JqNotifyBarAsset extends AssetBundle
+class JqueryNotifyBarAsset extends AssetBundle
 {
     /** @var string  */
     public $sourcePath = '@bower/jqnotifybar';

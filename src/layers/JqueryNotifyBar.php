@@ -3,7 +3,7 @@
 namespace lo\modules\noty\layers;
 
 use yii\helpers\Json;
-use lo\modules\noty\assets\JqNotifyBarAsset;
+use lo\modules\noty\assets\JqueryNotifyBarAsset;
 
 /**
  * Class JqNotifyBar
@@ -14,7 +14,7 @@ use lo\modules\noty\assets\JqNotifyBarAsset;
  *  use lo\modules\noty\Wrapper;
  *
  *  echo Wrapper::widget([
- *      'layerClass' => 'lo\modules\noty\layers\JqNotifyBar',
+ *      'layerClass' => 'lo\modules\noty\layers\JqueryNotifyBar',
  *      'options' => [
  *          'position' => 'top',
  *          'delay' => 3000,
@@ -25,7 +25,7 @@ use lo\modules\noty\assets\JqNotifyBarAsset;
  *  ]);
  * ```
  */
-class JqNotifyBar extends Layer implements LayerInterface
+class JqueryNotifyBar extends Layer implements LayerInterface
 {
     /**
      * @var array $defaultOptions
@@ -42,7 +42,7 @@ class JqNotifyBar extends Layer implements LayerInterface
     public function run()
     {
         $view = $this->getView();
-        JqNotifyBarAsset::register($view);
+        JqueryNotifyBarAsset::register($view);
         parent::run();
     }
 
