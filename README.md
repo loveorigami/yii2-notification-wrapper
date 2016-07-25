@@ -169,6 +169,7 @@ Currently supported layers are:
 | --------------- | ------------- | ------- | ------------------------------------------------ | ----------------------------- |
 | Bootstrap Alert | -             |    -    | http://getbootstrap.com/components/#alerts       | [read](docs/Alert.md)         |
 | Growl           | jquery-growl  |    -    | https://github.com/ksylvest/jquery-growl         | [read](docs/Growl.md)         |
+| iGrowl          | igrowl        |    -    | https://github.com/catc/iGrowl                   | [read](docs/Igrowl.md)        |
 | Jquery Notify   | jquery.notify |    -    | https://github.com/CreativeDream/jquery.notify   | [read](docs/JqueryNotify.md)  |
 | Lobibox         | lobibox       |    +    | https://github.com/arboshiki/lobibox             | [read](docs/Lobibox.md)       |
 | Notie           | notie         |    +    | https://github.com/jaredreich/notie              | [read](docs/Notie.md)         |
@@ -188,7 +189,7 @@ Add
 ```bash
 "loveorigami/yii2-notification-wrapper": "*",
 "bower-asset/bootstrap-sweetalert": "^1.0",
-"bower-asset/noty": "^2.3",
+"bower-asset/igrowl": "*",
 "bower-asset/jquery-growl": "^1.3",
 "bower-asset/jquery.notify": "^1.0",
 "bower-asset/lobibox": "*",
@@ -197,6 +198,7 @@ Add
 "bower-asset/notific8": "^3.5",
 "bower-asset/notifyjs": "^0.4",
 "bower-asset/pnotify": "^3.0",
+"bower-asset/noty": "^2.3",
 "bower-asset/sweetalert": "^1.1",
 "bower-asset/toastr": "^2.1"
 ```
