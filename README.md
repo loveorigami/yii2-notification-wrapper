@@ -191,7 +191,7 @@ Add
 "loveorigami/yii2-notification-wrapper": "*",
 "bower-asset/bootstrap-sweetalert": "^1.0",
 "bower-asset/igrowl": "*",
-"bower-asset/jqnotifybar": "*",
+"bower-asset/jqnotifybar": "^1.5",
 "bower-asset/jquery-growl": "^1.3",
 "bower-asset/jquery.notify": "^1.0",
 "bower-asset/lobibox": "*",
