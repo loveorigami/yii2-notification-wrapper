@@ -11,21 +11,22 @@ use lo\modules\noty\assets\NotifItAsset;
  * @package lo\modules\noty\layers
  *
  * This widget should be used in your main layout file as follows:
- * ---------------------------------------
+ * ```php
  *  use lo\modules\noty\Wrapper;
  *
  *  echo Wrapper::widget([
  *      'layerClass' => 'lo\modules\noty\layers\NotifIt',
  *      'options' => [
  *          'multiline' => true,
- *          'position' => 'right',
+ *          'position' => 'center',
+ *          'width' => 'all',
  *          'append' => true,
  *          'clickable' => true,
  *
  *          // and more for this library...
  *      ],
  *  ]);
- * ---------------------------------------
+ * ```
  */
 class NotifIt extends Layer implements LayerInterface
 {
@@ -34,7 +35,8 @@ class NotifIt extends Layer implements LayerInterface
      */
     protected $defaultOptions = [
         'multiline' => true,
-        'position' => 'right',
+        'position' => 'center',
+        'width' => 'all',
         'append' => true,
         'clickable' => true,
     ];
