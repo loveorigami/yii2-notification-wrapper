@@ -1,5 +1,7 @@
 # iGrowl
 
+Important - this layer is not stable, because have conflict with bootstrap
+
 Installation
 --------
 
