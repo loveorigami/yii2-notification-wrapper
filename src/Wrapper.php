@@ -76,6 +76,8 @@ class Wrapper extends Widget
      * @var layers\LayerInterface | layers\Layer $layer
      */
     protected $layer;
+    
+    protected $flashTypes = ['alert', 'info', 'success', 'error', 'warning'];
 
     public function init()
     {
@@ -126,6 +128,9 @@ class Wrapper extends Widget
         $result = [];
 
         foreach ($flashes as $type => $data) {
+            if(!in_array($type, $this->flashTypes)) {
+                continue;
+            }
             $data = (array)$data;
             foreach ($data as $i => $message) {
                 
