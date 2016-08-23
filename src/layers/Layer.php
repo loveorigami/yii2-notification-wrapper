@@ -137,7 +137,7 @@ class Layer extends Widget
     /**
      * @return array
      */
-    public function getDefaultOption()
+    public function getDefaultOptions()
     {
         return $this->defaultOptions;
     }

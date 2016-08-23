@@ -12,7 +12,7 @@ interface LayerInterface
      * Get default client options for current layer
      * @return array
      */
-    public function getDefaultOption();
+    public function getDefaultOptions();
 
     /**
      * Get js notification

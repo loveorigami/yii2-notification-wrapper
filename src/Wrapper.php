@@ -122,7 +122,7 @@ class Wrapper extends Widget
     {
         $session = Yii::$app->session;
         $flashes = $session->getAllFlashes();
-        $options = ArrayHelper::merge($this->layer->getDefaultOption(), $this->options);
+        $options = ArrayHelper::merge($this->layer->getDefaultOptions(), $this->options);
         $result = [];
 
         foreach ($flashes as $type => $data) {
