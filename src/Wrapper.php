@@ -42,41 +42,30 @@ use lo\modules\noty\layers;
  */
 class Wrapper extends Widget
 {
-    /**
-     * @const default Layer
-     */
+    /** @const default Layer */
     const DEFAULT_LAYER = 'lo\modules\noty\layers\Alert';
 
-    /**
-     * @var string $layerClass
-     */
+    /** @var string $layerClass */
     public $layerClass;
 
-    /**
-     * @var array $layerOptions
-     */
+    /** @var array $layerOptions */
     public $layerOptions = [];
 
-    /**
-     * @var array $options
-     */
+    /** @var array $options */
     public $options = [];
 
-    /**
-     * @var bool $isAjax
-     */
+    /** @var bool $isAjax */
     protected $isAjax;
 
-    /**
-     * @var string $url
-     */
+    /** @var string $url */
     protected $url;
 
-    /**
-     * @var layers\LayerInterface | layers\Layer $layer
-     */
+    /** @var layers\LayerInterface | layers\Layer $layer */
     protected $layer;
 
+    /**
+     * init layer class
+     */
     public function init()
     {
         parent::init();
@@ -106,6 +95,7 @@ class Wrapper extends Widget
 
     /**
      * Ajax Callback.
+     * @return string|void
      */
     public function ajaxCallback()
     {
@@ -117,6 +107,7 @@ class Wrapper extends Widget
 
     /**
      * Flashes
+     * @return string|void
      */
     protected function getFlashes()
     {
@@ -126,6 +117,9 @@ class Wrapper extends Widget
         $result = [];
 
         foreach ($flashes as $type => $data) {
+            if (!in_array($type, $this->layer->types)) {
+                continue;
+            }
             $data = (array)$data;
             foreach ($data as $i => $message) {
                 
@@ -179,9 +173,10 @@ class Wrapper extends Widget
             });
         ", View::POS_END);
     }
-    
+
     /**
      * load layer
+     * @return layers\Layer|layers\LayerInterface|object
      */
     protected function setLayer()
     {
