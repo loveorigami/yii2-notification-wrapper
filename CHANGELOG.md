@@ -1,4 +1,7 @@
 # CHANGELOG
+* 5.7 [24 August 2016]
+    - `fix` supported types
+    
 * 5.6 [25 July 2016]
     - `enh` iGrowl layer
     - `enh` JqueryNotifyBar layer
