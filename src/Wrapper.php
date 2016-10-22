@@ -32,6 +32,7 @@ use lo\modules\noty\layers;
  *          // for every layer (by default)
  *          'customTitleDelimiter' => '|',
  *          'overrideSystemConfirm' => true,
+ *          'showTitle' => true,
  *
  *          // for custom layer
  *          'registerAnimateCss' => true,

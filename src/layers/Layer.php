@@ -46,6 +46,11 @@ class Layer extends Widget
     public $overrideSystemConfirm = true;
 
     /**
+     * @var bool $showTitle
+     */
+    public $showTitle = false;
+
+    /**
      * @var string $customTitleDelimiter
      */
     public $customTitleDelimiter = '|';
@@ -87,7 +92,6 @@ class Layer extends Widget
 
     /**
      * @param $type
-     * @return string
      */
     public function setType($type)
     {
@@ -95,7 +99,7 @@ class Layer extends Widget
     }
 
     /**
-     * @return string
+     * set title by type
      */
     public function setTitle()
     {
@@ -116,7 +120,7 @@ class Layer extends Widget
                 $t = '';
         }
 
-        $this->title = $t;
+        $this->title = $this->showTitle ? $t : '';
     }
 
     /**
@@ -147,6 +151,7 @@ class Layer extends Widget
      */
     public function getMessageWithTitle()
     {
-        return '<b>'.$this->title.'</b><br>'.$this->message;
+        $msg = $this->showTitle ? '<b>'.$this->title.'</b><br>'.$this->message : $this->message;
+        return $msg;
     }
 }

@@ -111,6 +111,7 @@ echo Wrapper::widget([
         'layerId' => 'noty-layer',
         'customTitleDelimiter' => '|',
         'overrideSystemConfirm' => true,
+        'showTitle' => true,
 
         // for custom layer
         'registerAnimateCss' => true,
