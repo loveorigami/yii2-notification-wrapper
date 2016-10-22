@@ -35,8 +35,8 @@ public function actionIndex(){
   }
  ```
 
-Installation
-------------
+## Installation
+
 The preferred way to install this extension is through [composer](http://getcomposer.org/download/).
 
 To install with bower package for one of supported layers, either run
@@ -59,8 +59,8 @@ or add
 to the ```require``` section of your `composer.json` file.
 
 
-Configure application
----------------------
+## Configure application
+
 Let's start with defining module in our config file (`@common/config/main.php`):
 
 ```php
@@ -72,8 +72,8 @@ Let's start with defining module in our config file (`@common/config/main.php`):
 ```
 That's all, now you have module installed and configured.
 
-Usage
------
+## Usage
+
 This package comes with a Wrapper widget that can be used to regularly poll the server for new notifications and trigger them visually using either Noty (or Toastr, or Growl etc.).
 
 This widget should be used in your main layout file as follows:
@@ -96,8 +96,8 @@ echo Wrapper::widget([
 ```
 
 
-Advanced usage
---------------
+# Advanced usage
+
 Every layer may be customizable from parameter ```options``` in the widget.
 For more information - read documentation.
 
@@ -137,12 +137,12 @@ Some libraries can override System Confirm for links as:
 <a href="https://github.com" data-confirm="Are you sure?">Go!</a>
 ```
 
-Custom title
-------------
+## Custom title
+
 If you want change notification title, you can use ```customTitleDelimiter``` in our messages
 
 ```php
-    Wrapper::widget([
+    echo  Wrapper::widget([
         'layerClass' => '...',
         'layerOptions' => [
             'customTitleDelimiter' = '|', // by default
@@ -159,11 +159,41 @@ public function actionIndex(){
     ...
  }
 ```
-!["Custom Title"](docs/img/custom_title.png)
+
+## Layer Id 
+
+If you want paste notification message in custom div, you can use ```layerId```.
+For example:
 
 
-Supported layers
-----------------
+```php
+// In layout:
+    $layerParams = [
+        'layerClass' => '...',
+        'layerOptions' => [
+            ...
+        ],
+    ];
+    
+    if (isset($this->params['layerParams']){
+        $layerParams = \yii\helpers\ArrayHelper::merge($layerParams, $this->params['layerParams']);
+    }
+    echo  Wrapper::widget($layerParams);
+    
+    
+// In view:
+    $this->params['layerParams'] = [
+        'layerClass' => 'lo\modules\noty\layers\Alert',
+        'layerOptions' => [
+            'layerId' => 'my-noty-id',
+        ],
+    ];
+ 
+    echo '<div id="my-noty-id"></div>'; // and notification will be placed here
+```
+
+## Supported layers
+
 Currently supported layers are:
 
 | Library (Layer)    | Bower         | Confirm | Project homepage                                 | Docs                             |
@@ -184,8 +214,8 @@ Currently supported layers are:
 | Toastr             | toastr        |    -    | https://github.com/CodeSeven/toastr              | [read](docs/Toastr.md)           |
 
 
-Full installation
---------
+## Full installation
+
 Add
 
 ```bash
@@ -208,7 +238,7 @@ Add
 
 to the ```require``` section of your `composer.json` file.
 
-License
--------
+## License
+
 Yii2-notification-wrapper is released under the MIT License. See the bundled [LICENSE.md](LICENSE.md)
 for details.

@@ -75,7 +75,7 @@ class Alert extends Layer implements LayerInterface
         $msg = Json::encode($msg);
         $msg = trim($msg, '"');
 
-        $id = $this->layerId;
+        $id = $this->getLayerId();
 
         return "$('#$id').append('$msg');";
 

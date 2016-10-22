@@ -1,4 +1,8 @@
 # CHANGELOG
+* 6.0 [22 October 2016]
+    - `enh` showTitle property
+    - `enh` layerId property for placed notification in target id
+    
 * 5.7 [24 August 2016]
     - `fix` supported types
     

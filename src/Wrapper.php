@@ -72,7 +72,7 @@ class Wrapper extends Widget
         parent::init();
 
         $this->url = Yii::$app->getUrlManager()->createUrl(['noty/default/index']);
-        
+
         if (!$this->layerClass) {
             $this->layerClass = self::DEFAULT_LAYER;
         }
@@ -84,11 +84,11 @@ class Wrapper extends Widget
     public function run()
     {
         $this->isAjax = false;
-
         $layer = $this->setLayer();
         $layer::widget($this->layerOptions);
 
         $this->getFlashes();
+        $this->getDiv();
         $this->registerJs();
 
         parent::run();
@@ -123,7 +123,7 @@ class Wrapper extends Widget
             }
             $data = (array)$data;
             foreach ($data as $i => $message) {
-                
+
                 $this->layer->setType($type);
                 $this->layer->setTitle();
                 $this->layer->setMessage($message);
@@ -142,15 +142,23 @@ class Wrapper extends Widget
     }
 
     /**
+     * get div, where will be placed notification
+     */
+    protected function getDiv()
+    {
+        if (!isset($this->layerOptions['layerId'])) {
+            echo Html::tag('div', '', ['id' => $this->layer->getLayerId()]);
+        }
+    }
+
+    /**
      * Register js for ajax notifications
      */
     protected function registerJs()
     {
-        echo Html::tag('div', '', ['id' => $this->layer->layerId]);
-
         $config['options'] = $this->options;
         $config['layerOptions'] = $this->layerOptions;
-        $config['layerOptions']['layerId'] = $this->layer->layerId;
+        $config['layerOptions']['layerId'] = $this->layer->getLayerId();
 
         $config = Json::encode($config);
         $layerClass = Json::encode($this->layerClass);
@@ -167,7 +175,7 @@ class Wrapper extends Widget
                             config: '$config'
                         },
                         success: function(data) {
-                           $('#" . $this->layer->layerId . "').html(data);
+                           $('#" . $this->layer->getLayerId() . "').html(data);
                         }
                     });
                 }

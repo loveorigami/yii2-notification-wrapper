@@ -31,9 +31,14 @@ class Layer extends Widget
     const TYPE_WARNING = 'warning';
 
     /**
+     * @const default layer-ID
+     */
+    const LAYER_ID = 'noty-layer';
+
+    /**
      * @var string $layerId
      */
-    public $layerId = 'noty-layer';
+    public $layerId;
 
     /**
      * @var array $types
@@ -48,7 +53,7 @@ class Layer extends Widget
     /**
      * @var bool $showTitle
      */
-    public $showTitle = false;
+    public $showTitle = true;
 
     /**
      * @var string $customTitleDelimiter
@@ -83,11 +88,15 @@ class Layer extends Widget
     {
         parent::init();
 
-        if (!$this->layerId) {
-            $this->layerId = $this->id;
-        } else {
-            $this->id = $this->layerId;
-        }
+        $this->getLayerId();
+    }
+
+    /**
+     * @return string
+     */
+    public function getLayerId()
+    {
+        return $this->layerId ? $this->layerId : self::LAYER_ID;
     }
 
     /**
@@ -151,7 +160,7 @@ class Layer extends Widget
      */
     public function getMessageWithTitle()
     {
-        $msg = $this->showTitle ? '<b>'.$this->title.'</b><br>'.$this->message : $this->message;
+        $msg = $this->showTitle ? '<b>' . $this->title . '</b><br>' . $this->message : $this->message;
         return $msg;
     }
 }
