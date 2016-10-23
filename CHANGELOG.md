@@ -1,4 +1,7 @@
 # CHANGELOG
+* 6.1 [23 October 2016]
+    - `enh` Bootstrap Notify layer
+    
 * 6.0 [22 October 2016]
     - `enh` showTitle property
     - `enh` layerId property for placed notification in target id
