@@ -192,6 +192,30 @@ For example:
     echo '<div id="my-noty-id"></div>'; // and notification will be placed here
 ```
 
+## Disable showNoty after ajax calls
+* In Ajax script
+```js 
+    $.ajax({
+        method: 'GET',
+        dataType: 'json',
+        url: someresouceurl,
+        showNoty: false, // add this for disable notification
+        success: function(data) {
+        }
+    });
+```
+
+* In Pjax
+```php
+    Pjax::begin([
+        'clientOptions' => [
+            'showNoty' => false
+        ]
+    ]); 
+    ... pjax container ...
+    Pjax::end(); 
+```
+
 ## Supported layers
 
 Currently supported layers are:

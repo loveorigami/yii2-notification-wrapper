@@ -164,12 +164,16 @@ class Wrapper extends Widget
         $layerClass = Json::encode($this->layerClass);
 
         $this->view->registerJs("
+            $.ajaxSetup({
+                showNoty: true // default for all ajax calls
+            });
             $(document).ajaxComplete(function (event, xhr, settings) {
-              if (settings.url != '$this->url' ) {
+                if (settings.showNoty) {
                     $.ajax({
                         url: '$this->url',
-                        type: 'POST',
+                        method: 'POST',
                         cache: false,
+                        showNoty: false,
                         data: {
                             layerClass: '$layerClass',
                             config: '$config'

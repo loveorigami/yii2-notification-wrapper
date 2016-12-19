@@ -1,4 +1,8 @@
 # CHANGELOG
+
+* 6.2 [19 December 2016]
+    - `enh` Disable ajax calls
+    
 * 6.1 [23 October 2016]
     - `enh` Bootstrap Notify layer
     
