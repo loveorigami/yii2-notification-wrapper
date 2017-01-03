@@ -220,23 +220,25 @@ For example:
 
 Currently supported layers are:
 
-| Library (Layer)    | Bower                       | Confirm | Project homepage                                 | Docs                             |
-| ------------------ | --------------------------- | ------- | ------------------------------------------------ | -------------------------------- |
-| Bootstrap Alert    | -                           |    -    | http://getbootstrap.com/components/#alerts       | [read](docs/Alert.md)            |
-| Bootstrap Notify   | remarkable-bootstrap-notify |    -    | https://github.com/mouse0270/bootstrap-notify    | [read](docs/BootstrapNotify.md)  |
-| Growl              | jquery-growl                |    -    | https://github.com/ksylvest/jquery-growl         | [read](docs/Growl.md)            |
-| iGrowl             | igrowl                      |    -    | https://github.com/catc/iGrowl                   | [read](docs/Igrowl.md)           |
-| Jquery Notify      | jquery.notify               |    -    | https://github.com/CreativeDream/jquery.notify   | [read](docs/JqueryNotify.md)     |
-| jQuery Notify Bar  | jqnotifybar                 |    -    | https://github.com/dknight/jQuery-Notify-bar     | [read](docs/JqueryNotifyBar.md)  |
-| Lobibox            | lobibox                     |    +    | https://github.com/arboshiki/lobibox             | [read](docs/Lobibox.md)          |
-| Notie              | notie                       |    +    | https://github.com/jaredreich/notie              | [read](docs/Notie.md)            |
-| Notific8           | notific8                    |    -    | https://github.com/ralivue/notific8              | [read](docs/Notific8.md)         |
-| NotifIt            | notifit                     |    +    | https://github.com/naoxink/notifIt               | [read](docs/NotifIt.md)          |
-| Notify.js          | notifyjs                    |    -    | https://github.com/notifyjs/notifyjs             | [read](docs/Notifyjs.md)         |
-| Noty               | noty                        |    +    | https://github.com/needim/noty                   | [read](docs/Noty.md)             |
-| PNotify            | pnotify                     |    +    | https://github.com/sciactive/pnotify             | [read](docs/PNotify.md)          |
-| Sweetalert         | sweetalert                  |    +    | https://github.com/t4t5/sweetalert               | [read](docs/Sweetalert.md)       |
-| Toastr             | toastr                      |    -    | https://github.com/CodeSeven/toastr              | [read](docs/Toastr.md)           |
+| Library (Layer)      | Bower                       | Confirm | Project homepage                                     | Docs                              |
+| -------------------- | --------------------------- | ------- | ---------------------------------------------------- | --------------------------------- |
+| Bootstrap Alert      | -                           |    -    | http://getbootstrap.com/components/#alerts           | [read](docs/Alert.md)             |
+| Bootstrap Notify     | remarkable-bootstrap-notify |    -    | https://github.com/mouse0270/bootstrap-notify        | [read](docs/BootstrapNotify.md)   |
+| Growl                | jquery-growl                |    -    | https://github.com/ksylvest/jquery-growl             | [read](docs/Growl.md)             |
+| iGrowl               | igrowl                      |    -    | https://github.com/catc/iGrowl                       | [read](docs/Igrowl.md)            |
+| jQuery Notify        | jquery.notify               |    -    | https://github.com/CreativeDream/jquery.notify       | [read](docs/JqueryNotify.md)      |
+| jQuery Notify Bar    | jqnotifybar                 |    -    | https://github.com/dknight/jQuery-Notify-bar         | [read](docs/JqueryNotifyBar.md)   |
+| jQuery Toaster       | jquery.toaster              |    -    | https://github.com/scottoffen/jquery.toaster         | [read](docs/JqueryToaster.md)     |
+| jQuery Toast Plugin  | jquery-toast-plugin         |    -    | https://github.com/kamranahmedse/jquery-toast-plugin | [read](docs/JqueryToastPlugin.md) |
+| Lobibox              | lobibox                     |    +    | https://github.com/arboshiki/lobibox                 | [read](docs/Lobibox.md)           |
+| Notie                | notie                       |    +    | https://github.com/jaredreich/notie                  | [read](docs/Notie.md)             |
+| Notific8             | notific8                    |    -    | https://github.com/ralivue/notific8                  | [read](docs/Notific8.md)          |
+| NotifIt              | notifit                     |    +    | https://github.com/naoxink/notifIt                   | [read](docs/NotifIt.md)           |
+| Notify.js            | notifyjs                    |    -    | https://github.com/notifyjs/notifyjs                 | [read](docs/Notifyjs.md)          |
+| Noty                 | noty                        |    +    | https://github.com/needim/noty                       | [read](docs/Noty.md)              |
+| PNotify              | pnotify                     |    +    | https://github.com/sciactive/pnotify                 | [read](docs/PNotify.md)           |
+| Sweetalert           | sweetalert                  |    +    | https://github.com/t4t5/sweetalert                   | [read](docs/Sweetalert.md)        |
+| Toastr               | toastr                      |    -    | https://github.com/CodeSeven/toastr                  | [read](docs/Toastr.md)            |
 
 
 ## Full installation
@@ -250,6 +252,8 @@ Add
 "bower-asset/jqnotifybar": "^1.5",
 "bower-asset/jquery-growl": "^1.3",
 "bower-asset/jquery.notify": "^1.0",
+"bower-asset/jquery-toast-plugin": "*",
+"bower-asset/jquery.toaster": "*",
 "bower-asset/lobibox": "*",
 "bower-asset/notie": "^3.2",
 "bower-asset/notifit": "^1.1",
