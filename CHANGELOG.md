@@ -1,5 +1,8 @@
 # CHANGELOG
 
+* 6.3 [03 Jenuary 2017]
+    - `enh` Noty Exceptions
+
 * 6.2 [19 December 2016]
     - `enh` Disable ajax calls
     - `enh` Jquery Toast Plugin layer
