@@ -1,5 +1,5 @@
 # Jquery Toaster
-!["Jquery Notify"](img/jquery_toaster.jpg)
+!["JqueryToaster"](img/jquery_toaster.jpg)
 
 Installation
 --------
@@ -19,7 +19,7 @@ Usage
 use lo\modules\noty\Wrapper;
 
 echo Wrapper::widget([
-         'layerClass' => 'lo\modules\noty\layers\JqueryNotify',
+         'layerClass' => 'lo\modules\noty\layers\JqueryToaster',
          // default options
          'options' => [
             'settings' => [
