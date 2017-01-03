@@ -2,8 +2,8 @@
 
 * 6.2 [19 December 2016]
     - `enh` Disable ajax calls
-    - `enh` Toastr plugin layer
-    - `enh` Jquery toastr layer
+    - `enh` Jquery Toast Plugin layer
+    - `enh` Jquery Toastr layer
     
 * 6.1 [23 October 2016]
     - `enh` Bootstrap Notify layer
