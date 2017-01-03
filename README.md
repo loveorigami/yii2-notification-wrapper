@@ -216,6 +216,40 @@ For example:
     Pjax::end(); 
 ```
 
+## Noty Exceptions
+
+For example:
+```php
+use lo\modules\noty\exceptions\NotyFlashException;
+use lo\modules\noty\exceptions\NotyErrorException;
+
+public function actionUpdate($id)
+{
+    $model = $this->findModel($id);
+
+    try {
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            return $this->redirect(['view', 'id' => $model->id]);
+        } else {
+            return $this->render('update', [
+                'model' => $model,
+            ]);
+        }
+    } catch (NotyFlashException $e) {
+        $e->catchFlash();
+    }
+}
+    
+protected function findModel($id)
+{
+    if (($model = Post::findOne($id)) !== null) {
+        return $model;
+    } else {
+        throw new NotyErrorException('The requested page does not exist.');
+    }
+}
+```
+
 ## Supported layers
 
 Currently supported layers are:
