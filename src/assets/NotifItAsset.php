@@ -10,7 +10,7 @@ use yii\web\AssetBundle;
  */
 class NotifItAsset extends AssetBundle
 {
-    /** @var string  */
+    /** @var string */
     public $sourcePath = '@bower/notifit/notifIt';
 
     /** @var array $css */
@@ -26,5 +26,18 @@ class NotifItAsset extends AssetBundle
     /** @var array $depends */
     public $depends = [
         'yii\web\JqueryAsset'
+    ];
+
+    /**
+     * @var array
+     */
+    public $publishOptions = [
+        'only' => [
+            "css/*",
+            "js/*",
+        ],
+        'except' => [
+            "dev"
+        ],
     ];
 }
