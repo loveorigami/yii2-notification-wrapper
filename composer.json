@@ -20,7 +20,11 @@
     ],
     "minimum-stability": "dev",
     "require": {
-        "yiisoft/yii2": "~2"
+        "yiisoft/yii2": "~2",
+        "bower-asset/noty": "^2.3",
+        "bower-asset/animate.css": "^3.2",
+        "bower-asset/jquery-growl": "*",
+        "bower-asset/toastr": "^2.1"
     },
     "autoload": {
         "psr-4": {
