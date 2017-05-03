@@ -174,6 +174,7 @@ class Wrapper extends Widget
                         method: 'POST',
                         cache: false,
                         showNoty: false,
+                        global: false,
                         data: {
                             layerClass: '$layerClass',
                             config: '$config'

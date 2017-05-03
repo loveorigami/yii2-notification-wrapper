@@ -1,5 +1,8 @@
 # CHANGELOG
 
+* 6.4 [03 May 2017]
+    - `enh` Disable global events
+	
 * 6.3 [03 Jenuary 2017]
     - `enh` Noty Exceptions
 
