@@ -1,5 +1,7 @@
 # CHANGELOG
-
+* 6.5 [19 September 2017]
+    - `fix` Show noty only after POST ajax calls
+    
 * 6.4 [03 May 2017]
     - `enh` Disable global events
 	
