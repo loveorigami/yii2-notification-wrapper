@@ -1,4 +1,7 @@
 # CHANGELOG
+* 6.6 [18 October 2017]
+    - `enh` Add german translation
+    
 * 6.5 [19 September 2017]
     - `fix` Show noty only after POST ajax calls
     
