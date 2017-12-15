@@ -168,7 +168,7 @@ class Wrapper extends Widget
                 showNoty: true // default for all ajax calls
             });
             $(document).ajaxComplete(function (event, xhr, settings) {
-                if (settings.showNoty && settings.type=='POST') {
+                if (settings.showNoty && (settings.type=='POST' || settings.container)) {
                     $.ajax({
                         url: '$this->url',
                         method: 'POST',

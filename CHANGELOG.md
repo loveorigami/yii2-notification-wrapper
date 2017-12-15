@@ -1,4 +1,7 @@
 # CHANGELOG
+* 6.7 [15 December 2017]
+    - `fix` Show noty only after POST ajax AND GET pjax calls
+	
 * 6.6 [18 October 2017]
     - `enh` Add german translation
     
