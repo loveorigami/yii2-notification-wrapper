@@ -20,6 +20,6 @@ class DefaultController extends Controller
 
         $wrapper = new Wrapper($config);
 
-        echo $wrapper->ajaxCallback();
+        return $wrapper->ajaxCallback();
     }
 }
