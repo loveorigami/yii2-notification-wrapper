@@ -1,4 +1,10 @@
 # CHANGELOG
+* 6.7.2 [4 July 2018]
+    - `enh` Translation for Vietnamese 
+
+* 6.7.1 [28 February 2018]
+    - `fix` Yii 2.0.14 support
+
 * 6.7 [15 December 2017]
     - `fix` Show noty only after POST ajax AND GET pjax calls
 	
